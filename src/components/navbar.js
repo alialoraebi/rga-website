@@ -14,7 +14,7 @@ function Navbar() {
               alt="Logo"
             />
           </div>
-          <div className="md-lg:hidden z-20"> {/* Use custom breakpoint */}
+          <div className="md-lg:hidden z-20"> 
             <button 
               onClick={() => setIsOpen(!isOpen)} 
               className="flex flex-col justify-center items-center w-10 h-10 group focus:outline-none"
