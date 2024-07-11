@@ -4,6 +4,7 @@ import TOPOLOGY from 'vanta/dist/vanta.topology.min';
 import * as THREE from 'three';
 import p5 from 'p5';
 import debounce from 'lodash.debounce';
+import '../App.css'
 
 const Home = () => {
     const vantaRef = useRef(null);
@@ -47,12 +48,12 @@ const Home = () => {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section ref={vantaRef} className="py-80">
+            <section ref={vantaRef} className="py-80 hero-section">
                 <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2">
                         <img src="../images/office.jpg" alt="Office" className="rounded-lg shadow-lg" />
                     </div>
-                    <div className="md:w-1/2 mt-8 md:mt-0 md:ml-8">
+                    <div className="md:w-1/2 mt-8 md:mt-0 md:ml-8 bg-opacity-30 backdrop-filter backdrop-blur-md p-8" style={{ borderRadius: '50px' }}>
                         <h1 className="text-4xl font-bold text-blue-700 mb-4">H. Robert Guild Associates, Inc.</h1>
                         <p className="text-gray-700 text-lg">
                             We are a global audio, video, and electronic design, integration, and consulting firm. We provide turnkey solutions for corporate, government, education, and residential clients. Our system designs are based on the latest technology and we work with top-tier manufacturers to provide a high-quality customer experience.
