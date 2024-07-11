@@ -5,6 +5,9 @@ import * as THREE from 'three';
 import p5 from 'p5';
 import debounce from 'lodash.debounce';
 import '../App.css'
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
     const vantaRef = useRef(null);
@@ -45,15 +48,71 @@ const Home = () => {
         };
     }, []);
 
+    const images = [
+        '../images/azizhos.png',
+        '../images/Barzan-Camp.png',
+        '../images/beirut.png',
+        '../images/hamad.png',
+        '../images/idb.png',
+        '../images/king.png',
+        '../images/mellon.png',
+        '../images/nwest.png',
+        '../images/sport.png',
+    ];
+
+
+    const SampleNextArrow = (props) => {
+        const { className, style, onClick } = props;
+        return (
+            <img
+                className={className}
+                style={{ ...style, display: 'block', position: 'absolute', top: '50%', right: '0', transform: 'translateY(-50%)', zIndex: '1000', width: '50px', height: '50px' }}
+                src="../images/icons8-forward-94.png"
+                alt="next"
+                onClick={onClick}
+            />
+        );
+    }
+    
+    const SamplePrevArrow = (props) => {
+        const { className, style, onClick } = props;
+        return (
+            <img
+                className={className}
+                style={{ ...style, display: 'block', position: 'absolute', top: '50%', left: '0', transform: 'translateY(-50%)', zIndex: '1000', width: '50px', height: '50px' }}
+                src="../images/icons8-back-94.png"
+                alt="prev"
+                onClick={onClick}
+            />
+        );
+    }
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        fade: true,
+    };
+
     return (
         <div className="bg-white">
             {/* Hero Section */}
             <section ref={vantaRef} className="py-80 hero-section">
                 <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2">
-                        <img src="../images/office.jpg" alt="Office" className="rounded-lg shadow-lg" />
+                        <Slider {...settings}>
+                            {images.map((image, idx) => (
+                            <div key={idx}>
+                                <img src={image} alt={`Office ${idx}`} className="slider-image" />
+                            </div>
+                            ))}
+                        </Slider>
                     </div>
-                    <div className="md:w-1/2 mt-8 md:mt-0 md:ml-8 bg-opacity-30 backdrop-filter backdrop-blur-md p-8" style={{ borderRadius: '50px' }}>
+                    <div className="md:w-1/2 mt-8 md:mt-0 md:ml-14 bg-opacity-30 backdrop-filter backdrop-blur-md p-8" style={{ borderRadius: '50px' }}>
                         <h1 className="text-4xl font-bold text-blue-700 mb-4">H. Robert Guild Associates, Inc.</h1>
                         <p className="text-gray-700 text-lg">
                             We are a global audio, video, and electronic design, integration, and consulting firm. We provide turnkey solutions for corporate, government, education, and residential clients. Our system designs are based on the latest technology and we work with top-tier manufacturers to provide a high-quality customer experience.
@@ -62,7 +121,7 @@ const Home = () => {
                 </div>
             </section>
             {/* What We Do Section */}
-            <section className="py-16">
+            <section className="py-8">
                 <div className="container mx-auto px-4 sm:px-8 lg:px-12">
                     <h2 className="text-3xl font-bold text-blue-700 mb-8">What We Do</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

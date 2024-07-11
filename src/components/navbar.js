@@ -26,12 +26,12 @@ function Navbar() {
           </div>
           <div className="hidden md-lg:flex md-lg:items-center md-lg:justify-end flex-1 ml-20">
           <div className="flex flex-col md-lg:flex-row space-y-4 md-lg:space-y-0 md-lg:space-x-4 md-lg:ml-auto text-center md-lg:text-left">
-              <a href="#home" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold">Home</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold">About</a>
-              <a href="#services" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold">Services</a>
-              <a href="#vendors" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold">Vendors</a>
-              <a href="#projects" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold">Projects</a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold">Contact</a>
+              <a href="#home" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Home</a>
+              <a href="#about" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">About</a>
+              <a href="#services" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Services</a>
+              <a href="#vendors" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Vendors</a>
+              <a href="#projects" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Projects</a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Contact</a>
             </div>
           </div>
         </div>
