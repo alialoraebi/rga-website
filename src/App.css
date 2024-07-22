@@ -1,10 +1,3 @@
-/* Adjust the .animate-fade-in class to include an initial opacity of 0 */
-.animate-fade-in {
-    opacity: 0; /* Ensure elements with this class are initially invisible */
-    animation: fadeIn 1s ease-out forwards;
-}
-
-/* Existing CSS */
 .hero-section {
     position: relative;
 }
@@ -28,15 +21,4 @@
 
 div:focus {
     outline: none;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
