@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
 import TOPOLOGY from 'vanta/dist/vanta.topology.min';
 import * as THREE from 'three';
 import p5 from 'p5';
 import debounce from 'lodash.debounce';
-import '../App.css'
+import '../App.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -12,6 +13,11 @@ import "slick-carousel/slick/slick-theme.css";
 const Home = () => {
     const vantaRef = useRef(null);
     const vantaEffect = useRef(null);
+
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+        threshold: 0.5
+    });
 
     useEffect(() => {
         if (!vantaEffect.current && vantaRef.current) {
@@ -60,7 +66,6 @@ const Home = () => {
         '../images/sport.png',
     ];
 
-
     const SampleNextArrow = (props) => {
         const { className, style, onClick } = props;
         return (
@@ -72,7 +77,7 @@ const Home = () => {
                 onClick={onClick}
             />
         );
-    }
+    };
     
     const SamplePrevArrow = (props) => {
         const { className, style, onClick } = props;
@@ -85,7 +90,7 @@ const Home = () => {
                 onClick={onClick}
             />
         );
-    }
+    };
 
     const settings = {
         dots: false,
@@ -101,7 +106,7 @@ const Home = () => {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section ref={vantaRef} className="py-80 hero-section">
+            <section ref={vantaRef} className="py-24 hero-section overflow-hidden">
                 <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2">
                         <Slider {...settings}>
@@ -121,10 +126,11 @@ const Home = () => {
                 </div>
             </section>
             {/* What We Do Section */}
-            <section className="py-8">
+            <section ref={ref} className="py-8 pb-24">
                 <div className="container mx-auto px-4 sm:px-8 lg:px-12">
                     <h2 className="text-3xl font-bold text-blue-700 mb-8">What We Do</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 ${inView ? 'animate-fade-in' : ''}`}>
+                        {/* Service Blocks */}
                         <div className="bg-white p-6 rounded-lg shadow-lg text-center">
                             <FaSearch className="text-4xl text-blue-700 mb-4 mx-auto" />
                             <h3 className="text-xl font-bold mb-2">Consulting</h3>

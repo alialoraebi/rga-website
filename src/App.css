@@ -1,7 +1,14 @@
+/* Adjust the .animate-fade-in class to include an initial opacity of 0 */
+.animate-fade-in {
+    opacity: 0; /* Ensure elements with this class are initially invisible */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Existing CSS */
 .hero-section {
     position: relative;
 }
-  
+
 .hero-section::after {
     content: "";
     position: absolute;
@@ -9,7 +16,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0)50%, rgba(255, 255, 255, 1) 90%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 90%);
 }
 
 .slider-image {
@@ -21,4 +28,15 @@
 
 div:focus {
     outline: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
