@@ -43,9 +43,9 @@ const Services = () => {
         style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '75vh' }}
         >
             <div className="mt-80 bg-opacity-20 backdrop-filter backdrop-blur-md p-6" style={{ borderRadius: '25px', width: '73%' }}>
-                <h1 className="text-5xl text-white font-bold text-left">Services</h1>
+                <h1 className="text-5xl text-white font-bold text-left">Our Services</h1>
                 <p className="text-lg text-white mt-4 text-left">
-                We are specialists in the design and implementation of audio, video, lighting, and control systems for churches, schools, businesses, and performance venues.
+                We are specialists in the design and implementation of audio, video, and control systems for churches, schools, businesses, and performance venues.
                 </p>
             </div>
         </div>

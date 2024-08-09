@@ -17,7 +17,7 @@ const Footer = () => {
               <Link to="/" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Home</Link>
               <Link to="/about" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">About</Link>
               <Link to="services" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Services</Link>
-              <a href="#vendors" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Vendors</a>
+              <Link to="vendors" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Vendors</Link>
               <a href="#projects" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Projects</a>
               <a href="#contact" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Contact</a>
             </div>
@@ -32,7 +32,6 @@ const Footer = () => {
                 <p>P.O. Box 37544</p>
                 <p>Doha, Qatar</p>
                 <p>Office: +974-4458 1222</p>
-                {/* <p>+974-6682-1968</p> */}
               </div>
               <div>
                 <p className="font-bold">US Office</p>
@@ -40,7 +39,6 @@ const Footer = () => {
                 <p>Wall Township NJ, 07719</p>
                 <p>Phone Numbers:</p>
                 <p>Office: (732)775-0777</p>
-                <p>Fax: (732)775-7077</p>
               </div>
             </div>
           </div>
