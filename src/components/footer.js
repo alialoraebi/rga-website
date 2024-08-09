@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#A9A9A9] text-white py-8">
+    <footer className="text-white py-8" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/shattered.png')",backgroundSize: 'contain', backgroundRepeat: 'repeat', backgroundColor: '#4f6c8f' }}>
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0 mb-4 md:mb-0 md:flex md:items-center md:justify-start md:w-1/3">
           <img src="../images/logo.png" alt="Logo" className="w-auto object-contain" />
         </div>
 
-        <div className="flex flex-col md:flex-row w-full md:w-1/4">
+        <div className="flex flex-col md:flex-row w-full md:w-1/3">
           <div className="flex flex-row justify-between w-full">
             {/* Navigation Links */}
             <div className="flex flex-col md:mr-4 space-y-2 text-left mb-4 md:mb-0">
