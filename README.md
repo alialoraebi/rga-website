@@ -107,5 +107,5 @@ If you'd like to contribute to the project, please fork the repository and submi
 
 Feel free to contact us if you have any questions or need further information about our services.
 
-- **US Office**: [Phone Number], [2202 Monmouth Boulevard, Wall Township NJ, 07719]
+- **US Office**: [+1 (732)775-0777], [2202 Monmouth Boulevard, Wall Township NJ, 07719]
 - **Qatar Office**: [+974-4458 1222], [Salwa Road - Midmad Roundabout, West Corner Building, Street 340, Unit 51, Building 155, Zone 43, P.O. Box 37544, Doha, Qatar]
