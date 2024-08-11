@@ -7,6 +7,7 @@ import Footer from './components/footer';
 import About from './components/about';
 import Services from './components/services'
 import Vendors from './components/vendors'
+import Projects from './components/projects'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services/>} />
           <Route path="/vendors" element={<Vendors/>} />
+          <Route path="/projects" element={<Projects/>} />
           {/* Add other routes here */}
         </Routes>
         <Footer />

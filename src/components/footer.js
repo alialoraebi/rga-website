@@ -1,7 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleScrollToTop = (path) => {
+    navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className="text-white py-8" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/shattered.png')",backgroundSize: 'contain', backgroundRepeat: 'repeat', backgroundColor: '#4f6c8f' }}>
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
@@ -14,11 +24,11 @@ const Footer = () => {
           <div className="flex flex-row justify-between w-full">
             {/* Navigation Links */}
             <div className="flex flex-col md:mr-4 space-y-2 text-left mb-4 md:mb-0">
-              <Link to="/" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Home</Link>
-              <Link to="/about" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">About</Link>
-              <Link to="services" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Services</Link>
-              <Link to="vendors" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Vendors</Link>
-              <a href="#projects" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Projects</a>
+              <button onClick={() => handleScrollToTop('/')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Home</button>
+              <button onClick={() => handleScrollToTop('/about')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">About</button>
+              <button onClick={() => handleScrollToTop('/services')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Services</button>
+              <button onClick={() => handleScrollToTop('/vendors')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Vendors</button>
+              <button onClick={() => handleScrollToTop('/projects')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Projects</button>
               <a href="#contact" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Contact</a>
             </div>
 

@@ -49,15 +49,15 @@ const Home = () => {
   }, []);
 
   const images = [
-    '../images/azizhos.png',
-    '../images/Barzan-Camp.png',
-    '../images/beirut.png',
-    '../images/hamad.png',
-    '../images/idb.png',
-    '../images/king.png',
-    '../images/mellon.png',
-    '../images/nwest.png',
-    '../images/sport.png',
+    '../images/projects/azizhos.png',
+    '../images/projects/Barzan-Camp.png',
+    '../images/projects/beirut.png',
+    '../images/projects/hamad.png',
+    '../images/projects/idb.png',
+    '../images/projects/king-airport.png',
+    '../images/projects/mellon.png',
+    '../images/projects/nwest.png',
+    '../images/projects/sport.png',
   ];
 
   const SampleNextArrow = (props) => {
