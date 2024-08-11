@@ -1,54 +1,102 @@
-# Astro Starter Kit: Basics
 
-```sh
-npm create astro@latest -- --template basics
+# Robert Guild Associates Website
+
+Welcome to the official website repository of Robert Guild Associates, a global leader in audio, video, and electronic design, integration, and consulting. With over 30 years of industry experience, our company is headquartered in the United States and operates a regional office in Doha, Qatar. This website is designed to showcase our services, projects, and vendors, providing visitors with detailed information about our capabilities and past work.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+  - [Building for Production](#building-for-production)
+- [Notes](#notes)
+- [Contributions](#contributions)
+- [License](#license)
+- [Contact](#contact)
+
+## Overview
+
+This website is built to highlight the extensive range of services offered by Robert Guild Associates. From residential to enterprise-class solutions, we specialize in the planning and installation of electronic systems. The website features our company’s key projects, services, and vendors, presented in a user-friendly and visually appealing manner.
+
+## Features
+
+- **Home Page**
+  - **Hero Section**: Features an animated background using Vanta.js with a topology effect and a slider showcasing key projects.
+  - **What We Do**: A detailed section outlining the services provided by Robert Guild Associates, including consulting, full system design, and system integration.
+
+- **About Page**
+  - Provides information about the company's history, mission, and values.
+
+- **Services Page**
+  - A comprehensive list of all services offered, with descriptions and images for each service.
+
+- **Projects Page**
+  - Displays a grid of notable projects, with filtering options by category (e.g., Airports, Universities, Hotels).
+  - **Project Details**: Clicking on a project opens a modal with a detailed description and images.
+
+- **Vendors Page**
+  - Lists key vendors in a grid format, with filtering options by category (e.g., Audio Systems, Control Systems).
+  - **Vendor Details**: Clicking on a vendor provides more information and a link to their official website.
+
+- **Contact Section**
+  - Contains contact information for both the Qatar and US offices, including phone numbers and addresses.
+
+- **Footer**
+  - Navigation footer with links to all main sections of the website and quick access to contact information.
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js**: Ensure you have Node.js installed on your machine.
+- **npm**: Node Package Manager, which comes with Node.js.
+- **Git**: Version control system for tracking changes in the project.
+
+### Installation
+
+1. Clone the Repository:
+   ```bash
+   git clone https://github.com/alialoraebi/rga-website.git
+   cd rga-website
+   ```
+
+2. Install Dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Project
+
+1. Start the Development Server:
+   ```bash
+   npm run dev
+   ```
+   The website will be available at [http://localhost:4321](http://localhost:4321).
+
+### Building for Production
+
+To create an optimized build for production, run:
+```bash
+npm run build
 ```
+This will generate a `build` folder containing the optimized files for deployment.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Notes
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- **Animated Background**: The home page uses Vanta.js for the animated background. This can cause slight delays during page load. If performance becomes an issue, consider optimizing the animation or loading it after critical content.
+- **Responsive Design**: The website is fully responsive and should work on various screen sizes, from mobile to desktop.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Contributions
 
-## 🚀 Project Structure
+If you'd like to contribute to the project, please fork the repository and submit a pull request with your changes.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Contact
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Feel free to contact us if you have any questions or need further information about our services.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **US Office**: [+1 (732)775-0777], [2202 Monmouth Boulevard, Wall Township NJ, 07719]
+- **Qatar Office**: [+974-4458 1222], [Salwa Road - Midmad Roundabout, West Corner Building, Street 340, Unit 51, Building 155, Zone 43, P.O. Box 37544, Doha, Qatar]
