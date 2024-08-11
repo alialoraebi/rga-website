@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 
 const vendors = [
-  { name: 'JBL Professional', category: 'Audio Systems', image: '/images/logos/jblpro.png' },
-  { name: 'Crestron', category: 'Control Systems', image: '/images/logos/crestron.png' },
-  { name: 'beyerdynamic', category: 'Audio Systems', image: '/images/logos/beyerdynamic.png' },
-  { name: 'Countryman', category: 'Audio Systems', image: '/images/logos/countryman.png' },
-  { name: 'Lectrosonics', category: 'Audio Systems', image: '/images/logos/lectrosonics.png' },
-  { name: 'Yamaha', category: 'Audio Systems', image: '/images/logos/yamaha.png' },
-  { name: 'Shure', category: 'Audio Systems', image: '/images/logos/shure.png' },
-  { name: 'Sennheiser', category: 'Audio Systems', image: '/images/logos/sennheiser.png' },
-  { name: 'Audio-Technica', category: 'Audio Systems', image: '/images/logos/audio-technica.png' },
-  { name: 'QSC', category: 'Audio Systems', image: '/images/logos/qsc.png' },
-  { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png' },
-  { name: 'Bose', category: 'Audio Systems', image: '/images/logos/bose.png' },
-  { name: 'Sony', category: 'Video Systems', image: '/images/logos/sony.png' },
-  { name: 'Biamp', category: 'Control Systems', image: '/images/logos/biamp.png' },
-  { name: 'Meyer Sound', category: 'Audio Systems', image: '/images/logos/meyer-sound.png' },
-  { name: 'Dante', category: 'Telecommunications', image: '/images/logos/dante.png' },
-  { name: 'Radial Engineering', category: 'Audio Systems', image: '/images/logos/radial-engineering.png' },
-  { name: 'Soundcraft', category: 'Audio Systems', image: '/images/logos/soundcraft.png' },
-  { name: 'Allen & Heath', category: 'Audio Systems', image: '/images/logos/allen-heath.png' },
-  { name: 'Rode Microphones', category: 'Audio Systems', image: '/images/logos/rode-microphones.png' },
+  { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png', url: 'https://www.akg.com/' },
+  { name: 'Atlas Sound', category: 'Audio Systems', image: '/images/logos/atlas-sound.png', url: 'https://www.atlassound.com/' },
+  { name: 'AtlasIED', category: 'Audio Systems', image: '/images/logos/atlasied.png', url: 'https://www.atlasied.com/' },
+  { name: 'Beyerdynamic', category: 'Audio Systems', image: '/images/logos/beyerdynamic.png', url: 'https://north-america.beyerdynamic.com/' },
+  { name: 'Biamp', category: 'Control Systems', image: '/images/logos/biamp.png', url: 'https://www.biamp.com/' },
+  { name: 'Countryman', category: 'Audio Systems', image: '/images/logos/countryman.png', url: 'https://www.countryman.com/' },
+  { name: 'Crestron', category: 'Control Systems', image: '/images/logos/crestron.png', url: 'https://www.crestron.com/' },
+  { name: 'Crown', category: 'Audio Systems', image: '/images/logos/crown.png', url: 'https://www.crownaudio.com/' },
+  { name: 'Draper', category: 'Video Systems', image: '/images/logos/draper.png', url: 'https://www.draperinc.com/' },
+  { name: 'Electro-Voice', category: 'Audio Systems', image: '/images/logos/electro-voice.png', url: 'https://www.electrovoice.com/' },
+  { name: 'Harman International', category: 'Audio Systems', image: '/images/logos/harman.png', url: 'https://www.harman.com/' },
+  { name: 'JBL Professional', category: 'Audio Systems', image: '/images/logos/jblpro.png', url: 'https://jblpro.com/' },
+  { name: 'Legrand AV', category: 'Video Systems', image: '/images/logos/legrandav.png', url: 'https://www.legrandav.com/' },
+  { name: 'Mackie', category: 'Audio Systems', image: '/images/logos/mackie.png', url: 'https://mackie.com/' },
+  { name: 'Middle Atlantic Products', category: 'Audio Systems', image: '/images/logos/middle-atlantic.png', url: 'https://www.middleatlantic.com/' },
+  { name: 'Panasonic', category: 'Video Systems', image: '/images/logos/panasonic.png', url: 'https://www.panasonic.com/' },
+  { name: 'Penton Audio USA', category: 'Audio Systems', image: '/images/logos/penton.png', url: 'https://www.penton.com/' },
+  { name: 'QSC', category: 'Audio Systems', image: '/images/logos/qsc.png', url: 'https://www.qsc.com/' },
+  { name: 'RDL (Radio Design Labs)', category: 'Audio Systems', image: '/images/logos/rdl.png', url: 'https://www.rdlnet.com/' },
+  { name: 'Renkus-Heinz', category: 'Audio Systems', image: '/images/logos/renkus-heinz.png', url: 'https://www.renkus-heinz.com/' },
+  { name: 'Shure', category: 'Audio Systems', image: '/images/logos/shure.png', url: 'https://www.shure.com/' },
+  { name: 'Soundcraft', category: 'Audio Systems', image: '/images/logos/soundcraft.png', url: 'https://www.soundcraft.com/' }
 ];
 
 const categories = [
@@ -28,7 +30,6 @@ const categories = [
   'Audio Systems',
   'Video Systems',
   'Control Systems',
-  'Telecommunications',
 ];
 
 const Vendors = () => {
@@ -46,7 +47,13 @@ const Vendors = () => {
         {/* Vendors Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
           {filteredVendors.map((vendor, index) => (
-            <div key={index} className="text-center">
+            <a
+              key={index}
+              href={vendor.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center"
+            >
               <div className="bg-gray-200 p-4 rounded-lg flex items-center justify-center" style={{ height: '150px' }}>
                 <img
                   src={vendor.image}
@@ -56,7 +63,7 @@ const Vendors = () => {
                 />
               </div>
               <p className="mt-2 text-black">{vendor.name}</p>
-            </div>
+            </a>
           ))}
         </div>
 
