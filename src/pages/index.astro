@@ -1,9 +1,102 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import Paragraph from '../components/Paragraph.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Landing Page</h1>
-	</main>
+<Layout title="Robert Guild Associates">
+  <section class="relative pt-32 lg:pt-36">
+    <Container className={"flex flex-col lg:flex-row gap-10 lg:gap-12"}>
+      <div class="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 ">
+        <span class="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-blue-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden"></span>
+        <span class="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
+      </div>
+      <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-blue-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
+      <div class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
+        <h1 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1">
+          H. Robert Guild Associates, Inc.
+        </h1>
+        <Paragraph className="mt-8">
+          We are a global audio, video, and electronic design, integration, and consulting firm. We provide turnkey solutions for corporate, government, education, and residential clients. Our system designs are based on the latest technology and we work with top-tier manufacturers to provide a high-quality customer experience.
+        </Paragraph>
+      </div>
+      <div class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
+        <div id="slideshow" class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96">
+          <img src="../images/azizhos.png" alt="Hero image" class="active lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96" />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+    <section class="relative mt-12 md:mt-16">
+    <Container>
+      <div
+        class="mx-auto lg:mx-0 p-5 sm:p-6 py-6 sm:py-8 max-w-5xl rounded-3xl bg-box-bg border border-box-border shadow-lg shadow-box-shadow md:divide-x divide-box-border grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 md:gap-6 lg:gap-12"
+      >
+        <div class="text-center">
+          <h2 class="font-semibold text-xl sm:text-2xl md:text-4xl text-heading-1">
+            12+
+          </h2>
+          <p class="mt-2 text-heading-3">Created projects</p>
+        </div>
+        <div class="text-center">
+          <h2 class="font-semibold text-xl sm:text-2xl md:text-4xl text-heading-1">
+            200+
+          </h2>
+          <p class="mt-2 text-heading-3">Projects</p>
+        </div>
+        <div class="text-center">
+          <h2 class="font-semibold text-xl sm:text-2xl md:text-4xl text-heading-1">
+            120
+          </h2>
+          <p class="mt-2 text-heading-3">Happy Client</p>
+        </div>
+        <div class="text-center">
+          <h2 class="font-semibold text-xl sm:text-2xl md:text-4xl text-heading-1">
+            40+
+          </h2>
+          <p class="mt-2 text-heading-3">Years</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <style>
+    #slideshow img {
+      opacity: 0;
+      transition: opacity 1s fade-in-out;
+    }
+    #slideshow img.active {
+      opacity: 1;
+    }
+  </style>
+
+  <script>
+    const images = [
+      '../images/azizhos.png',
+      '../images/Barzan-Camp.png',
+      '../images/beirut.png',
+      '../images/hamad.png',
+      '../images/idb.png',
+      '../images/king.png',
+      '../images/mellon.png',
+      '../images/nwest.png',
+      '../images/sport.png',
+    ];
+
+    let currentIndex = 0;
+    const slideshow = document.getElementById('slideshow');
+    const imgElement = slideshow.querySelector('img');
+
+    function showNextImage() {
+      imgElement.classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      imgElement.src = images[currentIndex];
+      setTimeout(() => {
+        imgElement.classList.add('active');
+      }, 3);
+    }
+
+    setInterval(showNextImage, 10000);
+  </script>
 </Layout>
