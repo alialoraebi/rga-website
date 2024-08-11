@@ -1,70 +1,111 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Robert Guild Associates Website
 
-## Available Scripts
+Welcome to the official website repository of Robert Guild Associates, a global leader in audio, video, and electronic design, integration, and consulting. With over 30 years of industry experience, our company is headquartered in the United States and operates a regional office in Doha, Qatar. This website is designed to showcase our services, projects, and vendors, providing visitors with detailed information about our capabilities and past work.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Overview](#overview)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+  - [Building for Production](#building-for-production)
+- [Notes](#notes)
+- [Contributions](#contributions)
+- [License](#license)
+- [Contact](#contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This website is built to highlight the extensive range of services offered by Robert Guild Associates. From residential to enterprise-class solutions, we specialize in the planning and installation of electronic systems. The website features our company’s key projects, services, and vendors, presented in a user-friendly and visually appealing manner.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Home Page**
+  - **Hero Section**: Features an animated background using Vanta.js with a topology effect and a slider showcasing key projects.
+  - **What We Do**: A detailed section outlining the services provided by Robert Guild Associates, including consulting, full system design, and system integration.
 
-### `npm run build`
+- **About Page**
+  - Provides information about the company's history, mission, and values.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Services Page**
+  - A comprehensive list of all services offered, with descriptions and images for each service.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Projects Page**
+  - Displays a grid of notable projects, with filtering options by category (e.g., Airports, Universities, Hotels).
+  - **Project Details**: Clicking on a project opens a modal with a detailed description and images.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Vendors Page**
+  - Lists key vendors in a grid format, with filtering options by category (e.g., Audio Systems, Control Systems).
+  - **Vendor Details**: Clicking on a vendor provides more information and a link to their official website.
 
-### `npm run eject`
+- **Contact Section**
+  - Contains contact information for both the Qatar and US offices, including phone numbers and addresses.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Footer**
+  - Navigation footer with links to all main sections of the website and quick access to contact information.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `home.js`: Layout and components for the Home page, including the animated hero section and service blocks.
+- `about.js`: Content and layout for the About page.
+- `services.js`: Manages the display of services, including detailed descriptions.
+- `projects.js`: Displays projects in a grid layout, allows filtering by category, and shows project details in a modal.
+- `vendors.js`: Displays vendor logos and details in a grid, with filtering options.
+- `navbar.js`: Navigation bar providing links to main sections of the site.
+- `footer.js`: Footer containing navigation links, contact information, and company details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Node.js**: Ensure you have Node.js installed on your machine.
+- **npm**: Node Package Manager, which comes with Node.js.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
 
-### Code Splitting
+1. Clone the Repository:
+   ```bash
+   git clone https://github.com/yourusername/robert-guild-associates-website.git
+   cd robert-guild-associates-website
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Install Dependencies:
+   ```bash
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+### Running the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Start the Development Server:
+   ```bash
+   npm start
+   ```
+   The website will be available at [http://localhost:3000](http://localhost:3000).
 
-### Making a Progressive Web App
+### Building for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To create an optimized build for production, run:
+```bash
+npm run build
+```
+This will generate a `build` folder containing the optimized files for deployment.
 
-### Advanced Configuration
+## Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Animated Background**: The home page uses Vanta.js for the animated background. This can cause slight delays during page load. If performance becomes an issue, consider optimizing the animation or loading it after critical content.
+- **Responsive Design**: The website is fully responsive and should work on various screen sizes, from mobile to desktop.
 
-### Deployment
+## Contributions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you'd like to contribute to the project, please fork the repository and submit a pull request with your changes.
 
-### `npm run build` fails to minify
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to contact us if you have any questions or need further information about our services.
+
+- **US Office**: [Phone Number], [2202 Monmouth Boulevard, Wall Township NJ, 07719]
+- **Qatar Office**: [+974-4458 1222], [Salwa Road - Midmad Roundabout, West Corner Building, Street 340, Unit 51, Building 155, Zone 43, P.O. Box 37544, Doha, Qatar]
