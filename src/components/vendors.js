@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const vendors = [
   { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png', url: 'https://www.akg.com/' },
-  { name: 'Atlas Sound', category: 'Audio Systems', image: '/images/logos/atlas-sound.png', url: 'https://www.atlassound.com/' },
   { name: 'AtlasIED', category: 'Audio Systems', image: '/images/logos/atlasied.png', url: 'https://www.atlasied.com/' },
   { name: 'Beyerdynamic', category: 'Audio Systems', image: '/images/logos/beyerdynamic.png', url: 'https://north-america.beyerdynamic.com/' },
   { name: 'Biamp', category: 'Control Systems', image: '/images/logos/biamp.png', url: 'https://www.biamp.com/' },
