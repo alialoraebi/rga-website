@@ -52,7 +52,7 @@ const Vendors = () => {
                 href={vendor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-center transform transition duration-500 hover:scale-105 hover:bg-blue-300 rounded-lg"
+                className="text-center transform transition duration-500 hover:scale-105"
               >
                 <div className="bg-gray-200 p-4 rounded-lg flex items-center justify-center" style={{ height: '150px' }}>
                   <img
