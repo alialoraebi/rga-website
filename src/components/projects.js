@@ -16,7 +16,7 @@ const projects = [
     { 
       name: 'Catholic Church of Our Lady of the Rosary', 
       category: 'House of Worship', 
-      image: '/images/projects/catholic-church.jpg', 
+      image: '/images/projects/catholic-church.png', 
       description: 'Located in Doha, Qatar, this project involved the complete design and calibration of the church\'s audio system, including the installation of wireless microphones to ensure seamless communication during services.' 
     },
     { 
@@ -58,7 +58,7 @@ const projects = [
     { 
       name: 'Marriott Hotel', 
       category: 'Hotels', 
-      image: '/images/projects/marriott-hotel.jpg', 
+      image: '/images/projects/marriott-hotel.png', 
       description: 'Located in Amman, Jordan, this hotel features 292 guest rooms and five restaurants. The project included the installation of Public Area Music and Paging Systems, Ballroom Combining Sound Systems, and Multi-Selection Music Systems for hotel rooms.'
     },
     { 
