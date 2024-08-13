@@ -29,7 +29,7 @@ const Footer = () => {
               <button onClick={() => handleScrollToTop('/services')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Services</button>
               <button onClick={() => handleScrollToTop('/vendors')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Vendors</button>
               <button onClick={() => handleScrollToTop('/projects')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Projects</button>
-              <button onClick={() => handleScrollToTop('/contact')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Contact</button>
+              <button onClick={() => handleScrollToTop('/contacts')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Contact Us</button>
             </div>
 
             {/* Address Details */}

@@ -32,7 +32,7 @@ function Navbar() {
               <Link to="services" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Services</Link>
               <Link to="vendors" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Vendors</Link>
               <Link to="projects" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Projects</Link>
-              <Link to="contact" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Contact</Link>
+              <Link to="contacts" className="text-gray-700 hover:text-blue-500 px-4 py-3 rounded-md text-base md-lg:text-xl font-bold transition-colors duration-200">Contact Us</Link>
             </div>
           </div>
         </div>
