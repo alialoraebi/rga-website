@@ -1,41 +1,56 @@
-import React from 'react'; 
+import React, { useState } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 
 const services = [ 
   { 
     title: "Consulting", 
     description: "We provide consulting services for new construction and renovation projects. We can help you develop a technology plan that will meet your current and future needs. Our consulting services include audio, video, lighting, and control systems.",
+    image: "/images/services/consulting.jpg"
   }, 
   { 
     title: "Full System Design", 
     description: "We provide system design services for audio, video, lighting, and control systems. We can help you develop a detailed system design that will meet your needs and budget. Our system design services include detailed drawings, equipment lists, and system specifications.",
+    image: "/images/services/full-system-design.jpg"
   }, 
   { 
     title: "Supply and Build", 
     description: "We provide supply and build services for audio, video, lighting, and control systems. We can help you select the right equipment for your needs and budget. We can also install and commission the system for you. Our supply and build services include equipment sales, installation, and system commissioning.",
+    image: "/images/services/supply-build.jpg"
   }, 
   { 
     title: "Supervision", 
     description: "We offer supervision services to ensure that all installations are carried out to the highest standards. Our team will oversee the process to ensure quality and adherence to specifications.",
+    image: "/images/services/supervision.jpg"
   }, 
   { 
     title: "Installation", 
     description: "We provide professional installation services for all the systems we design and supply. Our experienced technicians ensure that every component is installed correctly and operates flawlessly.",
+    image: "/images/services/installation.jpg"
   }, 
   { 
     title: "System Integration", 
     description: "We offer system integration services to ensure all components work together seamlessly. This includes integrating new systems with existing infrastructure to create a cohesive and efficient setup.",
+    image: "/images/services/system-integration.jpg"
   }, 
   { 
     title: "Testing & Commissioning", 
     description: "Before any system goes live, we conduct thorough testing and commissioning to ensure everything operates as expected. We identify and resolve any issues to ensure a smooth handover.",
+    image: "/images/services/testing-commissioning.jpg"
   }, 
   { 
     title: "Service & Maintenance", 
     description: "We provide ongoing service and maintenance for the systems we install. This includes regular check-ups, repairs, and upgrades to keep your systems running at their best.",
+    image: "/images/services/service-maintenance.jpg"
   },
 ];
 
 const Services = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const handleServiceClick = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div className="bg-gray-100 py-16">
       <div
@@ -45,16 +60,30 @@ const Services = () => {
         <div className="mt-80 bg-opacity-20 backdrop-filter backdrop-blur-md p-6" style={{ borderRadius: '25px', width: '73%' }}>
           <h1 className="text-5xl text-white font-bold text-left">Our Services</h1>
           <p className="text-lg text-white mt-4 text-left">
-            We are specialists in the design and implementation of audio, video, and control systems for churches, schools, businesses, and performance venues.
+            We are specialists in the design and implementation of audio, video, and control systems for airports, schools, businesses, and performance venues.
           </p>
         </div>
       </div>
 
-      <div className="container mx-auto px-32 py-12">
+      <div className="container mx-auto px-32 py-8 space-y-8">
         {services.map((service, index) => (
-          <div key={index} className="mb-12">
-            <h2 className="text-3xl font-bold text-blue-600 mb-4">{service.title}</h2>
-            <p className="text-lg text-gray-700">{service.description}</p>
+          <div key={index} className="border-b border-gray-300 pb-8">
+            <h2 
+              className="text-2xl font-bold text-blue-600 mb-2 cursor-pointer flex justify-between items-center"
+              onClick={() => handleServiceClick(index)}
+            >
+              {service.title}
+              <FaChevronDown className={`transition-transform duration-200 ${openIndex === index ? 'transform rotate-180' : ''}`} />
+            </h2>
+
+            <div
+              className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openIndex === index ? 'max-h-[400px]' : 'max-h-0'}`}
+            >
+              <div className="bg-white p-4 rounded-lg shadow-lg">
+                <img src={service.image} alt={service.title} className="w-full h-64 object-cover rounded-lg mb-4" />
+                <p className="text-base text-gray-700">{service.description}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
