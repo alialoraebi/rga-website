@@ -29,7 +29,7 @@ const Footer = () => {
               <button onClick={() => handleScrollToTop('/services')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Services</button>
               <button onClick={() => handleScrollToTop('/vendors')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Vendors</button>
               <button onClick={() => handleScrollToTop('/projects')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Projects</button>
-              <a href="#contact" className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Contact</a>
+              <button onClick={() => handleScrollToTop('/contact')} className="text-gray-200 hover:text-blue-500 px-2 py-2 rounded-md text-sm font-normal transition-colors duration-200">Contact</button>
             </div>
 
             {/* Address Details */}
@@ -41,14 +41,14 @@ const Footer = () => {
                 <p>Street 340, Unit 51, Building 155, Zone 43</p>
                 <p>P.O. Box 37544</p>
                 <p>Doha, Qatar</p>
-                <p>Office: +974-4458 1222</p>
+                <p>Number: +974-4458 1222</p>
               </div>
               <div>
                 <p className="font-bold">US Office</p>
                 <p>2202 Monmouth Boulevard</p>
                 <p>Wall Township NJ, 07719</p>
                 <p>Phone Numbers:</p>
-                <p>Office: (732)775-0777</p>
+                <p>Number: (732)775-0777</p>
               </div>
             </div>
           </div>
