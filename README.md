@@ -12,6 +12,7 @@ Welcome to the official website repository of Robert Guild Associates, a global 
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Project](#running-the-project)
+  - [Running the Backend](#running-the-backend)
   - [Building for Production](#building-for-production)
 - [Notes](#notes)
 - [Contributions](#contributions)
@@ -86,7 +87,7 @@ This website is built to highlight the extensive range of services offered by Ro
    ```
    The website will be available at [http://localhost:3000](http://localhost:3000).
 
-### Running the backend
+### Running the Backend
 1. Start the backend server:
   ```bash
   cd backend
