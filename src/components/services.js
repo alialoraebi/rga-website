@@ -93,7 +93,7 @@ const Services = () => {
         <p className="text-lg text-gray-700 mb-8">
           We would love to hear from you. Get in touch with us today to discuss your project needs and how we can help.
         </p>
-        <a href="/contact" className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300">
+        <a href="/contacts" className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300">
           Contact Us
         </a>
       </div>
