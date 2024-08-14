@@ -69,7 +69,7 @@ This website is built to highlight the extensive range of services offered by Ro
 
 1. Clone the Repository:
    ```bash
-   git clone https://github.com/yourusername/robert-guild-associates-website.git
+   git clone https://github.com/alialoraebi/rga-website
    cd robert-guild-associates-website
    ```
 
@@ -85,6 +85,20 @@ This website is built to highlight the extensive range of services offered by Ro
    npm start
    ```
    The website will be available at [http://localhost:3000](http://localhost:3000).
+
+### Running the backend
+1. Start the backend server:
+  ```bash
+  cd backend
+  ```
+2. Installing the necessary dependencies
+  ```bash
+  npm install 
+  ```
+3. Start the backend server in a separate terminal:
+  ```bash
+  node server.js
+  ```
 
 ### Building for Production
 
