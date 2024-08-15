@@ -9,6 +9,8 @@ const Contact = () => {
     message: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false); // New state for tracking submission
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,18 +21,17 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setIsSubmitting(true); // Set the state to true when submission starts
+
     try {
-      // const response = await fetch('http://localhost:4000/api/contact',
-      const response = await fetch('https://rga-backend-ihb6.onrender.com/api/contact',
-        {
+      const response = await fetch('https://rga-backend-ihb6.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         alert('Message sent successfully!');
         setFormData({
@@ -46,6 +47,8 @@ const Contact = () => {
     } catch (error) {
       console.error('An error occurred', error);
       alert('An error occurred while sending your message. Please try again later.');
+    } finally {
+      setIsSubmitting(false); // Reset the state to false when the request is finished
     }
   };
 
@@ -106,8 +109,9 @@ const Contact = () => {
             <button
               type="submit"
               className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300"
+              disabled={isSubmitting} // Disable button when submitting
             >
-              Send Message
+              {isSubmitting ? 'Please wait...' : 'Send Message'} {/* Update button text */}
             </button>
           </form>
         </div>
