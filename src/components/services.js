@@ -78,7 +78,7 @@ const Services = () => {
 
             <div className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openIndex === index ? 'max-h-[600px]' : 'max-h-0'}`}>
               <div className="bg-white p-2 lg:p-4 rounded-lg shadow-lg">
-                <img src={service.image} alt={service.title} className="w-full h-40 lg:h-64 object-cover rounded-lg mb-2 lg:mb-4" />
+                <img src={service.image} alt={service.title} className="w-full h-40 lg:h-64 object-cover rounded-lg mb-2 lg:mb-4" loading="lazy" />
                 <p className="text-sm lg:text-base text-gray-700">{service.description}</p>
               </div>
             </div>
