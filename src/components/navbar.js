@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Disable scrolling when the menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'auto'; // Re-enable background scrolling
     }
   }, [isOpen]);
 
@@ -51,7 +50,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className={`md-lg:hidden fixed inset-0 flex flex-col items-center justify-start min-h-screen pt-24 bg-white z-40 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`md-lg:hidden fixed inset-0 flex flex-col items-center justify-start min-h-screen pt-24 bg-white z-40 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{ overflowY: 'auto' }}>
         <div className="px-4 pt-2 pb-3 space-y-6 text-center">
           {[
             { path: '/', label: 'Home' },

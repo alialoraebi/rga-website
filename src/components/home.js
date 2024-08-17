@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
 import TOPOLOGY from 'vanta/dist/vanta.topology.min';
 import * as THREE from 'three';
@@ -12,28 +12,30 @@ import "slick-carousel/slick/slick-theme.css";
 const Home = () => {
   const vantaRef = useRef(null);
   const vantaEffect = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
-    if (!vantaEffect.current && vantaRef.current) {
-      vantaEffect.current = TOPOLOGY({
-        el: vantaRef.current,
-        THREE,
-        p5,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x1A80E5,
-        backgroundColor: 0xffffff
-      });
-    }
-
     const handleResize = debounce(() => {
-      if (vantaEffect.current) {
-        vantaEffect.current.resize();
+      setIsMobile(window.innerWidth <= 768);
+
+      if (!isMobile && !vantaEffect.current && vantaRef.current) {
+        vantaEffect.current = TOPOLOGY({
+          el: vantaRef.current,
+          THREE,
+          p5,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x1A80E5,
+          backgroundColor: 0xffffff,
+        });
+      } else if (isMobile && vantaEffect.current) {
+        vantaEffect.current.destroy();
+        vantaEffect.current = null;
       }
     }, 100);
 
@@ -46,7 +48,7 @@ const Home = () => {
       }
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isMobile]);
 
   const images = [
     '../images/projects/azizhos.png',
@@ -100,8 +102,8 @@ const Home = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section ref={vantaRef} className="py-24 hero-section overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center">
+      <section ref={vantaRef} className={`py-24 hero-section overflow-hidden relative ${isMobile ? 'bg-static-image' : ''}`}>
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center z-10 relative">
           <div className="md:w-1/2">
             <Slider {...settings}>
               {images.map((image, idx) => (
@@ -118,6 +120,8 @@ const Home = () => {
             </p>
           </div>
         </div>
+        {/* Adjust this for mobile */}
+        <div className="absolute inset-0 w-full h-full z-0 bg-white md:hidden" style={{ top: '0' }}></div>
       </section>
       {/* What We Do Section */}
       <section className="py-8 pb-24">
