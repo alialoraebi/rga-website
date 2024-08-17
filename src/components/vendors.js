@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 
 const vendors = [
   { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png', url: 'https://www.akg.com/' },
@@ -33,15 +34,57 @@ const categories = [
 
 const Vendors = () => {
   const [selectedCategory, setSelectedCategory] = useState('Show All');
+  const [showCategories, setShowCategories] = useState(false);
+
+  useEffect(() => {
+    setSelectedCategory('Show All');
+  }, []);
 
   const filteredVendors = selectedCategory === 'Show All'
     ? vendors
     : vendors.filter(vendor => vendor.category === selectedCategory);
 
+  const toggleCategories = () => {
+    setShowCategories(!showCategories);
+  };
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setShowCategories(false); // Hide categories after selection
+  };
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="container mx-auto py-12 px-4">
-        <h1 className="text-blue-600 text-3xl font-bold text-black mb-8">Vendors</h1>
+        <h1 className="text-blue-600 text-3xl font-bold text-black mb-4">Vendors</h1>
+
+        {/* Categories Button for Mobile View */}
+        <div className="lg:hidden mb-8">
+          <button
+            onClick={toggleCategories}
+            className="flex items-center justify-between w-full h-12 px-4 bg-gray-200 text-black rounded-md font-medium"
+          >
+            <span>{selectedCategory}</span>
+            <FaChevronDown className={`transform transition-transform ${showCategories ? 'rotate-180' : ''}`} />
+          </button>
+          <div
+            className={`flex flex-col mt-2 space-y-2 overflow-hidden transition-max-height duration-300 ease-in-out ${
+              showCategories ? 'max-h-96' : 'max-h-0'
+            }`}
+          >
+            {categories.map((category, index) => (
+              <button
+                key={index}
+                onClick={() => handleCategorySelect(category)}
+                className={`w-full h-12 text-center flex items-center justify-center font-medium transition-colors duration-200 ${
+                  selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
+                } rounded-md`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="flex flex-col lg:flex-row">
           {/* Vendors Grid */}
@@ -67,12 +110,12 @@ const Vendors = () => {
             ))}
           </div>
 
-          {/* Categories */}
-          <div className="mt-8 lg:mt-0 lg:ml-8 flex flex-col space-y-2">
+          {/* Categories for Desktop View */}
+          <div className="mt-8 lg:mt-0 lg:ml-8 flex flex-col space-y-2 hidden lg:flex">
             {categories.map((category, index) => (
               <button
                 key={index}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategorySelect(category)}
                 className={`w-40 h-12 text-center flex items-center justify-center font-medium transition-colors duration-200 ${
                   selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
                 } rounded-md`}

@@ -9,7 +9,7 @@ const Contact = () => {
     message: '',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false); // New state for tracking submission
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +21,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set the state to true when submission starts
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('https://rga-backend-ihb6.onrender.com/api/contact', {
@@ -48,25 +48,25 @@ const Contact = () => {
       console.error('An error occurred', error);
       alert('An error occurred while sending your message. Please try again later.');
     } finally {
-      setIsSubmitting(false); // Reset the state to false when the request is finished
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="bg-gray-100 min-h-screen py-16">
-      <div className="container mx-auto px-4 lg:flex lg:items-stretch">
+      <div className="container mx-auto px-4 lg:flex lg:items-stretch relative z-10">
         {/* Contact Form */}
-        <div className="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg flex flex-col">
+        <div className="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg flex flex-col relative z-20">
           <h2 className="text-3xl font-bold text-blue-600 mb-6">Contact Us</h2>
           <form onSubmit={handleSubmit} className="space-y-4 flex-grow">
-            <div className="flex space-x-4">
+            <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
               <input
                 type="text"
                 name="firstName"
                 placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-1/2 p-4 border border-gray-300 rounded-lg"
+                className="w-full lg:w-1/2 p-4 border border-gray-300 rounded-lg"
                 required
               />
               <input
@@ -75,7 +75,7 @@ const Contact = () => {
                 placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-1/2 p-4 border border-gray-300 rounded-lg"
+                className="w-full lg:w-1/2 p-4 border border-gray-300 rounded-lg"
                 required
               />
             </div>
@@ -109,15 +109,15 @@ const Contact = () => {
             <button
               type="submit"
               className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300"
-              disabled={isSubmitting} // Disable button when submitting
+              disabled={isSubmitting}
             >
-              {isSubmitting ? 'Please wait...' : 'Send Message'} {/* Update button text */}
+              {isSubmitting ? 'Please wait...' : 'Send Message'}
             </button>
           </form>
         </div>
 
         {/* Contact Details */}
-        <div className="lg:w-1/2 lg:ml-12 mt-8 lg:mt-0 flex flex-col">
+        <div className="lg:w-1/2 lg:ml-12 mt-8 lg:mt-0 flex flex-col relative z-10">
           <div className="bg-white p-8 rounded-lg shadow-lg flex-grow">
             <h2 className="text-3xl font-bold text-blue-600 mb-6">Contact Details</h2>
             <div className="mb-8">

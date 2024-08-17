@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 
 const projects = [
     { 
@@ -80,85 +81,126 @@ const categories = [
 ];
 
 const Projects = () => {
-    const [selectedCategory, setSelectedCategory] = useState('Show All');
-    const [selectedProject, setSelectedProject] = useState(null);
-  
-    const filteredProjects = selectedCategory === 'Show All'
-      ? projects
-      : projects.filter(project => project.category === selectedCategory);
-  
-    const handleProjectClick = (project) => {
-      setSelectedProject(project);
-    };
-  
-    const closeModal = () => {
-      setSelectedProject(null);
-    };
-  
-    return (
-      <div className="bg-gray-100 min-h-screen">
-        <div className="container mx-auto py-12 px-4">
-          <h1 className="text-blue-600 text-3xl font-bold text-black mb-8">Projects</h1>
-  
-          <div className="flex flex-col lg:flex-row">
-            {/* Projects Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
-              {filteredProjects.map((project, index) => (
-                <div
-                  key={index}
-                  onClick={() => handleProjectClick(project)}
-                  className="text-center transform transition duration-500 hover:scale-105 cursor-pointer"
-                >
-                  <div className="bg-gray-200 p-4 rounded-lg flex items-center justify-center" style={{ height: '150px' }}>
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="object-contain max-w-full max-h-full rounded-lg"
-                      style={{ margin: 'auto' }}
-                    />
-                  </div>
-                  <p className="mt-2 text-black">{project.name}</p>
-                </div>
-              ))}
-            </div>
-  
-            {/* Categories */}
-            <div className="mt-8 lg:mt-0 lg:ml-8 flex flex-col space-y-2">
-              {categories.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`w-40 h-12 text-center flex items-center justify-center font-medium transition-colors duration-200 ${
-                    selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
-                  } rounded-md`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
+  const [selectedCategory, setSelectedCategory] = useState('Show All');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showCategories, setShowCategories] = useState(false);
+
+  useEffect(() => {
+    setSelectedCategory('Show All');
+  }, []);
+
+  const filteredProjects = selectedCategory === 'Show All'
+    ? projects
+    : projects.filter(project => project.category === selectedCategory);
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
+
+  const toggleCategories = () => {
+    setShowCategories(!showCategories);
+  };
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setShowCategories(false); // Hide categories after selection
+  };
+
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      <div className="container mx-auto py-12 px-4">
+        <h1 className="text-blue-600 text-3xl font-bold text-black mb-4">Projects</h1>
+
+        {/* Categories Button for Mobile View */}
+        <div className="lg:hidden mb-8">
+          <button
+            onClick={toggleCategories}
+            className="flex items-center justify-between w-full h-12 px-4 bg-gray-200 text-black rounded-md font-medium"
+          >
+            <span>{selectedCategory}</span>
+            <FaChevronDown className={`transform transition-transform ${showCategories ? 'rotate-180' : ''}`} />
+          </button>
+          <div
+            className={`flex flex-col mt-2 space-y-2 overflow-hidden transition-max-height duration-300 ease-in-out ${
+              showCategories ? 'max-h-96' : 'max-h-0'
+            }`}
+          >
+            {categories.map((category, index) => (
+              <button
+                key={index}
+                onClick={() => handleCategorySelect(category)}
+                className={`w-full h-12 text-center flex items-center justify-center font-medium transition-colors duration-200 ${
+                  selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
+                } rounded-md`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
-  
-        {/* Modal */}
-        {selectedProject && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl w-full relative">
-              <button onClick={closeModal} className="absolute top-0 right-0 p-2 text-blue-600 hover:text-red-600">
-                Back
-              </button>
-              <img 
-                src={selectedProject.image} 
-                alt={selectedProject.name} 
-                className="object-contain max-w-full max-h-96 mb-4 mx-auto rounded-lg" 
-              />
-              <h2 className="text-2xl font-bold mb-4">{selectedProject.name}</h2>
-              <p className="text-gray-700 mb-4">{selectedProject.description}</p>
-              
-            </div>
+
+        <div className="flex flex-col lg:flex-row">
+          {/* Projects Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
+            {filteredProjects.map((project, index) => (
+              <div
+                key={index}
+                onClick={() => handleProjectClick(project)}
+                className="text-center transform transition duration-500 hover:scale-105 cursor-pointer"
+              >
+                <div className="bg-gray-200 p-4 rounded-lg flex items-center justify-center" style={{ height: '150px' }}>
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="object-contain max-w-full max-h-full rounded-lg"
+                    style={{ margin: 'auto' }}
+                  />
+                </div>
+                <p className="mt-2 text-black">{project.name}</p>
+              </div>
+            ))}
           </div>
-        )}
+
+          {/* Categories for Desktop View */}
+          <div className="mt-8 lg:mt-0 lg:ml-8 flex flex-col space-y-2 hidden lg:flex">
+            {categories.map((category, index) => (
+              <button
+                key={index}
+                onClick={() => handleCategorySelect(category)}
+                className={`w-40 h-12 text-center flex items-center justify-center font-medium transition-colors duration-200 ${
+                  selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'
+                } rounded-md`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-    );
+
+      {/* Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl w-full relative">
+            <button onClick={closeModal} className="absolute top-0 right-0 p-2 text-blue-600 hover:text-red-600">
+              Back
+            </button>
+            <img 
+              src={selectedProject.image} 
+              alt={selectedProject.name} 
+              className="object-contain max-w-full max-h-96 mb-4 mx-auto rounded-lg" 
+            />
+            <h2 className="text-2xl font-bold mb-4">{selectedProject.name}</h2>
+            <p className="text-gray-700 mb-4">{selectedProject.description}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Projects;
