@@ -1,16 +1,27 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleScrollToTop = (path) => {
-    navigate(path);
+    if (location.pathname !== path) {
+      navigate(path);
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
-  };
+  }, [location]);
 
   return (
     <footer
