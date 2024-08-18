@@ -16,9 +16,11 @@ const Home = () => {
 
   useEffect(() => {
     const handleResize = debounce(() => {
-      setIsMobile(window.innerWidth <= 768);
+      const mobileCheck = window.innerWidth <= 768;
+      setIsMobile(mobileCheck);
 
-      if (!isMobile && !vantaEffect.current && vantaRef.current) {
+      // Only initialize Vanta if not on mobile
+      if (!mobileCheck && !vantaEffect.current && vantaRef.current) {
         vantaEffect.current = TOPOLOGY({
           el: vantaRef.current,
           THREE,
@@ -33,11 +35,13 @@ const Home = () => {
           color: 0x1A80E5,
           backgroundColor: 0xffffff,
         });
-      } else if (isMobile && vantaEffect.current) {
+      } else if (mobileCheck && vantaEffect.current) {
         vantaEffect.current.destroy();
         vantaEffect.current = null;
       }
     }, 100);
+
+    handleResize(); // Initialize on mount
 
     window.addEventListener('resize', handleResize);
 
@@ -105,13 +109,15 @@ const Home = () => {
       <section ref={vantaRef} className={`py-24 hero-section overflow-hidden relative ${isMobile ? 'bg-static-image' : ''}`}>
         <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center z-10 relative">
           <div className="md:w-1/2">
-            <Slider {...settings}>
-              {images.map((image, idx) => (
-                <div key={idx}>
-                  <img src={image} alt={`Office ${idx}`} className="slider-image" />
-                </div>
-              ))}
-            </Slider>
+            {!isMobile && (
+              <Slider {...settings}>
+                {images.map((image, idx) => (
+                  <div key={idx}>
+                    <img src={image} alt={`Office ${idx}`} className="slider-image" />
+                  </div>
+                ))}
+              </Slider>
+            )}
           </div>
           <div className="md:w-1/2 mt-8 md:mt-0 md:ml-14 bg-opacity-30 backdrop-filter backdrop-blur-md p-8" style={{ borderRadius: '50px' }}>
             <h1 className="text-4xl font-bold text-blue-700 mb-4">H. Robert Guild Associates, Inc.</h1>
@@ -120,11 +126,10 @@ const Home = () => {
             </p>
           </div>
         </div>
-        {/* Adjust this for mobile */}
-        <div className="absolute inset-0 w-full h-full z-0 bg-white md:hidden" style={{ top: '0' }}></div>
+        
       </section>
       {/* What We Do Section */}
-      <section className="py-8 pb-24">
+      <section className="py-8 pb-24 wwd-section">
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
           <h2 className="text-3xl font-bold text-blue-700 mb-8">What We Do</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
