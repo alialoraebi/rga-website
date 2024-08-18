@@ -6,7 +6,7 @@ const About = () => {
       <h2 className="text-5xl font-bold text-blue-600 mb-12 text-center">About</h2>
 
       <div className="mb-12 px-4 lg:px-8 max-w-4xl mx-auto">
-        <p className="text-lg mb-32 text-center lg:text-left">
+        <p className="text-lg mb-32 text-left lg:text-left">
           Our company, headquartered in the United States with a regional office in Doha, Qatar, boasts over 30 years of industry experience. We are a global leader in audio, video, and electronic design, integration, and consulting, specializing in planning and installing electronic systems that range from residential to enterprise-class solutions.
         </p>
       </div>

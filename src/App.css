@@ -72,4 +72,11 @@ div:focus {
     .wwd-section{
         background-color: #f3f4f6;
     }
+
+    .address-container {
+        padding-right: 16px; 
+    }
+    .footnav-links{
+        padding-left: 10px;
+    }
 }
