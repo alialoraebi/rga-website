@@ -11,39 +11,39 @@ const About = () => {
         </p>
       </div>
 
-      <div className="mb-32">
-        <h3 className="text-3xl font-semibold mb-8 text-center text-blue-600">Timeline</h3>
-        <div className="relative flex flex-col lg:flex-row items-center justify-between">
-          {/* Vertical line on mobile, horizontal line on desktop */}
-          <div className="absolute w-1 lg:w-full h-full lg:h-1 bg-gray-300 lg:top-1/3"></div>
-          <div className="flex flex-col lg:flex-row justify-between w-full items-center lg:items-start">
-            {[
-              { year: "1980", color: "bg-blue-600", title: "Founded in USA", description: "New York Subway Public Address - USA" },
-              { year: "1983", color: "bg-blue-600", title: "Islamic Development Bank - KSA" },
-              { year: "1997", color: "bg-blue-600", title: "Beirut International Airport - Lebanon" },
-              { year: "2004", color: "bg-blue-600", title: "Khalifa Sports Hall - Qatar", description: "Opened office in Qatar" },
-              { year: "2006-2010", color: "bg-blue-600", title: "Carnegie Mellon & Northwestern University Qatar" },
-              { year: "2010", color: "bg-blue-600", title: "Hamad International Airport Qatar" },
-              { year: "2018 - Present", color: "bg-blue-600", title: "Amiri Guard Base", description: "Continued international expansion across the Gulf Region and Africa" }
-            ].map((item, index) => (
-              <div key={index} className="flex flex-col items-center lg:items-center w-full lg:w-1/7 mb-8 lg:mb-0 relative">
-                {/* Year */}
-                <h4 className="text-2xl font-semibold mb-2 lg:mb-0 text-center">{item.year}</h4>
-                {/* Circle on the line */}
-                <div className="relative mb-4 lg:mb-2 flex flex-col items-center">
-                    <div className={`w-8 h-8 ${item.color} rounded-full flex items-center justify-center`}>
-                        <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                </div>
-                {/* Description */}
-                <div className="text-center">
-                  <p className="text-xs font-semibold">{item.title}</p>
-                  {item.description && <p className="text-xs">{item.description}</p>}
-                </div>
+      <div className="mb-32 timeline-container">
+          <h3 className="text-3xl font-semibold mb-8 text-center text-blue-600">Timeline</h3>
+          <div className="relative flex flex-col lg:flex-row items-center justify-between">
+              {/* Vertical line on mobile, horizontal line on desktop */}
+              <div className="absolute w-1 lg:w-full h-full lg:h-1 bg-gray-300 lg:top-1/3 timeline-line"></div>
+              <div className="flex flex-col lg:flex-row lg:justify-between w-full items-center lg:items-start timeline-item">
+                  {[
+                      { year: "1980", color: "bg-blue-600", title: "Founded in USA", description: "New York Subway Public Address - USA" },
+                      { year: "1983", color: "bg-blue-600", title: "Islamic Development Bank - KSA" },
+                      { year: "1997", color: "bg-blue-600", title: "Beirut International Airport - Lebanon" },
+                      { year: "2004", color: "bg-blue-600", title: "Khalifa Sports Hall - Qatar", description: "Opened office in Qatar" },
+                      { year: "2006-2010", color: "bg-blue-600", title: "Carnegie Mellon & Northwestern University Qatar" },
+                      { year: "2010", color: "bg-blue-600", title: "Hamad International Airport Qatar" },
+                      { year: "2018-Present", color: "bg-blue-600", title: "Amiri Guard Base", description: "Continued international expansion across the Gulf Region and Africa" }
+                  ].map((item, index) => (
+                      <div key={index} className="flex lg:flex-col flex-row items-center w-full lg:w-1/7 mb-8 lg:mb-0 relative">
+                          {/* Year */}
+                          <h4 className="text-2xl font-semibold mb-2 lg:mb-0 text-center lg:text-center w-1/3 lg:w-auto">{item.year}</h4>
+                          {/* Circle on the line */}
+                          <div className="relative mb-4 lg:mb-2 flex items-center justify-center w-1/3 lg:w-auto">
+                              <div className={`w-8 h-8 ${item.color} rounded-full flex items-center justify-center`}>
+                                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                              </div>
+                          </div>
+                          {/* Description */}
+                          <div className="text-left lg:text-center w-1/3 lg:w-auto">
+                              <p className="text-xs font-semibold">{item.title}</p>
+                              {item.description && <p className="text-xs">{item.description}</p>}
+                          </div>
+                      </div>
+                  ))}
               </div>
-            ))}
           </div>
-        </div>
       </div>
 
       <div className="mb-16">

@@ -97,7 +97,7 @@ const Footer = () => {
                 <p>2202 Monmouth Boulevard</p>
                 <p>Wall Township NJ, 07719</p>
                 <p>Phone Numbers:</p>
-                <p>Number: (732)775-0777</p>
+                <p>Number: +1 (908)489-3470</p>
               </div>
             </div>
           </div>

@@ -136,7 +136,7 @@ const Contact = () => {
               <p className="text-gray-700">
                 2202 Monmouth Boulevard<br />
                 Wall Township NJ, 07719<br />
-                Number: (732)775-0777
+                Number: +1 (908)489-3470
               </p>
             </div>
           </div>

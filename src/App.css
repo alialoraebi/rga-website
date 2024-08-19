@@ -54,29 +54,31 @@ div:focus {
         border-radius: 0; /* Remove border-radius for mobile */
     }
 
-    .hero-section .md\\:mt-8 {
+    .hero-section .md\:mt-8 {
         margin-top: 12px;
     }
 
-    .hero-section .md\\:ml-14 {
+    .hero-section .md\:ml-14 {
         margin-left: 0;
     }
 
-    .hero-section .md:w-1\/2 {
+    .hero-section .md\:w-1\/2 {
         width: 100%;
     }
 
     .hero-section .relative {
         top: 0;
     }
-    .wwd-section{
+    
+    .wwd-section {
         background-color: #f3f4f6;
     }
 
     .address-container {
         padding-right: 16px; 
     }
-    .footnav-links{
+
+    .footnav-links {
         padding-left: 10px;
     }
 }
