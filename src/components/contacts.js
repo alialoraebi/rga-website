@@ -89,6 +89,15 @@ const Contact = () => {
               required
             />
             <input
+              type="number"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full p-4 border border-gray-300 rounded-lg"
+              required
+            />
+            <input
               type="text"
               name="subject"
               placeholder="Subject"
