@@ -85,7 +85,7 @@ const Footer = () => {
             <div className="text-sm text-left mb-4 md:mb-0 md:ml-4 address-container">
               <div className="mb-4">
                 <p className="font-bold">Qatar Office</p>
-                <p>Salwa Road - Midmad Roundabout</p>
+                <p>Salwa Road - Midmac Roundabout</p>
                 <p>West Corner Building</p>
                 <p>Street 340, Unit 51, Building 155, Zone 43</p>
                 <p>P.O. Box 37544</p>

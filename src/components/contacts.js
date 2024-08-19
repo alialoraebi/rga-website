@@ -123,7 +123,7 @@ const Contact = () => {
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-2">Qatar Office</h3>
               <p className="text-gray-700">
-                Salwa Road - Midmad Roundabout<br />
+                Salwa Road - Midmac Roundabout<br />
                 West Corner Building<br />
                 Street 340, Unit 51, Building 155, Zone 43<br />
                 P.O. Box 37544<br />
