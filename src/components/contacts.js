@@ -91,7 +91,7 @@ const Contact = () => {
               required
             />
             <input
-              type="number"
+              type="tel"
               name="phone"
               placeholder="Phone Number"
               value={formData.phone}
