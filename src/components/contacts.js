@@ -5,6 +5,7 @@ const Contact = () => {
     firstName: '',
     lastName: '',
     email: '',
+    phone: '',
     subject: '',
     message: '',
   });
@@ -38,6 +39,7 @@ const Contact = () => {
           firstName: '',
           lastName: '',
           email: '',
+          phone: '',
           subject: '',
           message: '',
         });
