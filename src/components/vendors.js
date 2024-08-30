@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
-const vendors = [
+export const vendors = [
   { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png', url: 'https://www.akg.com/' },
   { name: 'AtlasIED', category: 'Audio Systems', image: '/images/logos/atlasied.png', url: 'https://www.atlasied.com/' },
   { name: 'Beyerdynamic', category: 'Audio Systems', image: '/images/logos/beyerdynamic.png', url: 'https://north-america.beyerdynamic.com/' },

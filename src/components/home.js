@@ -8,6 +8,7 @@ import '../App.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { vendors } from './vendors';
 
 const Home = () => {
   const vantaRef = useRef(null);
@@ -177,12 +178,43 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* Who We Work With Section*/}
-      <section>
-
+      {/* Who We Work With Section */}
+      <section
+        className="py-8 bg-white relative overflow-hidden"
+        style={{
+          backgroundImage: "url('https://www.transparenttextures.com/patterns/always-grey.png')",
+          backgroundSize: '50px',
+          backgroundRepeat: 'repeat',
+        }}
+      >
+        <div className="absolute inset-0 bg-blue-600 opacity-50 z-0"></div>
+        <div className="relative z-10 text-center py-4 px-6 mx-auto max-w-screen-lg rounded-lg">
+          <h2 className="text-3xl font-bold text-white mb-4">Who We Work With</h2>
+          <p className="text-white text-lg">
+            We take pride in partnering with a diverse array of industry-leading vendors who are at the forefront of innovation and excellence. Through these collaborations, we are able to offer our clients cutting-edge solutions tailored to meet their unique needs and drive their success in a competitive marketplace.
+          </p>
+        </div>
+        <div className="marquee-container relative z-10 mt-8 overflow-hidden whitespace-nowrap">
+          <div className="marquee-content flex items-center space-x-8 animate-marquee">
+            {vendors.concat(vendors).map((vendor, idx) => (
+              <img
+                key={idx}
+                src={vendor.image}
+                alt={vendor.name}
+                className="h-16 w-32 md:h-24 md:w-48 object-contain"
+              />
+            ))}
+          </div>
+        </div>
+        <div className="relative z-10 text-center mt-6">
+          <a
+            href="/vendors"
+            className="inline-block px-6 lg:px-8 py-3 lg:py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300"
+          >
+            View All Vendors
+          </a>
+        </div>
       </section>
-
-
     </div>
   );
 }

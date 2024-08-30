@@ -81,4 +81,8 @@ div:focus {
     .footnav-links {
         padding-left: 10px;
     }
+
+    .animate-marquee {
+        animation: marquee 60s linear infinite;
+    }   
 }
