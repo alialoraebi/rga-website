@@ -251,7 +251,13 @@ const Home = () => {
       </section>
       {/* Contact Us Section */}
       <section>
-        <div className="bg-gray-100 py-12 lg:py-16 text-center">
+        <div className="bg-gray-100 py-12 lg:py-16 text-center"
+        style={{
+          backgroundImage: "url('https://www.transparenttextures.com/patterns/arches.png')",
+          backgroundSize: '100px',
+          backgroundRepeat: 'repeat',
+        }}
+        >
           <h2 className="text-3xl lg:text-4xl font-bold text-blue-700 mb-4">Thinking About Starting a Project?</h2>
           <p className="text-sm lg:text-lg text-gray-700 mb-4 lg:mb-8">
             We would love to hear from you. Get in touch with us today to discuss your project needs and how we can help.
