@@ -221,7 +221,7 @@ const Home = () => {
         </div>
       </section>
       {/* Who We Worked For Section */}
-      <section className="py-12 bg-white relative overflow-hidden">
+      <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-50 z-0"></div>
         <div className="relative z-10 text-center py-4 px-6 mx-auto max-w-screen-lg rounded-lg bg-opacity-5 backdrop-filter backdrop-blur-md">
           <h2 className="text-3xl font-bold text-blue-700 mb-4">Who We Worked For</h2>
