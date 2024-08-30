@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { vendors } from './vendors';
 
+
 const Home = () => {
   const vantaRef = useRef(null);
   const vantaEffect = useRef(null);
@@ -65,6 +66,10 @@ const Home = () => {
     '../images/projects/mellon.png',
     '../images/projects/nwest.png',
     '../images/projects/sport.png',
+    '../images/projects/catholic-church.png',
+    '../images/projects/KFU.png',
+    '../images/projects/marriott-hotel.png',
+
   ];
 
   const SampleNextArrow = (props) => {
@@ -180,7 +185,7 @@ const Home = () => {
       </section>
       {/* Who We Work With Section */}
       <section
-        className="py-8 bg-white relative overflow-hidden"
+        className="py-32 bg-white relative overflow-hidden"
         style={{
           backgroundImage: "url('https://www.transparenttextures.com/patterns/always-grey.png')",
           backgroundSize: '50px',
@@ -188,8 +193,8 @@ const Home = () => {
         }}
       >
         <div className="absolute inset-0 bg-blue-600 opacity-50 z-0"></div>
-        <div className="relative z-10 text-center py-4 px-6 mx-auto max-w-screen-lg rounded-lg">
-          <h2 className="text-3xl font-bold text-white mb-4">Who We Work With</h2>
+        <div className="relative z-10 text-center py-4 px-6 mx-auto max-w-screen-lg rounded-lg bg-opacity-5 backdrop-filter backdrop-blur-md">
+          <h2 className="text-3xl font-bold text-blue-700 mb-4">Who We Work With</h2>
           <p className="text-white text-lg">
             We take pride in partnering with a diverse array of industry-leading vendors who are at the forefront of innovation and excellence. Through these collaborations, we are able to offer our clients cutting-edge solutions tailored to meet their unique needs and drive their success in a competitive marketplace.
           </p>
@@ -211,7 +216,48 @@ const Home = () => {
             href="/vendors"
             className="inline-block px-6 lg:px-8 py-3 lg:py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300"
           >
-            View All Vendors
+            Explore Our Vendors
+          </a>
+        </div>
+      </section>
+      {/* Who We Worked For Section */}
+      <section className="py-12 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-50 z-0"></div>
+        <div className="relative z-10 text-center py-4 px-6 mx-auto max-w-screen-lg rounded-lg bg-opacity-5 backdrop-filter backdrop-blur-md">
+          <h2 className="text-3xl font-bold text-blue-700 mb-4">Who We Worked For</h2>
+          <p className="text-black text-lg">
+            We are proud to have successfully completed projects for some of the most prestigious organizations and institutions, delivering exceptional results that meet their specific requirements and exceed expectations.
+          </p>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-0 mt-8">
+          {images.map((image, idx) => (
+            <div key={idx} className="aspect-w-1 aspect-h-1">
+              <img
+                src={image}
+                alt={`Project ${idx + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="relative z-10 text-center mt-6">
+          <a
+            href="/projects"
+            className="inline-block px-6 lg:px-8 py-3 lg:py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300"
+          >
+            Explore Our Projects
+          </a>
+        </div>
+      </section>
+      {/* Contact Us Section */}
+      <section>
+        <div className="bg-blue-300 py-12 lg:py-16 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-blue-700 mb-4">Thinking About Starting a Project?</h2>
+          <p className="text-sm lg:text-lg text-gray-700 mb-4 lg:mb-8">
+            We would love to hear from you. Get in touch with us today to discuss your project needs and how we can help.
+          </p>
+          <a href="/contacts" className="inline-block px-6 lg:px-8 py-3 lg:py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300">
+            Contact Us
           </a>
         </div>
       </section>

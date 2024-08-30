@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
-const projects = [
+export const projects = [
     { 
       name: 'Beirut International Airport', 
       category: 'Airports', 
