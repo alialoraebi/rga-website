@@ -138,7 +138,7 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
               className="w-full p-4 border border-gray-300 rounded-lg"
-              rows="5"
+              rows="7"
               required
             />
             <button
