@@ -1,6 +1,30 @@
 import React, { useState } from 'react';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'; // Add Marker
 
-const Contact = () => {
+const containerStyle = {
+  width: '100%',
+  height: '200px',
+  borderRadius: '20px',
+};
+
+const centerQatar = {
+  lat: 25.262575,  
+  lng: 51.495672,  
+};
+
+function Contact() {
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY, 
+  });
+
+  const handleMarkerClick = () => {
+    const googleMapsUrl = `https://www.google.com/maps?q=${centerQatar.lat},${centerQatar.lng}`;
+    if (window.confirm("Do you want to open this location in Google Maps?")) {
+      window.open(googleMapsUrl, '_blank');
+    }
+  };
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -139,8 +163,29 @@ const Contact = () => {
                 Street 340, Unit 44, Building 155, Zone 43<br />
                 P.O. Box 37544<br />
                 Doha, Qatar<br />
-                Number: +974-4498 7522
+                Number: +974-4498 7522<br/>
+                Email: info@rgaqatar.com
               </p>
+              {/* Google Map for Qatar Office */}
+              {isLoaded && (
+                <div className="mt-4">
+                  <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={centerQatar}
+                    zoom={18}
+                    options={{
+                      streetViewControl: false,  
+                      mapTypeControl: false,    
+                    }}
+                  >
+                    {/* Marker for Qatar Location */}
+                    <Marker
+                      position={centerQatar}
+                      onClick={handleMarkerClick}
+                    />
+                  </GoogleMap>
+                </div>
+              )}
             </div>
             <div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">US Office</h3>
@@ -155,6 +200,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Contact;
