@@ -52,7 +52,7 @@ const Services = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-8 lg:py-16">
+    <div className="bg-gray-100 py-8 lg:py-0">
       <div
         className="relative w-full bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '60vh' }}
@@ -86,15 +86,23 @@ const Services = () => {
         ))}
       </div>
 
-      <div className="bg-white py-12 lg:py-16 text-center">
-        <h2 className="text-3xl lg:text-4xl font-bold text-blue-600 mb-4">Thinking About Starting a Project?</h2>
-        <p className="text-sm lg:text-lg text-gray-700 mb-4 lg:mb-8">
-          We would love to hear from you. Get in touch with us today to discuss your project needs and how we can help.
-        </p>
-        <a href="/contacts" className="inline-block px-6 lg:px-8 py-3 lg:py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300">
-          Contact Us
-        </a>
-      </div>
+      <section>
+        <div className="bg-gray-100 py-12 lg:py-16 text-center"
+        style={{
+          backgroundImage: "url('https://www.transparenttextures.com/patterns/arches.png')",
+          backgroundSize: '100px',
+          backgroundRepeat: 'repeat',
+        }}
+        >
+          <h2 className="text-3xl lg:text-4xl font-bold text-blue-700 mb-4">Thinking About Starting a Project?</h2>
+          <p className="text-sm lg:text-lg text-gray-700 mb-4 lg:mb-8">
+            We would love to hear from you. Get in touch with us today to discuss your project needs and how we can help.
+          </p>
+          <a href="/contacts" className="inline-block px-6 lg:px-8 py-3 lg:py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300">
+            Contact Us
+          </a>
+        </div>
+      </section>
     </div>
   );
 };
