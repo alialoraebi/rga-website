@@ -136,10 +136,10 @@ const Contact = () => {
               <p className="text-gray-700">
                 Salwa Road - Midmac Roundabout<br />
                 West Corner Building<br />
-                Street 340, Unit 51, Building 155, Zone 43<br />
+                Street 340, Unit 44, Building 155, Zone 43<br />
                 P.O. Box 37544<br />
                 Doha, Qatar<br />
-                Number: +974-4458 1222
+                Number: +974-4498 7522
               </p>
             </div>
             <div>

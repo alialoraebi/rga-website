@@ -87,10 +87,10 @@ const Footer = () => {
                 <p className="font-bold">Qatar Office</p>
                 <p>Salwa Road - Midmac Roundabout</p>
                 <p>West Corner Building</p>
-                <p>Street 340, Unit 51, Building 155, Zone 43</p>
+                <p>Street 340, Unit 44, Building 155, Zone 43</p>
                 <p>P.O. Box 37544</p>
                 <p>Doha, Qatar</p>
-                <p>Number: +974-4458 1222</p>
+                <p>Number: +974-4498 7522</p>
               </div>
               <div>
                 <p className="font-bold">US Office</p>
