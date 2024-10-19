@@ -1,60 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
-import TOPOLOGY from 'vanta/dist/vanta.topology.min';
-import * as THREE from 'three';
-import p5 from 'p5';
-import debounce from 'lodash.debounce';
+import React from 'react';
 import '../App.css';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
 import { vendors } from './vendors';
 
-
 const Home = () => {
-  const vantaRef = useRef(null);
-  const vantaEffect = useRef(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = debounce(() => {
-      const mobileCheck = window.innerWidth <= 768;
-      setIsMobile(mobileCheck);
-
-      // Only initialize Vanta if not on mobile
-      if (!mobileCheck && !vantaEffect.current && vantaRef.current) {
-        vantaEffect.current = TOPOLOGY({
-          el: vantaRef.current,
-          THREE,
-          p5,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          color: 0x1A80E5,
-          backgroundColor: 0xffffff,
-        });
-      } else if (mobileCheck && vantaEffect.current) {
-        vantaEffect.current.destroy();
-        vantaEffect.current = null;
-      }
-    }, 100);
-
-    handleResize(); // Initialize on mount
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      if (vantaEffect.current) {
-        vantaEffect.current.destroy();
-        vantaEffect.current = null;
-      }
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isMobile]);
 
   const images = [
     '../images/projects/azizhos.png',
@@ -69,71 +18,48 @@ const Home = () => {
     '../images/projects/catholic-church.png',
     '../images/projects/KFU.png',
     '../images/projects/marriott-hotel.png',
-
   ];
-
-  const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <img
-        className={className}
-        style={{ ...style, display: 'block', position: 'absolute', top: '50%', right: '0', transform: 'translateY(-50%)', zIndex: '1000', width: '50px', height: '50px' }}
-        src="../images/icons8-forward-94.png"
-        alt="next"
-        onClick={onClick}
-      />
-    );
-  };
-
-  const SamplePrevArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <img
-        className={className}
-        style={{ ...style, display: 'block', position: 'absolute', top: '50%', left: '0', transform: 'translateY(-50%)', zIndex: '1000', width: '50px', height: '50px' }}
-        src="../images/icons8-back-94.png"
-        alt="prev"
-        onClick={onClick}
-      />
-    );
-  };
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    fade: true,
-  };
 
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section ref={vantaRef} className={`py-24 hero-section overflow-hidden relative ${isMobile ? 'bg-static-image' : ''}`}>
-        <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center z-10 relative">
-          <div className="md:w-1/2">
-            {!isMobile && (
-              <Slider {...settings}>
-                {images.map((image, idx) => (
-                  <div key={idx}>
-                    <img src={image} alt={`Office ${idx}`} className="slider-image" />
-                  </div>
-                ))}
-              </Slider>
-            )}
-          </div>
-          <div className="md:w-1/2 mt-8 md:mt-0 md:ml-14 bg-opacity-30 backdrop-filter backdrop-blur-md p-8" style={{ borderRadius: '50px' }}>
-            <h1 className="text-4xl font-bold text-blue-700 mb-4 text-left sm:text-center">H. Robert Guild Associates Inc.</h1>
-            <p className="text-gray-700 text-lg">
-            H. Robert Guild Associates Inc. is a global firm specializing in audio, video, and electronic design, integration, and consulting. We provide turnkey solutions tailored to the unique needs of corporate, government, education, and residential clients. Our designs leverage the latest technology, and we partner with top-tier manufacturers to ensure a high-quality, seamless customer experience.
-            </p>
-          </div>
+      <section className="hero-section flex items-center justify-center overflow-hidden relative" style={{ minHeight: '90vh', padding: '0 20px' }}>
+        <video 
+          className="absolute inset-0 w-full h-full object-cover" 
+          src="../video/audio.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+        />
+        {/* Main container */}
+        <div className="container mx-auto flex flex-col justify-center items-center text-center z-10 relative">
+          {/* First Subheading */}
+          <p className="text-blue-700 font-bold text-lg lg:text-2xl mb-8 max-w-xl">
+            Delivering World-Class Solutions in Audio, Video, and Electronic Systems Integration
+          </p>
+
+          {/* Main Heading */}
+          <h1 className="text-3xl lg:text-5xl font-bold text-black leading-snug mb-10">
+            Innovating the Future of AV Integration and Consulting: 
+            <br />
+            Empowering Your Vision with Cutting-Edge Technology.
+          </h1>
+
+          {/* Second Subheading / Body */}
+          <p className="text-black text-sm lg:text-lg max-w-6xl mb-8">
+            At Robert Guild Associates Inc., we specialize in providing comprehensive audio, video, and electronic design and integration solutions. Our commitment to excellence and partnerships with leading manufacturers ensure seamless and tailored services for corporate, government, educational, and residential clients worldwide.
+          </p>
         </div>
-        
+
+        {/* Fade effect at the top */}
+        <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent"></div>
+
+        {/* Fade effect at the bottom */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
       </section>
+
+      
       {/* What We Do Section */}
       <section className="py-8 pb-24 wwd-section">
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
@@ -183,6 +109,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       {/* Who We Work With Section */}
       <section
         className="py-32 bg-white relative overflow-hidden"
@@ -220,6 +147,7 @@ const Home = () => {
           </a>
         </div>
       </section>
+
       {/* Who We Worked For Section */}
       <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-50 z-0"></div>
@@ -249,6 +177,7 @@ const Home = () => {
           </a>
         </div>
       </section>
+
       {/* Contact Us Section */}
       <section>
         <div className="bg-gray-100 py-12 lg:py-16 text-center"
