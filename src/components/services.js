@@ -52,7 +52,7 @@ const Services = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-8 lg:py-0">
+    <div className="bg-gray-100 py-0 lg:py-0">
       <div
         className="relative w-full bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '60vh' }}
