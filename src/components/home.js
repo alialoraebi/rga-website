@@ -23,43 +23,59 @@ const Home = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="hero-section flex items-center justify-center overflow-hidden relative" style={{ minHeight: '90vh', padding: '0 20px' }}>
+      <section className="hero-section flex items-center justify-center overflow-hidden relative" style={{ minHeight: '85vh', padding: '0 20px' }}>
         <video 
-          className="absolute inset-0 w-full h-full object-cover" 
+          className="absolute inset-0 w-full h-full object-cover"
           src="../video/audio.mp4" 
           autoPlay 
           loop 
           muted 
           playsInline 
         />
+
         {/* Main container */}
         <div className="container mx-auto flex flex-col justify-center items-center text-center z-10 relative">
           {/* First Subheading */}
-          <p className="text-blue-700 font-bold text-lg lg:text-2xl mb-8 max-w-xl">
+          <p className="text-white font-bold text-lg lg:text-2xl mb-8 max-w-xl">
             Delivering World-Class Solutions in Audio, Video, and Electronic Systems Integration
           </p>
 
           {/* Main Heading */}
-          <h1 className="text-3xl lg:text-5xl font-bold text-black leading-snug mb-10">
+          <h1 className="text-3xl lg:text-5xl font-bold text-white leading-snug mb-10">
             Innovating the Future of AV Integration and Consulting: 
             <br />
             Empowering Your Vision with Cutting-Edge Technology.
           </h1>
 
           {/* Second Subheading / Body */}
-          <p className="text-black text-sm lg:text-lg max-w-6xl mb-8">
+          <p className="text-white text-sm lg:text-lg max-w-6xl mb-8">
             At Robert Guild Associates Inc., we specialize in providing comprehensive audio, video, and electronic design and integration solutions. Our commitment to excellence and partnerships with leading manufacturers ensure seamless and tailored services for corporate, government, educational, and residential clients worldwide.
           </p>
         </div>
+        {/* Flipped sine wave effect at the top */}
+        <div className="absolute top-0 left-0 w-full h-6" 
+          style={{ 
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 10 Q 25 25 50 10 T 100 10 V 0 H 0 Z' fill='white' /></svg>")`, 
+            backgroundRepeat: 'repeat-x', 
+            backgroundSize: '100px 25px' 
+          }}>
+        </div>
 
-        {/* Fade effect at the top */}
-        <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent"></div>
+        {/* Sine wave effect at the bottom */}
+        <div className="absolute bottom-0 left-0 w-full h-6" 
+          style={{ 
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 15 Q 25 0 50 15 T 100 15 V 25 H 0 Z' fill='white' /></svg>")`, 
+            backgroundRepeat: 'repeat-x', 
+            backgroundSize: '100px 25px'
+          }}>
+        </div>
 
-        {/* Fade effect at the bottom */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+
+
+
+
       </section>
 
-      
       {/* What We Do Section */}
       <section className="py-8 pb-24 wwd-section">
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
