@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'; // Add Marker
 
 const containerStyle = {
   width: '100%',
-  height: '200px',
+  height: '300px',
   borderRadius: '20px',
+  boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)', 
+  background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 50%, #8ec5fc 100%)', 
+  border: '1px solid rgba(0, 0, 0, 0.1)', 
+  overflow: 'hidden', 
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease', 
+
 };
 
-const centerQatar = {
-  lat: 25.262575,  
-  lng: 51.495672,  
+const hoverStyle = {
+  transform: 'scale(1.05)', 
+  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)', 
 };
 
 function Contact() {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY, 
-  });
-
-  const handleMarkerClick = () => {
-    const googleMapsUrl = `https://www.google.com/maps?q=${centerQatar.lat},${centerQatar.lng}`;
-    if (window.confirm("Do you want to open this location in Google Maps?")) {
-      window.open(googleMapsUrl, '_blank');
-    }
-  };
+  const [isHovered, setIsHovered] = useState(false);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -138,7 +133,7 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
               className="w-full p-4 border border-gray-300 rounded-lg"
-              rows="7"
+              rows="11"
               required
             />
             <button
@@ -167,25 +162,21 @@ function Contact() {
                 Email: info@rgaqatar.com
               </p>
               {/* Google Map for Qatar Office */}
-              {isLoaded && (
-                <div className="mt-4">
-                  <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={centerQatar}
-                    zoom={18}
-                    options={{
-                      streetViewControl: false,  
-                      mapTypeControl: false,    
-                    }}
-                  >
-                    {/* Marker for Qatar Location */}
-                    <Marker
-                      position={centerQatar}
-                      onClick={handleMarkerClick}
-                    />
-                  </GoogleMap>
-                </div>
-              )}
+              <div className="mt-4">
+                <a
+                  href="https://www.google.com/maps/place/25%C2%B015'45.3%22N+51%C2%B029'44.4%22E/@25.2625813,51.4944266,18z/data=!4m4!3m3!8m2!3d25.2625833!4d51.4956667?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <img
+                    src="/images/rga-map.png"
+                    alt="Map of Our Location"
+                    style={{ ...containerStyle, ...(isHovered ? hoverStyle : {}) }}
+                  />
+                </a>
+              </div>
             </div>
             <div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">US Office</h3>
