@@ -44,6 +44,13 @@ const services = [
   },
 ];
 
+const preloadedImages = {};
+services.forEach(service => {
+  const img = new Image();
+  img.src = service.image;
+  preloadedImages[service.image] = img.src;
+});
+
 const Services = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -53,14 +60,13 @@ const Services = () => {
 
   return (
     <div className="bg-gray-100 py-0 lg:py-0">
-      <div
-        className="relative w-full bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '60vh' }}
-      >
-        <div className="bg-opacity-50 backdrop-filter backdrop-blur-md p-6 lg:p-10 text-center mx-auto w-4/5 max-w-4xl" style={{ borderRadius: '15px', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+      <div className="relative w-full bg-cover bg-center flex items-center justify-center"
+        style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '60vh' }}>
+        <div className="bg-opacity-50 backdrop-filter backdrop-blur-md p-6 lg:p-10 text-center mx-auto w-4/5 max-w-4xl"
+          style={{ borderRadius: '15px', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
           <h1 className="text-4xl lg:text-5xl text-white font-bold">Our Services</h1>
           <p className="text-base lg:text-lg text-white mt-4 lg:mt-6">
-            We are specialists in the design and implementation of audio, video, and control systems for airports, schools, businesses, and performance venues.
+            We are specialists in the design and implementation of audio, video, and control systems.
           </p>
         </div>
       </div>
@@ -73,36 +79,23 @@ const Services = () => {
               onClick={() => handleServiceClick(index)}
             >
               {service.title}
-              <FaChevronDown className={`transition-transform duration-200 ${openIndex === index ? 'transform rotate-180' : ''}`} />
+              <FaChevronDown className={`transition-transform duration-300 ease-in-out ${openIndex === index ? 'rotate-180' : ''}`} />
             </h2>
 
-            <div className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${openIndex === index ? 'max-h-[600px]' : 'max-h-0'}`}>
+            <div className={`transition-all duration-500 ease-in-out ${openIndex === index ? 'opacity-100 max-h-[700px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
               <div className="bg-white p-2 lg:p-4 rounded-lg shadow-lg">
-                <img src={service.image} alt={service.title} className="w-full h-40 lg:h-64 object-cover rounded-lg mb-2 lg:mb-4" loading="lazy" />
+                <img 
+                  src={preloadedImages[service.image]} 
+                  alt={`Illustration for ${service.title} service`} 
+                  className="w-full h-48 lg:h-64 object-cover rounded-lg mb-2 lg:mb-4 transition-opacity duration-500"
+                />
                 <p className="text-sm lg:text-base text-gray-700">{service.description}</p>
               </div>
             </div>
+
           </div>
         ))}
       </div>
-
-      <section>
-        <div className="bg-gray-100 py-12 lg:py-16 text-center"
-        style={{
-          backgroundImage: "url('https://www.transparenttextures.com/patterns/arches.png')",
-          backgroundSize: '100px',
-          backgroundRepeat: 'repeat',
-        }}
-        >
-          <h2 className="text-3xl lg:text-4xl font-bold text-blue-700 mb-4">Thinking About Starting a Project?</h2>
-          <p className="text-sm lg:text-lg text-gray-700 mb-4 lg:mb-8">
-            We would love to hear from you. Get in touch with us today to discuss your project needs and how we can help.
-          </p>
-          <a href="/contacts" className="inline-block px-6 lg:px-8 py-3 lg:py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition duration-300">
-            Contact Us
-          </a>
-        </div>
-      </section>
     </div>
   );
 };
