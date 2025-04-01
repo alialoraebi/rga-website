@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
-const services = [ 
+const services = [
   { 
     title: "Consulting", 
     description: "We provide consulting services for new construction and renovation projects. We can help you develop a technology plan that will meet your current and future needs. Our consulting services include audio, video, lighting, and control systems.",
@@ -44,6 +44,7 @@ const services = [
   },
 ];
 
+// Preload images
 const preloadedImages = {};
 services.forEach(service => {
   const img = new Image();
@@ -52,47 +53,97 @@ services.forEach(service => {
 });
 
 const Services = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndices, setOpenIndices] = useState(new Set());
 
   const handleServiceClick = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndices(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index); // Close if already open
+      } else {
+        newSet.add(index); // Open if closed
+      }
+      return newSet;
+    });
   };
 
   return (
-    <div className="bg-gray-100 py-0 lg:py-0">
-      <div className="relative w-full bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '60vh' }}>
-        <div className="bg-opacity-50 backdrop-filter backdrop-blur-md p-6 lg:p-10 text-center mx-auto w-4/5 max-w-4xl"
-          style={{ borderRadius: '15px', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-          <h1 className="text-4xl lg:text-5xl text-white font-bold">Our Services</h1>
-          <p className="text-base lg:text-lg text-white mt-4 lg:mt-6">
-            We are specialists in the design and implementation of audio, video, and control systems.
+    <div className="bg-white py-0 lg:py-0 overflow-hidden">
+      {/* Hero Section */}
+      <div
+        className="relative w-full bg-cover bg-center flex items-center justify-center"
+        style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '60vh' }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+        <div className="relative z-10 text-center mx-auto w-11/12 max-w-4xl p-8 lg:p-12">
+          <h1 className="text-5xl lg:text-6xl font-extrabold text-white mb-6">
+            <span className="text-transparent bg-clip-text text-white">
+              Our Services
+            </span>
+          </h1>
+          <p className="text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed tracking-wide animate-fade-in-up">
+            We are specialists in the design and implementation of audio, video, and control systems, delivering cutting-edge solutions for every need.
           </p>
         </div>
+        {/* Flipped sine wave effect at the top */}
+        <div
+          className="absolute top-0 left-0 w-full h-6"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 10 Q 25 25 50 10 T 100 10 V 0 H 0 Z' fill='white' /></svg>")`,
+            backgroundRepeat: 'repeat-x',
+            backgroundSize: '100px 25px',
+          }}
+        />
+        {/* Sine wave effect at the bottom */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-6"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 15 Q 25 0 50 15 T 100 15 V 25 H 0 Z' fill='white' /></svg>")`,
+            backgroundRepeat: 'repeat-x',
+            backgroundSize: '100px 25px',
+          }}
+        />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-32 py-8 space-y-4 lg:space-y-8">
+      {/* Services List */}
+      <div className="container mx-auto px-4 lg:px-32 py-8 space-y-12">
         {services.map((service, index) => (
-          <div key={index} className="border-b border-gray-300 pb-4 lg:pb-8">
-            <h2 
-              className="text-xl lg:text-2xl font-bold text-blue-600 mb-2 cursor-pointer flex justify-between items-center"
+          <div
+            key={index}
+            className="group bg-white/90 backdrop-blur-sm rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 transition-all duration-500 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]"
+          >
+            {/* Service Title */}
+            <h2
+              className="text-2xl lg:text-3xl font-bold text-blue-600 p-6 lg:p-8 cursor-pointer flex justify-between items-center transition-colors duration-300 group-hover:text-blue-700"
               onClick={() => handleServiceClick(index)}
             >
               {service.title}
-              <FaChevronDown className={`transition-transform duration-300 ease-in-out ${openIndex === index ? 'rotate-180' : ''}`} />
+              <FaChevronDown
+                className={`text-blue-600 transition-transform duration-300 ease-in-out group-hover:text-blue-700 ${openIndices.has(index) ? 'rotate-180' : ''}`}
+              />
             </h2>
 
-            <div className={`transition-all duration-500 ease-in-out ${openIndex === index ? 'opacity-100 max-h-[700px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
-              <div className="bg-white p-2 lg:p-4 rounded-lg shadow-lg">
-                <img 
-                  src={preloadedImages[service.image]} 
-                  alt={`Illustration for ${service.title} service`} 
-                  className="w-full h-48 lg:h-64 object-cover rounded-lg mb-2 lg:mb-4 transition-opacity duration-500"
+            {/* Expandable Content */}
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out`}
+              style={{ 
+                maxHeight: openIndices.has(index) ? '700px' : '0',
+                opacity: openIndices.has(index) ? 1 : 0,
+                padding: openIndices.has(index) ? '1.5rem 2rem' : '0 2rem',
+                marginTop: openIndices.has(index) ? '0' : '-20px',
+              }}
+            >
+              <div className="flex flex-col lg:flex-row gap-6">
+                <img
+                  src={preloadedImages[service.image]}
+                  alt={`Illustration for ${service.title} service`}
+                  className="w-full lg:w-1/2 h-48 lg:h-64 object-cover rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105"
                 />
-                <p className="text-sm lg:text-base text-gray-700">{service.description}</p>
+                <p className="text-base lg:text-lg text-gray-700 flex-1 leading-relaxed">
+                  {service.description}
+                </p>
               </div>
             </div>
-
           </div>
         ))}
       </div>

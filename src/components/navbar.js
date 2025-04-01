@@ -6,9 +6,9 @@ function Navbar() {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      document.body.style.overflow = 'hidden'; 
     } else {
-      document.body.style.overflow = 'auto'; // Re-enable background scrolling
+      document.body.style.overflow = 'auto'; 
     }
   }, [isOpen]);
 
