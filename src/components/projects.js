@@ -165,7 +165,16 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.name}
-                    className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 rounded"
+                    className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 rounded select-none"
+                    style={{ 
+                      WebkitUserDrag: 'none',
+                      userSelect: 'none',
+                      MozUserSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      msUserSelect: 'none'
+                    }}
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
                   />
                 </div>
                 <p className="mt-4 text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
@@ -208,7 +217,16 @@ const Projects = () => {
             <img
               src={selectedProject.image}
               alt={selectedProject.name}
-              className="object-cover w-full h-64 rounded-lg mb-6 shadow-md"
+              className="object-cover w-full h-64 rounded-lg mb-6 shadow-md select-none"
+              style={{ 
+                WebkitUserDrag: 'none',
+                userSelect: 'none',
+                MozUserSelect: 'none',
+                WebkitUserSelect: 'none',
+                msUserSelect: 'none'
+              }}
+              draggable="false"
+              onContextMenu={(e) => e.preventDefault()}
             />
             <h2 className="text-3xl font-bold text-blue-600 mb-4">{selectedProject.name}</h2>
             <p className="text-lg text-gray-700 leading-relaxed">{selectedProject.description}</p>

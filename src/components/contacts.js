@@ -174,8 +174,18 @@ function Contact() {
                   <img
                     src="/images/rga-map.png"
                     alt="Map of Our Location"
-                    style={{ ...containerStyle, ...(isHovered ? hoverStyle : {}) }}
-                    className="transform transition-all duration-500 hover:scale-105"
+                    style={{ 
+                      ...containerStyle, 
+                      ...(isHovered ? hoverStyle : {}),
+                      WebkitUserDrag: 'none',
+                      userSelect: 'none',
+                      MozUserSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      msUserSelect: 'none'
+                    }}
+                    className="transform transition-all duration-500 hover:scale-105 select-none"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
                   />
                 </a>
               </div>

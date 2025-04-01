@@ -108,7 +108,16 @@ const Home = () => {
                 key={idx}
                 src={vendor.image}
                 alt={vendor.name}
-                className="h-16 w-32 md:h-24 md:w-48 object-contain"
+                className="h-16 w-32 md:h-24 md:w-48 object-contain select-none"
+                style={{ 
+                  WebkitUserDrag: 'none',
+                  userSelect: 'none',
+                  MozUserSelect: 'none',
+                  WebkitUserSelect: 'none',
+                  msUserSelect: 'none'
+                }}
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
               />
             ))}
           </div>
@@ -139,7 +148,16 @@ const Home = () => {
               <img
                 src={image}
                 alt={`Project ${idx + 1}`}
-                className="w-full h-full object-cover rounded-lg shadow-md transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                className="w-full h-full object-cover rounded-lg shadow-md transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] select-none"
+                style={{ 
+                  WebkitUserDrag: 'none',
+                  userSelect: 'none',
+                  MozUserSelect: 'none',
+                  WebkitUserSelect: 'none',
+                  msUserSelect: 'none'
+                }}
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
           ))}

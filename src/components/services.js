@@ -137,7 +137,16 @@ const Services = () => {
                 <img
                   src={preloadedImages[service.image]}
                   alt={`Illustration for ${service.title} service`}
-                  className="w-full lg:w-1/2 h-48 lg:h-64 object-cover rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105"
+                  className="w-full lg:w-1/2 h-48 lg:h-64 object-cover rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105 select-none"
+                  style={{ 
+                    WebkitUserDrag: 'none',
+                    userSelect: 'none',
+                    MozUserSelect: 'none',
+                    WebkitUserSelect: 'none',
+                    msUserSelect: 'none'
+                  }}
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
                 />
                 <p className="text-base lg:text-lg text-gray-700 flex-1 leading-relaxed">
                   {service.description}

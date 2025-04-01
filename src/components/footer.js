@@ -31,7 +31,18 @@ const Footer = () => {
           <img
             src="../images/logo.png"
             alt="Robert Guild Associates Logo"
-            className="w-64 h-auto object-contain"
+            className="w-80 sm:w-96 h-auto object-contain max-w-none select-none"
+            style={{ 
+              maxWidth: '100%', 
+              width: '400px',
+              WebkitUserDrag: 'none',
+              userSelect: 'none',
+              MozUserSelect: 'none',
+              WebkitUserSelect: 'none',
+              msUserSelect: 'none'
+            }}
+            draggable="false"
+            onContextMenu={(e) => e.preventDefault()}
           />
         </div>
 

@@ -107,7 +107,16 @@ const Vendors = () => {
                   <img
                     src={vendor.image}
                     alt={vendor.name}
-                    className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105"
+                    className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 select-none"
+                    style={{ 
+                      WebkitUserDrag: 'none',
+                      userSelect: 'none',
+                      MozUserSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      msUserSelect: 'none'
+                    }}
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
                   />
                 </div>
                 <p className="mt-4 text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
