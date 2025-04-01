@@ -66,7 +66,7 @@ const About = () => {
 
       {/* Certifications Section */}
       <section className="mb-24">
-        <h2 className="text-4xl font-extrabold text-center mb-16">
+        <h2 className="text-4xl font-extrabold text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
           Our Industry Certifications
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
