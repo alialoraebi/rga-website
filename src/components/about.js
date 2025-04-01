@@ -71,15 +71,15 @@ const About = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
           {[
-            "IED master certified contractor",
+            "IED Master Certified Contractor",
             "Crown IQ",
-            "QSC venue manager",
-            "QSC level 2 designer",
+            "QSC Venue Manager",
+            "QSC Level 2 Designer",
             "SynAudCon",
-            "TEF systems and software",
-            "Symetrix software design",
-            "Crestron programming",
-            "Dante certified"
+            "TEF Systems & Software",
+            "Symetrix Software Design",
+            "Crestron Programming",
+            "Dante Certified"
           ].map((certification, index) => (
             <div
               key={index}
