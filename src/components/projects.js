@@ -85,6 +85,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('Show All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [showCategories, setShowCategories] = useState(false);
+  const scrollPositionRef = React.useRef(0);
 
   useEffect(() => {
     setSelectedCategory('Show All');
@@ -92,13 +93,33 @@ const Projects = () => {
 
   useEffect(() => {
     if (selectedProject) {
+      // Store current scroll position
+      scrollPositionRef.current = window.pageYOffset;
+      
+      // Apply multiple techniques to prevent scrolling
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollPositionRef.current}px`;
+      document.body.style.width = '100%';
+      document.body.style.touchAction = 'none';
     } else {
+      // Restore scrolling and position
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.touchAction = '';
+      
+      // Restore scroll position
+      window.scrollTo(0, scrollPositionRef.current);
     }
     
     return () => {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.touchAction = '';
     };
   }, [selectedProject]);
 
