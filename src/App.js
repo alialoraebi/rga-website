@@ -13,16 +13,18 @@ import Contact from './components/contacts'
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App bg-white min-h-screen flex flex-col">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services/>} />
-          <Route path="/vendors" element={<Vendors/>} />
-          <Route path="/projects" element={<Projects/>} />
-          <Route path="/contacts" element={<Contact/>} />
-        </Routes>
+        <div className="flex-grow bg-white">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services/>} />
+            <Route path="/vendors" element={<Vendors/>} />
+            <Route path="/projects" element={<Projects/>} />
+            <Route path="/contacts" element={<Contact/>} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </Router>
