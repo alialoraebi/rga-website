@@ -114,7 +114,7 @@ const Services = () => {
           >
             {/* Service Title */}
             <h2
-              className="text-2xl lg:text-3xl font-bold text-blue-600 p-6 lg:p-8 cursor-pointer flex justify-between items-center transition-colors duration-300 group-hover:text-blue-700"
+              className="text-2xl lg:text-3xl mb-4 font-bold text-blue-600 p-6 lg:p-8 cursor-pointer flex justify-between items-center transition-colors duration-300 group-hover:text-blue-700"
               onClick={() => handleServiceClick(index)}
             >
               {service.title}
