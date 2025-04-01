@@ -90,6 +90,18 @@ const Projects = () => {
     setSelectedCategory('Show All');
   }, []);
 
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject]);
+
   const filteredProjects = selectedCategory === 'Show All'
     ? projects
     : projects.filter(project => project.category === selectedCategory);
@@ -128,26 +140,28 @@ const Projects = () => {
             className="flex items-center justify-between w-full h-14 px-6 bg-white/90 backdrop-blur-sm text-blue-600 font-bold rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
           >
             <span>{selectedCategory}</span>
-            <FaChevronDown className={`transform transition-transform duration-300 ${showCategories ? 'rotate-180' : ''}`} />
+            <FaChevronDown className={`transform transition-transform duration-500 ${showCategories ? 'rotate-180' : ''}`} />
           </button>
           <div
-            className={`flex flex-col mt-4 space-y-3 overflow-hidden transition-all duration-500 ease-in-out ${
-              showCategories ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            className={`mt-4 overflow-hidden transition-all duration-700 ease-in-out ${
+              showCategories ? 'max-h-[1000px]' : 'max-h-0'
             }`}
           >
-            {categories.map((category, index) => (
-              <button
-                key={index}
-                onClick={() => handleCategorySelect(category)}
-                className={`w-full h-12 text-center flex items-center justify-center font-bold rounded-lg transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-blue-500 to-blue-900 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
-                    : 'bg-white/80 text-blue-600 border border-blue-200/30 hover:bg-blue-50 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)]'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+            <div className="flex flex-col space-y-3">
+              {categories.map((category, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleCategorySelect(category)}
+                  className={`w-full h-12 min-h-12 max-h-12 text-center flex items-center justify-center font-bold rounded-lg transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'bg-gradient-to-r from-blue-500 to-blue-900 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
+                      : 'bg-white/80 text-blue-600 border border-blue-200/30 hover:bg-blue-50 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)]'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -184,7 +198,7 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Desktop Category Sidebar */}
+          {/* Category Menu */}
           <div className="hidden lg:flex flex-col space-y-4 w-64">
             {categories.map((category, index) => (
               <button
@@ -205,7 +219,7 @@ const Projects = () => {
 
       {/* Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300">
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300 px-4 sm:px-6">
           <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_0_25px_rgba(59,130,246,0.3)] border border-blue-200/30 p-8 max-w-3xl w-full relative transform transition-all duration-500 scale-100">
             <button
               onClick={closeModal}
