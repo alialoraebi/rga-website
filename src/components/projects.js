@@ -111,7 +111,10 @@ const Projects = () => {
       document.body.style.touchAction = '';
       
       // Restore scroll position
-      window.scrollTo(0, scrollPositionRef.current);
+      window.scrollTo({
+        top: scrollPositionRef.current,
+        behavior: 'smooth'
+      });
     }
     
     return () => {
