@@ -103,18 +103,21 @@ const Projects = () => {
       document.body.style.width = '100%';
       document.body.style.touchAction = 'none';
     } else {
-      // Restore scrolling and position
+      // Get the stored scroll position
+      const scrollPosition = scrollPositionRef.current;
+      
+      // First scroll to position instantly (without animation)
+      window.scrollTo(0, scrollPosition);
+      
+      // Then restore scrolling and position
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.touchAction = '';
       
-      // Restore scroll position
-      window.scrollTo({
-        top: scrollPositionRef.current,
-        behavior: 'smooth'
-      });
+      // Remove the smooth scroll behavior since we already repositioned instantly
+      // This avoids the visible jump + scroll effect
     }
     
     return () => {
