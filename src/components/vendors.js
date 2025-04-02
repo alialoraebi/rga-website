@@ -57,9 +57,12 @@ const Vendors = () => {
     <div className="bg-white min-h-screen py-12 px-4 sm:px-8 lg:px-20 overflow-hidden">
       <div className="container mx-auto">
         {/* Header */}
-        <h1 className="text-5xl font-extrabold text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
-          Our Vendors
-        </h1>
+        <div className="mb-6">
+          <h1 className="text-5xl font-extrabold text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 pb-1 leading-relaxed">
+            Our Vendors
+          </h1>
+        </div>
+
 
         {/* Mobile Category Dropdown */}
         <div className="lg:hidden mb-12">
