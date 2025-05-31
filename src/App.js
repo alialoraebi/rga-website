@@ -8,6 +8,7 @@ import Services from './components/services'
 import Vendors from './components/vendors'
 import Projects from './components/projects'
 import Contact from './components/contacts'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
