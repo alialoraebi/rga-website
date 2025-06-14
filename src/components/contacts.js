@@ -159,7 +159,7 @@ function Contact() {
                 Street 340, Unit 44, Building 155, Zone 43<br />
                 P.O. Box 37544<br />
                 Doha, Qatar<br />
-                Number: <a href="tel:+97444987522" className="hover:text-blue-600 transition-colors duration-200">+974-4498 7522</a><br />
+                Number: <a href="tel:+97444581222" className="hover:text-blue-600 transition-colors duration-200">+974 4458 1222</a><br/>
                 Email: <a href="mailto:info@rgaqatar.com" className="hover:text-blue-600 transition-colors duration-200">info@rgaqatar.com</a>
               </p>
               {/* Google Map for Qatar Office */}

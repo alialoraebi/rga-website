@@ -32,8 +32,8 @@ const Footer = () => {
             src="../images/logo.png"
             alt="Robert Guild Associates Logo"
             className="w-80 sm:w-96 h-auto object-contain max-w-none select-none"
-            style={{ 
-              maxWidth: '100%', 
+            style={{
+              maxWidth: '100%',
               width: '400px',
               WebkitUserDrag: 'none',
               userSelect: 'none',
@@ -64,11 +64,10 @@ const Footer = () => {
               <button
                 key={index}
                 onClick={() => handleScrollToTop(link.path)}
-                className={`w-full text-center flex items-center justify-center font-medium rounded-lg transition-all duration-300 px-4 py-2 ${
-                  location.pathname === link.path
+                className={`w-full text-center flex items-center justify-center font-medium rounded-lg transition-all duration-300 px-4 py-2 ${location.pathname === link.path
                     ? 'bg-gradient-to-r from-blue-500 to-blue-900 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
                     : 'bg-white/80 text-blue-600 border border-blue-200/30 hover:bg-blue-50 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)]'
-                }`}
+                  }`}
               >
                 {link.label}
               </button>
@@ -88,7 +87,7 @@ const Footer = () => {
                 <p>Street 340, Unit 44, Building 155, Zone 43</p>
                 <p>P.O. Box 37544</p>
                 <p>Doha, Qatar</p>
-                <p>Number: <a href="tel:+97444987522" className="hover:text-blue-600 transition-colors duration-200">+974-4498 7522</a></p>
+                <p>Number: <a href="tel:+97444581222" className="hover:text-blue-600 transition-colors duration-200">+974 4458 1222</a></p>
               </div>
               <div>
                 <p className="font-semibold text-gray-800">US Office</p>
