@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { imageProps } from '../imageProps';
 
 const Footer = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const Footer = () => {
         {/* Logo Section */}
         <div className="flex-shrink-0 mb-6 md:mb-0 md:w-1/3 flex justify-center md:justify-start">
           <img
-            src="../images/logo.png"
+            {...imageProps('/images/logo.png', { sizes: '(max-width: 432px) calc(100vw - 32px), 400px' })}
             alt="Robert Guild Associates Logo"
             className="w-80 sm:w-96 h-auto object-contain max-w-none select-none"
             style={{

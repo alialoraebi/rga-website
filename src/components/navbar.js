@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { imageProps } from '../imageProps';
 
 const links = [
   { path: '/', label: 'Home' },
@@ -42,7 +43,7 @@ function Navbar() {
           <div className="min-w-0 mr-4 z-50">
             <img
               className="h-auto max-h-20 w-auto max-w-full"
-              src='../images/logo.png'
+              {...imageProps('/images/logo.png', { sizes: '(max-width: 400px) 65vw, 320px', loading: 'eager', fetchpriority: 'high' })}
               alt="Robert Guild Associates"
             />
           </div>

@@ -1,5 +1,6 @@
 import React, { useId, useLayoutEffect, useRef, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
+import { imageProps } from '../imageProps';
 
 const services = [
   { 
@@ -44,16 +45,9 @@ const services = [
   },
 ];
 
-// Preload images
-const preloadedImages = {};
-services.forEach(service => {
-  const img = new Image();
-  img.src = service.image;
-  preloadedImages[service.image] = img.src;
-});
-
 const Services = () => {
   const [openIndices, setOpenIndices] = useState(new Set());
+  const [loadedIndices, setLoadedIndices] = useState(new Set());
   const heroClipId = useId();
   const heroRef = useRef(null);
   const waveRef = useRef(null);
@@ -84,6 +78,7 @@ const Services = () => {
   }, []);
 
   const handleServiceClick = (index) => {
+    setLoadedIndices(prev => new Set(prev).add(index));
     setOpenIndices(prev => {
       const newSet = new Set(prev);
       if (newSet.has(index)) {
@@ -112,9 +107,14 @@ const Services = () => {
         </svg>
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/audiostuffs.png')", clipPath: `url(#${heroClipId})` }}
+          className="absolute inset-0"
+          style={{ clipPath: `url(#${heroClipId})` }}
         >
+          <img
+            {...imageProps('/images/audiostuffs.png', { sizes: '100vw', loading: 'eager', fetchpriority: 'high' })}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/70" />
         </div>
         <div className="relative z-10 text-center mx-auto w-11/12 max-w-4xl p-8 lg:p-12">
@@ -165,7 +165,7 @@ const Services = () => {
               <div className="min-h-0 overflow-hidden">
               <div className="flex flex-col lg:flex-row gap-6 px-6 pb-6 lg:px-8 lg:pb-8">
                 <img
-                  src={preloadedImages[service.image]}
+                  {...(loadedIndices.has(index) ? imageProps(service.image, { sizes: '(min-width: 1024px) 40vw, calc(100vw - 80px)', loading: 'eager' }) : {})}
                   alt={`Illustration for ${service.title} service`}
                   className="w-full lg:w-1/2 h-48 lg:h-64 object-cover rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105 select-none"
                   style={{ 

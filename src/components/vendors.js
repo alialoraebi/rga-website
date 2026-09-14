@@ -1,28 +1,8 @@
 import React, { useState } from 'react';
+import { imageProps } from '../imageProps';
 
-export const vendors = [
-  { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png', url: 'https://www.akg.com/' },
-  { name: 'AtlasIED', category: 'Audio Systems', image: '/images/logos/atlasied.png', url: 'https://www.atlasied.com/' },
-  { name: 'Beyerdynamic', category: 'Audio Systems', image: '/images/logos/beyerdynamic.png', url: 'https://north-america.beyerdynamic.com/' },
-  { name: 'Biamp', category: 'Control Systems', image: '/images/logos/biamp.png', url: 'https://www.biamp.com/' },
-  { name: 'Countryman', category: 'Audio Systems', image: '/images/logos/countryman.png', url: 'https://www.countryman.com/' },
-  { name: 'Crestron', category: 'Control Systems', image: '/images/logos/crestron.png', url: 'https://www.crestron.com/' },
-  { name: 'Crown', category: 'Audio Systems', image: '/images/logos/crown.png', url: 'https://www.crownaudio.com/' },
-  { name: 'Draper', category: 'Video Systems', image: '/images/logos/draper.png', url: 'https://www.draperinc.com/' },
-  { name: 'Electro-Voice', category: 'Audio Systems', image: '/images/logos/electro-voice.png', url: 'https://www.electrovoice.com/' },
-  { name: 'Harman International', category: 'Audio Systems', image: '/images/logos/harman.png', url: 'https://www.harman.com/' },
-  { name: 'JBL Professional', category: 'Audio Systems', image: '/images/logos/jblpro.png', url: 'https://jblpro.com/' },
-  { name: 'Legrand AV', category: 'Video Systems', image: '/images/logos/legrandav.png', url: 'https://www.legrandav.com/' },
-  { name: 'Mackie', category: 'Audio Systems', image: '/images/logos/mackie.png', url: 'https://mackie.com/' },
-  { name: 'Middle Atlantic Products', category: 'Audio Systems', image: '/images/logos/middle-atlantic.png', url: 'https://www.middleatlantic.com/' },
-  { name: 'Panasonic', category: 'Video Systems', image: '/images/logos/panasonic.png', url: 'https://www.panasonic.com/' },
-  { name: 'Penton Audio USA', category: 'Audio Systems', image: '/images/logos/penton.png', url: 'https://penton-usa.com/' },
-  { name: 'QSC', category: 'Audio Systems', image: '/images/logos/qsc.png', url: 'https://www.qsc.com/' },
-  { name: 'RDL (Radio Design Labs)', category: 'Audio Systems', image: '/images/logos/rdl.png', url: 'https://www.rdlnet.com/' },
-  { name: 'Renkus-Heinz', category: 'Audio Systems', image: '/images/logos/renkus-heinz.png', url: 'https://www.renkus-heinz.com/' },
-  { name: 'Shure', category: 'Audio Systems', image: '/images/logos/shure.png', url: 'https://www.shure.com/' },
-  { name: 'Soundcraft', category: 'Audio Systems', image: '/images/logos/soundcraft.png', url: 'https://www.soundcraft.com/' }
-];
+import { vendors } from '../catalogData';
+export { vendors } from '../catalogData';
 
 const categories = [
   'Show All', 
@@ -76,7 +56,7 @@ const Vendors = () => {
               >
                 <div className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 flex items-center justify-center h-40 transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] group-hover:border-blue-400/50">
                   <img
-                    src={vendor.image}
+                    {...imageProps(vendor.image, { sizes: '(min-width: 1024px) 160px, (min-width: 640px) 180px, 35vw', loading: index < 6 ? 'eager' : 'lazy' })}
                     alt=""
                     className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 select-none"
                     style={{ 

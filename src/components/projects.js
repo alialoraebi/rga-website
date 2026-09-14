@@ -1,74 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
+import { imageProps } from '../imageProps';
 
-export const projects = [
-  { 
-    name: 'Beirut International Airport', 
-    category: 'Airports', 
-    image: '/images/projects/beirut.png', 
-    description: 'Located in Beirut, Lebanon, this project involved the implementation of a comprehensive Public Address System, Emergency Audio Evacuation System, and Courtesy Flight Announcement System across 23 gates.' 
-  },
-  { 
-    name: 'Carnegie Mellon University', 
-    category: 'Universities', 
-    image: '/images/projects/mellon.png', 
-    description: 'Located in Doha, Qatar, the project involved the design and integration of Digital Audio/Visual Systems across 36 classrooms and two 70-person lecture halls, along with Digital Signage, Audio/Video Conferencing, Video Wall, and Custom Media Consoles.' 
-  },
-  { 
-    name: 'Catholic Church of Our Lady of the Rosary', 
-    category: 'House of Worship', 
-    image: '/images/projects/catholic-church.png', 
-    description: 'Located in Doha, Qatar, this project involved the complete design and calibration of the church\'s audio system, including the installation of wireless microphones to ensure seamless communication during services.' 
-  },
-  { 
-    name: 'Hamad International Airport', 
-    category: 'Airports', 
-    image: '/images/projects/hamad.png', 
-    description: 'Situated in Doha, Qatar, this airport features over 400 steerable line arrays across 53 gates, serving 30-40 million annual passengers. The project includes a System Wide Airport Public Address, Emergency Evacuation/Paging, Flight Announcements, and Courtesy Announcements.'
-  },
-  { 
-    name: 'Islamic Development Bank', 
-    category: 'Financial Centers', 
-    image: '/images/projects/idb.png', 
-    description: 'Situated in Jeddah, Saudi Arabia, this project was the first commercial building to use a fully automated emergency public address system. It includes System Wide Public Address, Audio Emergency Paging, CCTV & MATV Systems, and Multi-Media Conference Rooms.' 
-  },
-  { 
-    name: 'Khalifa Sports Hall', 
-    category: 'Sport Stadiums', 
-    image: '/images/projects/sport.png', 
-    description: 'Located in Doha, Qatar, this multi-venue sports complex, which hosted the 2006 Asian Games, features a System Wide Public Address System and an Emergency Announcement/Evacuation Mass Notification System across 10 sports venues.' 
-  },
-  { 
-    name: 'King Abdul Aziz Hospital', 
-    category: 'Hospitals', 
-    image: '/images/projects/azizhos.png', 
-    description: 'Located in Riyadh, Saudi Arabia, this 690-bed hospital features a Nurse Call System, Intercom System, Music and Paging System, Medical Staff Pocket Paging System, MATV System, and an Operating Room TV Recording Studio System.'
-  },
-  { 
-    name: 'King Fahd International Airport', 
-    category: 'Airports', 
-    image: '/images/projects/king-airport.png', 
-    description: 'Located in Dammam, Saudi Arabia, this airport project included the design and installation of conference room sound systems, multi-format video systems, TV studio systems, and various projection solutions across 31 gates.'
-  },
-  { 
-    name: 'King Faisal University—Conference Center', 
-    category: 'Universities', 
-    image: '/images/projects/KFU.png', 
-    description: 'Situated in Dammam, Saudi Arabia, this conference center has hosted over 66 international conferences. The project involved the installation of a Delegate Congress Microphone System, Audio System, and Simultaneous Interpretation System.'
-  },
-  { 
-    name: 'Marriott Hotel', 
-    category: 'Hotels', 
-    image: '/images/projects/marriott-hotel.png', 
-    description: 'Located in Amman, Jordan, this hotel features 292 guest rooms and five restaurants. The project included the installation of Public Area Music and Paging Systems, Ballroom Combining Sound Systems, and Multi-Selection Music Systems for hotel rooms.'
-  },
-  { 
-    name: 'NorthWestern University', 
-    category: 'Universities', 
-    image: '/images/projects/nwest.png', 
-    description: 'Also in Doha, Qatar, this project includes the design and integration of Audio/Visual Systems in 15 seminar rooms and a 120-seat lecture hall with JBL Synthesis surround sound, alongside Digital Signage and Video Conferencing solutions.' 
-  }
-];
+import { projects } from '../catalogData';
+export { projects } from '../catalogData';
 
 const categories = [
   'Show All', 
@@ -151,7 +86,7 @@ const Projects = () => {
               >
                 <span className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 flex items-center justify-center h-40 transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] group-hover:border-blue-400/50">
                   <img
-                    src={project.image}
+                    {...imageProps(project.image, { sizes: '(min-width: 1024px) 160px, (min-width: 640px) 180px, 35vw', loading: index < 6 ? 'eager' : 'lazy' })}
                     alt=""
                     className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 rounded select-none"
                     style={{ 
@@ -211,7 +146,7 @@ const Projects = () => {
               Back
             </button>
             <img
-              src={selectedProject.image}
+              {...imageProps(selectedProject.image, { sizes: '(min-width: 768px) 704px, calc(100vw - 80px)', loading: 'eager' })}
               alt={selectedProject.name}
               className="object-cover w-full h-64 rounded-lg mb-6 shadow-md select-none"
               style={{ 

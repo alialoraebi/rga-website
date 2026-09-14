@@ -23,6 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "images:optimize": "node scripts/optimize-images.cjs",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -49,6 +50,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
+    "sharp": "^0.35.4",
     "tailwindcss": "^3.4.4"
   }
 }

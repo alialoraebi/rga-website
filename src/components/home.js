@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import '../App.css';
 import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
-import { vendors } from './vendors';
-import { projects } from './projects';
+import { vendors, projects } from '../catalogData';
+import { imageProps } from '../imageProps';
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -126,7 +126,7 @@ const Home = () => {
             {vendors.map((vendor, idx) => (
               <img
                 key={idx}
-                src={vendor.image}
+                {...imageProps(vendor.image, { sizes: '(min-width: 768px) 192px, 128px' })}
                 alt={vendor.name}
                 className="h-16 w-32 md:h-24 md:w-48 max-w-full object-contain select-none"
                 style={{ 
@@ -166,7 +166,7 @@ const Home = () => {
           {images.map((image, idx) => (
             <div key={idx} className="aspect-w-1 aspect-h-1 group">
               <img
-                src={image}
+                {...imageProps(image, { sizes: '(min-width: 1024px) 200px, (min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw' })}
                 alt={projects.find((project) => `..${project.image}` === image)?.name || 'Barzan Camp'}
                 className="w-full h-full object-cover rounded-lg shadow-md transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] select-none"
                 style={{ 

@@ -1,0 +1,1088 @@
+{
+  "/images/audiostuffs.png": [
+    {
+      "src": "/images/optimized/audiostuffs-640-3d666ed91566.webp",
+      "width": 640,
+      "height": 259,
+      "bytes": 28840
+    },
+    {
+      "src": "/images/optimized/audiostuffs-960-d245d046faf2.webp",
+      "width": 960,
+      "height": 389,
+      "bytes": 46148
+    },
+    {
+      "src": "/images/optimized/audiostuffs-1600-e712b63cdf0b.webp",
+      "width": 1600,
+      "height": 649,
+      "bytes": 82668
+    },
+    {
+      "src": "/images/optimized/audiostuffs-2050-5aeb11a42f86.webp",
+      "width": 2050,
+      "height": 831,
+      "bytes": 109326
+    }
+  ],
+  "/images/logo.png": [
+    {
+      "src": "/images/optimized/logo-320-7c7cece5095c.webp",
+      "width": 320,
+      "height": 79,
+      "bytes": 11364
+    },
+    {
+      "src": "/images/optimized/logo-640-8b3494d230a9.webp",
+      "width": 640,
+      "height": 158,
+      "bytes": 28798
+    },
+    {
+      "src": "/images/optimized/logo-800-57197bec1d1a.webp",
+      "width": 800,
+      "height": 197,
+      "bytes": 37948
+    }
+  ],
+  "/images/logos/akg.png": [
+    {
+      "src": "/images/optimized/logos-akg-160-7fb8c95d158b.webp",
+      "width": 160,
+      "height": 62,
+      "bytes": 2456
+    },
+    {
+      "src": "/images/optimized/logos-akg-320-ab921c7c6206.webp",
+      "width": 320,
+      "height": 124,
+      "bytes": 4900
+    },
+    {
+      "src": "/images/optimized/logos-akg-480-602debce9fd1.webp",
+      "width": 480,
+      "height": 186,
+      "bytes": 7290
+    }
+  ],
+  "/images/logos/atlas-sound.png": [
+    {
+      "src": "/images/optimized/logos-atlas-sound-160-84628613c76a.webp",
+      "width": 160,
+      "height": 49,
+      "bytes": 4098
+    },
+    {
+      "src": "/images/optimized/logos-atlas-sound-320-8d1dd66e1ab1.webp",
+      "width": 320,
+      "height": 98,
+      "bytes": 9330
+    },
+    {
+      "src": "/images/optimized/logos-atlas-sound-480-cea08cf96227.webp",
+      "width": 480,
+      "height": 146,
+      "bytes": 14640
+    }
+  ],
+  "/images/logos/atlasied.png": [
+    {
+      "src": "/images/optimized/logos-atlasied-160-ed081ee4cbf1.webp",
+      "width": 160,
+      "height": 42,
+      "bytes": 4164
+    },
+    {
+      "src": "/images/optimized/logos-atlasied-320-f6dca33b918f.webp",
+      "width": 320,
+      "height": 84,
+      "bytes": 9668
+    },
+    {
+      "src": "/images/optimized/logos-atlasied-480-76d3bb2c0c98.webp",
+      "width": 480,
+      "height": 126,
+      "bytes": 14782
+    }
+  ],
+  "/images/logos/beyerdynamic.png": [
+    {
+      "src": "/images/optimized/logos-beyerdynamic-160-9a58e520c519.webp",
+      "width": 160,
+      "height": 16,
+      "bytes": 1600
+    },
+    {
+      "src": "/images/optimized/logos-beyerdynamic-300-d336956da0ac.webp",
+      "width": 300,
+      "height": 30,
+      "bytes": 2118
+    }
+  ],
+  "/images/logos/biamp.png": [
+    {
+      "src": "/images/optimized/logos-biamp-160-9ba49e43229e.webp",
+      "width": 160,
+      "height": 52,
+      "bytes": 2524
+    },
+    {
+      "src": "/images/optimized/logos-biamp-320-7dceb6583c93.webp",
+      "width": 320,
+      "height": 103,
+      "bytes": 5058
+    },
+    {
+      "src": "/images/optimized/logos-biamp-480-319aec58f84f.webp",
+      "width": 480,
+      "height": 155,
+      "bytes": 8230
+    }
+  ],
+  "/images/logos/countryman.png": [
+    {
+      "src": "/images/optimized/logos-countryman-160-b8ad922b28a9.webp",
+      "width": 160,
+      "height": 89,
+      "bytes": 2944
+    },
+    {
+      "src": "/images/optimized/logos-countryman-320-f1c43099e07c.webp",
+      "width": 320,
+      "height": 178,
+      "bytes": 6684
+    },
+    {
+      "src": "/images/optimized/logos-countryman-480-4d126468b6a8.webp",
+      "width": 480,
+      "height": 267,
+      "bytes": 9940
+    }
+  ],
+  "/images/logos/crestron.png": [
+    {
+      "src": "/images/optimized/logos-crestron-160-b20a8e1bef83.webp",
+      "width": 160,
+      "height": 18,
+      "bytes": 3630
+    },
+    {
+      "src": "/images/optimized/logos-crestron-178-f3a42fff82bc.webp",
+      "width": 178,
+      "height": 20,
+      "bytes": 2320
+    }
+  ],
+  "/images/logos/crown.png": [
+    {
+      "src": "/images/optimized/logos-crown-160-587f9be7e3bf.webp",
+      "width": 160,
+      "height": 48,
+      "bytes": 5826
+    },
+    {
+      "src": "/images/optimized/logos-crown-320-6315b65b7a38.webp",
+      "width": 320,
+      "height": 96,
+      "bytes": 14258
+    },
+    {
+      "src": "/images/optimized/logos-crown-480-b3432ed7919a.webp",
+      "width": 480,
+      "height": 144,
+      "bytes": 22436
+    }
+  ],
+  "/images/logos/draper.png": [
+    {
+      "src": "/images/optimized/logos-draper-160-fb5f7bc435b7.webp",
+      "width": 160,
+      "height": 41,
+      "bytes": 3080
+    },
+    {
+      "src": "/images/optimized/logos-draper-320-256d509b393a.webp",
+      "width": 320,
+      "height": 82,
+      "bytes": 5808
+    },
+    {
+      "src": "/images/optimized/logos-draper-480-fc6d7f71ad2e.webp",
+      "width": 480,
+      "height": 124,
+      "bytes": 8160
+    }
+  ],
+  "/images/logos/electro-voice.png": [
+    {
+      "src": "/images/optimized/logos-electro-voice-160-8cc6f7a7b6df.webp",
+      "width": 160,
+      "height": 57,
+      "bytes": 3202
+    },
+    {
+      "src": "/images/optimized/logos-electro-voice-320-bb0e427311d5.webp",
+      "width": 320,
+      "height": 114,
+      "bytes": 7598
+    },
+    {
+      "src": "/images/optimized/logos-electro-voice-480-ff948fb7ca42.webp",
+      "width": 480,
+      "height": 171,
+      "bytes": 11274
+    }
+  ],
+  "/images/logos/harman.png": [
+    {
+      "src": "/images/optimized/logos-harman-160-17f72f3823d6.webp",
+      "width": 160,
+      "height": 94,
+      "bytes": 8992
+    },
+    {
+      "src": "/images/optimized/logos-harman-320-3016e29ece58.webp",
+      "width": 320,
+      "height": 187,
+      "bytes": 19764
+    },
+    {
+      "src": "/images/optimized/logos-harman-480-4aed3e3628ed.webp",
+      "width": 480,
+      "height": 281,
+      "bytes": 31484
+    }
+  ],
+  "/images/logos/jblpro.png": [
+    {
+      "src": "/images/optimized/logos-jblpro-160-b494f2333e9e.webp",
+      "width": 160,
+      "height": 181,
+      "bytes": 4392
+    },
+    {
+      "src": "/images/optimized/logos-jblpro-320-d07461df6ada.webp",
+      "width": 320,
+      "height": 362,
+      "bytes": 9000
+    },
+    {
+      "src": "/images/optimized/logos-jblpro-480-91b00dee9953.webp",
+      "width": 480,
+      "height": 543,
+      "bytes": 13532
+    }
+  ],
+  "/images/logos/legrandav.png": [
+    {
+      "src": "/images/optimized/logos-legrandav-160-0623d411f710.webp",
+      "width": 160,
+      "height": 31,
+      "bytes": 2762
+    },
+    {
+      "src": "/images/optimized/logos-legrandav-300-1461326eb123.webp",
+      "width": 300,
+      "height": 58,
+      "bytes": 3204
+    }
+  ],
+  "/images/logos/mackie.png": [
+    {
+      "src": "/images/optimized/logos-mackie-160-0b8ea0d0ca5c.webp",
+      "width": 160,
+      "height": 50,
+      "bytes": 4028
+    },
+    {
+      "src": "/images/optimized/logos-mackie-320-dfe90e96c4b3.webp",
+      "width": 320,
+      "height": 99,
+      "bytes": 9378
+    },
+    {
+      "src": "/images/optimized/logos-mackie-480-4a9bf77f97bc.webp",
+      "width": 480,
+      "height": 149,
+      "bytes": 14540
+    }
+  ],
+  "/images/logos/middle-atlantic.png": [
+    {
+      "src": "/images/optimized/logos-middle-atlantic-160-88cbaed506df.webp",
+      "width": 160,
+      "height": 76,
+      "bytes": 7218
+    },
+    {
+      "src": "/images/optimized/logos-middle-atlantic-320-23a7e9c40446.webp",
+      "width": 320,
+      "height": 152,
+      "bytes": 17222
+    },
+    {
+      "src": "/images/optimized/logos-middle-atlantic-480-ad45ce4f8fb0.webp",
+      "width": 480,
+      "height": 227,
+      "bytes": 28188
+    }
+  ],
+  "/images/logos/panasonic.png": [
+    {
+      "src": "/images/optimized/logos-panasonic-160-26c1da2fa750.webp",
+      "width": 160,
+      "height": 26,
+      "bytes": 3768
+    },
+    {
+      "src": "/images/optimized/logos-panasonic-320-dfb8f562b483.webp",
+      "width": 320,
+      "height": 51,
+      "bytes": 8400
+    },
+    {
+      "src": "/images/optimized/logos-panasonic-480-619506b97f2c.webp",
+      "width": 480,
+      "height": 77,
+      "bytes": 13060
+    }
+  ],
+  "/images/logos/penton.png": [
+    {
+      "src": "/images/optimized/logos-penton-160-9613723e3c8d.webp",
+      "width": 160,
+      "height": 107,
+      "bytes": 3168
+    },
+    {
+      "src": "/images/optimized/logos-penton-300-976785a52634.webp",
+      "width": 300,
+      "height": 200,
+      "bytes": 2462
+    }
+  ],
+  "/images/logos/qsc.png": [
+    {
+      "src": "/images/optimized/logos-qsc-160-026de4607a5a.webp",
+      "width": 160,
+      "height": 32,
+      "bytes": 2490
+    },
+    {
+      "src": "/images/optimized/logos-qsc-320-47b25a2c9290.webp",
+      "width": 320,
+      "height": 65,
+      "bytes": 4934
+    },
+    {
+      "src": "/images/optimized/logos-qsc-480-e8ced9e77fda.webp",
+      "width": 480,
+      "height": 97,
+      "bytes": 6794
+    }
+  ],
+  "/images/logos/rdl.png": [
+    {
+      "src": "/images/optimized/logos-rdl-160-54f734e7da8d.webp",
+      "width": 160,
+      "height": 68,
+      "bytes": 8586
+    },
+    {
+      "src": "/images/optimized/logos-rdl-320-744eb5f6b909.webp",
+      "width": 320,
+      "height": 136,
+      "bytes": 22048
+    },
+    {
+      "src": "/images/optimized/logos-rdl-480-aeaa5d75a76a.webp",
+      "width": 480,
+      "height": 204,
+      "bytes": 37356
+    }
+  ],
+  "/images/logos/renkus-heinz.png": [
+    {
+      "src": "/images/optimized/logos-renkus-heinz-160-21f6a73c9d61.webp",
+      "width": 160,
+      "height": 48,
+      "bytes": 3696
+    },
+    {
+      "src": "/images/optimized/logos-renkus-heinz-320-a6de07fdfb73.webp",
+      "width": 320,
+      "height": 96,
+      "bytes": 9222
+    },
+    {
+      "src": "/images/optimized/logos-renkus-heinz-480-034a71f2f2aa.webp",
+      "width": 480,
+      "height": 144,
+      "bytes": 14150
+    }
+  ],
+  "/images/logos/shure.png": [
+    {
+      "src": "/images/optimized/logos-shure-160-23272cbc2cd2.webp",
+      "width": 160,
+      "height": 38,
+      "bytes": 1726
+    },
+    {
+      "src": "/images/optimized/logos-shure-320-ce06131d3f13.webp",
+      "width": 320,
+      "height": 76,
+      "bytes": 3556
+    },
+    {
+      "src": "/images/optimized/logos-shure-480-1befc20b030c.webp",
+      "width": 480,
+      "height": 115,
+      "bytes": 5146
+    }
+  ],
+  "/images/logos/soundcraft.png": [
+    {
+      "src": "/images/optimized/logos-soundcraft-160-dc18e454aeca.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 2542
+    },
+    {
+      "src": "/images/optimized/logos-soundcraft-320-8e3b86ade0e2.webp",
+      "width": 320,
+      "height": 320,
+      "bytes": 5444
+    },
+    {
+      "src": "/images/optimized/logos-soundcraft-480-ee506cdcd6f8.webp",
+      "width": 480,
+      "height": 480,
+      "bytes": 7988
+    }
+  ],
+  "/images/projects/Barzan-Camp.png": [
+    {
+      "src": "/images/optimized/projects-Barzan-Camp-160-71eda8ee70d5.webp",
+      "width": 160,
+      "height": 105,
+      "bytes": 2424
+    },
+    {
+      "src": "/images/optimized/projects-Barzan-Camp-320-c615cf651ce2.webp",
+      "width": 320,
+      "height": 211,
+      "bytes": 6580
+    },
+    {
+      "src": "/images/optimized/projects-Barzan-Camp-640-c7f665c27d87.webp",
+      "width": 640,
+      "height": 422,
+      "bytes": 15658
+    },
+    {
+      "src": "/images/optimized/projects-Barzan-Camp-910-a7e885757e9b.webp",
+      "width": 910,
+      "height": 600,
+      "bytes": 23416
+    }
+  ],
+  "/images/projects/KFU.png": [
+    {
+      "src": "/images/optimized/projects-KFU-160-2bad011010bc.webp",
+      "width": 160,
+      "height": 98,
+      "bytes": 2912
+    },
+    {
+      "src": "/images/optimized/projects-KFU-320-3bc948f33ea5.webp",
+      "width": 320,
+      "height": 196,
+      "bytes": 8340
+    },
+    {
+      "src": "/images/optimized/projects-KFU-640-0bd82def508a.webp",
+      "width": 640,
+      "height": 392,
+      "bytes": 23484
+    },
+    {
+      "src": "/images/optimized/projects-KFU-741-ee312fe0095c.webp",
+      "width": 741,
+      "height": 454,
+      "bytes": 29710
+    }
+  ],
+  "/images/projects/azizhos.png": [
+    {
+      "src": "/images/optimized/projects-azizhos-160-84b82cd37075.webp",
+      "width": 160,
+      "height": 107,
+      "bytes": 4900
+    },
+    {
+      "src": "/images/optimized/projects-azizhos-320-df09f1f27ba2.webp",
+      "width": 320,
+      "height": 213,
+      "bytes": 16246
+    },
+    {
+      "src": "/images/optimized/projects-azizhos-640-f5546877f6de.webp",
+      "width": 640,
+      "height": 427,
+      "bytes": 47764
+    },
+    {
+      "src": "/images/optimized/projects-azizhos-960-310f73e9ae3b.webp",
+      "width": 960,
+      "height": 641,
+      "bytes": 76770
+    },
+    {
+      "src": "/images/optimized/projects-azizhos-1280-6a209e1e2ae3.webp",
+      "width": 1280,
+      "height": 854,
+      "bytes": 106958
+    }
+  ],
+  "/images/projects/beirut.png": [
+    {
+      "src": "/images/optimized/projects-beirut-160-ed0a9a83ab93.webp",
+      "width": 160,
+      "height": 104,
+      "bytes": 3150
+    },
+    {
+      "src": "/images/optimized/projects-beirut-320-e640e1322228.webp",
+      "width": 320,
+      "height": 207,
+      "bytes": 9594
+    },
+    {
+      "src": "/images/optimized/projects-beirut-640-bbd7a40456e9.webp",
+      "width": 640,
+      "height": 415,
+      "bytes": 31586
+    },
+    {
+      "src": "/images/optimized/projects-beirut-960-40d66a143a7d.webp",
+      "width": 960,
+      "height": 622,
+      "bytes": 69758
+    },
+    {
+      "src": "/images/optimized/projects-beirut-1280-30b0e940c90a.webp",
+      "width": 1280,
+      "height": 829,
+      "bytes": 116618
+    }
+  ],
+  "/images/projects/catholic-church.png": [
+    {
+      "src": "/images/optimized/projects-catholic-church-160-ed1802b27a9b.webp",
+      "width": 160,
+      "height": 106,
+      "bytes": 4432
+    },
+    {
+      "src": "/images/optimized/projects-catholic-church-320-2734f3bea15b.webp",
+      "width": 320,
+      "height": 213,
+      "bytes": 13000
+    },
+    {
+      "src": "/images/optimized/projects-catholic-church-640-dd3da9f207c2.webp",
+      "width": 640,
+      "height": 425,
+      "bytes": 37870
+    },
+    {
+      "src": "/images/optimized/projects-catholic-church-960-ffe7131a373f.webp",
+      "width": 960,
+      "height": 638,
+      "bytes": 70540
+    },
+    {
+      "src": "/images/optimized/projects-catholic-church-1280-257eeaf29480.webp",
+      "width": 1280,
+      "height": 850,
+      "bytes": 110036
+    }
+  ],
+  "/images/projects/hamad.png": [
+    {
+      "src": "/images/optimized/projects-hamad-160-9ec0f66fcfe3.webp",
+      "width": 160,
+      "height": 117,
+      "bytes": 6120
+    },
+    {
+      "src": "/images/optimized/projects-hamad-320-0cfbd997b239.webp",
+      "width": 320,
+      "height": 234,
+      "bytes": 20452
+    },
+    {
+      "src": "/images/optimized/projects-hamad-640-bbde087a6cb5.webp",
+      "width": 640,
+      "height": 468,
+      "bytes": 65984
+    },
+    {
+      "src": "/images/optimized/projects-hamad-750-46fed3a052fe.webp",
+      "width": 750,
+      "height": 549,
+      "bytes": 89194
+    }
+  ],
+  "/images/projects/idb.png": [
+    {
+      "src": "/images/optimized/projects-idb-160-ad6e3f14202e.webp",
+      "width": 160,
+      "height": 111,
+      "bytes": 3772
+    },
+    {
+      "src": "/images/optimized/projects-idb-320-4c2172cc397d.webp",
+      "width": 320,
+      "height": 222,
+      "bytes": 11590
+    },
+    {
+      "src": "/images/optimized/projects-idb-640-477a55f1ba10.webp",
+      "width": 640,
+      "height": 444,
+      "bytes": 39248
+    },
+    {
+      "src": "/images/optimized/projects-idb-960-cd386bed71f1.webp",
+      "width": 960,
+      "height": 666,
+      "bytes": 79278
+    },
+    {
+      "src": "/images/optimized/projects-idb-1280-8044946292ec.webp",
+      "width": 1280,
+      "height": 888,
+      "bytes": 124706
+    }
+  ],
+  "/images/projects/king-airport.png": [
+    {
+      "src": "/images/optimized/projects-king-airport-160-8a1b5c6e7d1d.webp",
+      "width": 160,
+      "height": 98,
+      "bytes": 4726
+    },
+    {
+      "src": "/images/optimized/projects-king-airport-320-1f7a53784f2b.webp",
+      "width": 320,
+      "height": 196,
+      "bytes": 16176
+    },
+    {
+      "src": "/images/optimized/projects-king-airport-640-e0dc1fcad25f.webp",
+      "width": 640,
+      "height": 393,
+      "bytes": 50648
+    },
+    {
+      "src": "/images/optimized/projects-king-airport-800-627cde39eff3.webp",
+      "width": 800,
+      "height": 491,
+      "bytes": 72144
+    }
+  ],
+  "/images/projects/marriott-hotel.png": [
+    {
+      "src": "/images/optimized/projects-marriott-hotel-160-43e8ca9ba65b.webp",
+      "width": 160,
+      "height": 106,
+      "bytes": 4266
+    },
+    {
+      "src": "/images/optimized/projects-marriott-hotel-320-16f2a61a8782.webp",
+      "width": 320,
+      "height": 213,
+      "bytes": 13108
+    },
+    {
+      "src": "/images/optimized/projects-marriott-hotel-640-49ac917e92fb.webp",
+      "width": 640,
+      "height": 427,
+      "bytes": 41314
+    },
+    {
+      "src": "/images/optimized/projects-marriott-hotel-960-5497f88ea4a9.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 81122
+    },
+    {
+      "src": "/images/optimized/projects-marriott-hotel-1024-1a5066cb8bde.webp",
+      "width": 1024,
+      "height": 683,
+      "bytes": 94320
+    }
+  ],
+  "/images/projects/mellon.png": [
+    {
+      "src": "/images/optimized/projects-mellon-160-5ca34ef35140.webp",
+      "width": 160,
+      "height": 85,
+      "bytes": 4068
+    },
+    {
+      "src": "/images/optimized/projects-mellon-320-42a74246f296.webp",
+      "width": 320,
+      "height": 171,
+      "bytes": 15042
+    },
+    {
+      "src": "/images/optimized/projects-mellon-640-8a2bb789dbe4.webp",
+      "width": 640,
+      "height": 341,
+      "bytes": 55564
+    },
+    {
+      "src": "/images/optimized/projects-mellon-900-bb6bdf930bf2.webp",
+      "width": 900,
+      "height": 480,
+      "bytes": 103692
+    }
+  ],
+  "/images/projects/nwest.png": [
+    {
+      "src": "/images/optimized/projects-nwest-160-82c25bbdb7e6.webp",
+      "width": 160,
+      "height": 67,
+      "bytes": 3106
+    },
+    {
+      "src": "/images/optimized/projects-nwest-320-e8de54152ca1.webp",
+      "width": 320,
+      "height": 133,
+      "bytes": 9660
+    },
+    {
+      "src": "/images/optimized/projects-nwest-640-e91908bccefd.webp",
+      "width": 640,
+      "height": 267,
+      "bytes": 30008
+    },
+    {
+      "src": "/images/optimized/projects-nwest-960-dc6f6b697faf.webp",
+      "width": 960,
+      "height": 400,
+      "bytes": 57698
+    },
+    {
+      "src": "/images/optimized/projects-nwest-1280-762768fa3765.webp",
+      "width": 1280,
+      "height": 533,
+      "bytes": 82814
+    }
+  ],
+  "/images/projects/sport.png": [
+    {
+      "src": "/images/optimized/projects-sport-160-50d4376c817a.webp",
+      "width": 160,
+      "height": 89,
+      "bytes": 4380
+    },
+    {
+      "src": "/images/optimized/projects-sport-320-f67f15c35a19.webp",
+      "width": 320,
+      "height": 178,
+      "bytes": 13844
+    },
+    {
+      "src": "/images/optimized/projects-sport-640-b430afb3373d.webp",
+      "width": 640,
+      "height": 356,
+      "bytes": 39724
+    },
+    {
+      "src": "/images/optimized/projects-sport-900-a5f761d6c3e8.webp",
+      "width": 900,
+      "height": 500,
+      "bytes": 67682
+    }
+  ],
+  "/images/rga-map.png": [
+    {
+      "src": "/images/optimized/rga-map-160-ee680d637f39.webp",
+      "width": 160,
+      "height": 108,
+      "bytes": 3790
+    },
+    {
+      "src": "/images/optimized/rga-map-320-7f8a5fc5c35b.webp",
+      "width": 320,
+      "height": 216,
+      "bytes": 12026
+    },
+    {
+      "src": "/images/optimized/rga-map-640-ad4ffa01641d.webp",
+      "width": 640,
+      "height": 431,
+      "bytes": 36336
+    },
+    {
+      "src": "/images/optimized/rga-map-960-6e0a90f027a9.webp",
+      "width": 960,
+      "height": 647,
+      "bytes": 61902
+    },
+    {
+      "src": "/images/optimized/rga-map-1280-7457fc3e1cb9.webp",
+      "width": 1280,
+      "height": 863,
+      "bytes": 87676
+    }
+  ],
+  "/images/services/consulting.jpg": [
+    {
+      "src": "/images/optimized/services-consulting-160-c445f173ab6c.webp",
+      "width": 160,
+      "height": 107,
+      "bytes": 2744
+    },
+    {
+      "src": "/images/optimized/services-consulting-320-d2118481ef33.webp",
+      "width": 320,
+      "height": 213,
+      "bytes": 5982
+    },
+    {
+      "src": "/images/optimized/services-consulting-640-3fc9066fe6ef.webp",
+      "width": 640,
+      "height": 427,
+      "bytes": 12582
+    },
+    {
+      "src": "/images/optimized/services-consulting-960-645c6bddbc83.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 19976
+    },
+    {
+      "src": "/images/optimized/services-consulting-1280-92c6685ba56c.webp",
+      "width": 1280,
+      "height": 853,
+      "bytes": 28768
+    }
+  ],
+  "/images/services/full-system-design.jpg": [
+    {
+      "src": "/images/optimized/services-full-system-design-160-e11f01355aba.webp",
+      "width": 160,
+      "height": 107,
+      "bytes": 4256
+    },
+    {
+      "src": "/images/optimized/services-full-system-design-320-1abcdee7edc1.webp",
+      "width": 320,
+      "height": 214,
+      "bytes": 10572
+    },
+    {
+      "src": "/images/optimized/services-full-system-design-640-ef3c6e1bde79.webp",
+      "width": 640,
+      "height": 427,
+      "bytes": 24578
+    },
+    {
+      "src": "/images/optimized/services-full-system-design-960-44a189024efa.webp",
+      "width": 960,
+      "height": 641,
+      "bytes": 43160
+    },
+    {
+      "src": "/images/optimized/services-full-system-design-1280-a37051b1ec1a.webp",
+      "width": 1280,
+      "height": 854,
+      "bytes": 63924
+    }
+  ],
+  "/images/services/installation.jpg": [
+    {
+      "src": "/images/optimized/services-installation-160-405a9a53edff.webp",
+      "width": 160,
+      "height": 85,
+      "bytes": 2958
+    },
+    {
+      "src": "/images/optimized/services-installation-320-53e28f13613e.webp",
+      "width": 320,
+      "height": 171,
+      "bytes": 7550
+    },
+    {
+      "src": "/images/optimized/services-installation-640-1a0cd1cf7c96.webp",
+      "width": 640,
+      "height": 342,
+      "bytes": 20580
+    },
+    {
+      "src": "/images/optimized/services-installation-960-3face308fcc3.webp",
+      "width": 960,
+      "height": 513,
+      "bytes": 35324
+    },
+    {
+      "src": "/images/optimized/services-installation-1280-33a017d839a0.webp",
+      "width": 1280,
+      "height": 684,
+      "bytes": 54832
+    }
+  ],
+  "/images/services/service-maintenance.jpg": [
+    {
+      "src": "/images/optimized/services-service-maintenance-160-41a3dd4d5096.webp",
+      "width": 160,
+      "height": 107,
+      "bytes": 4662
+    },
+    {
+      "src": "/images/optimized/services-service-maintenance-320-71cd1621f614.webp",
+      "width": 320,
+      "height": 214,
+      "bytes": 11464
+    },
+    {
+      "src": "/images/optimized/services-service-maintenance-640-5bca8c860442.webp",
+      "width": 640,
+      "height": 428,
+      "bytes": 26340
+    },
+    {
+      "src": "/images/optimized/services-service-maintenance-960-d7367b9e24b7.webp",
+      "width": 960,
+      "height": 643,
+      "bytes": 43226
+    },
+    {
+      "src": "/images/optimized/services-service-maintenance-1280-932b6a3d2719.webp",
+      "width": 1280,
+      "height": 857,
+      "bytes": 62590
+    }
+  ],
+  "/images/services/supervision.jpg": [
+    {
+      "src": "/images/optimized/services-supervision-160-28031355d705.webp",
+      "width": 160,
+      "height": 240,
+      "bytes": 5900
+    },
+    {
+      "src": "/images/optimized/services-supervision-320-4e39674f8144.webp",
+      "width": 320,
+      "height": 480,
+      "bytes": 13046
+    },
+    {
+      "src": "/images/optimized/services-supervision-640-50ebee41634e.webp",
+      "width": 640,
+      "height": 960,
+      "bytes": 31212
+    },
+    {
+      "src": "/images/optimized/services-supervision-960-1c179cc309f4.webp",
+      "width": 960,
+      "height": 1440,
+      "bytes": 56428
+    },
+    {
+      "src": "/images/optimized/services-supervision-1280-b80b8407990c.webp",
+      "width": 1280,
+      "height": 1920,
+      "bytes": 98390
+    }
+  ],
+  "/images/services/supply-build.jpg": [
+    {
+      "src": "/images/optimized/services-supply-build-160-d7713767b054.webp",
+      "width": 160,
+      "height": 77,
+      "bytes": 4352
+    },
+    {
+      "src": "/images/optimized/services-supply-build-320-d30f9546b678.webp",
+      "width": 320,
+      "height": 154,
+      "bytes": 10890
+    },
+    {
+      "src": "/images/optimized/services-supply-build-600-eaa1e37487fd.webp",
+      "width": 600,
+      "height": 288,
+      "bytes": 24236
+    }
+  ],
+  "/images/services/system-integration.jpg": [
+    {
+      "src": "/images/optimized/services-system-integration-160-916b0caaebe2.webp",
+      "width": 160,
+      "height": 240,
+      "bytes": 7952
+    },
+    {
+      "src": "/images/optimized/services-system-integration-320-ef719073ff20.webp",
+      "width": 320,
+      "height": 480,
+      "bytes": 22350
+    },
+    {
+      "src": "/images/optimized/services-system-integration-640-efd99f1aa58f.webp",
+      "width": 640,
+      "height": 960,
+      "bytes": 59490
+    },
+    {
+      "src": "/images/optimized/services-system-integration-960-b246873bea85.webp",
+      "width": 960,
+      "height": 1440,
+      "bytes": 102966
+    },
+    {
+      "src": "/images/optimized/services-system-integration-1280-161bed1809a8.webp",
+      "width": 1280,
+      "height": 1920,
+      "bytes": 145504
+    }
+  ],
+  "/images/services/testing-commissioning.jpg": [
+    {
+      "src": "/images/optimized/services-testing-commissioning-160-9b196d1492cb.webp",
+      "width": 160,
+      "height": 107,
+      "bytes": 6264
+    },
+    {
+      "src": "/images/optimized/services-testing-commissioning-320-563c1cabca6e.webp",
+      "width": 320,
+      "height": 213,
+      "bytes": 17758
+    },
+    {
+      "src": "/images/optimized/services-testing-commissioning-640-c5538afd1fbe.webp",
+      "width": 640,
+      "height": 426,
+      "bytes": 46364
+    },
+    {
+      "src": "/images/optimized/services-testing-commissioning-960-eae45142b127.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 80628
+    },
+    {
+      "src": "/images/optimized/services-testing-commissioning-1280-72680472d306.webp",
+      "width": 1280,
+      "height": 854,
+      "bytes": 119950
+    }
+  ]
+}

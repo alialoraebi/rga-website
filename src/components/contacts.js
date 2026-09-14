@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { imageProps } from '../imageProps';
 
 const containerStyle = {
   width: '100%',
@@ -198,7 +199,7 @@ function Contact() {
                   onMouseLeave={() => setIsHovered(false)}
                 >
                   <img
-                    src="/images/rga-map.png"
+                    {...imageProps('/images/rga-map.png', { sizes: '(min-width: 1024px) 40vw, calc(100vw - 96px)' })}
                     alt="Map of Our Location"
                     style={{ 
                       ...containerStyle, 

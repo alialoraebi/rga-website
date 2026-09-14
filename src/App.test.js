@@ -106,18 +106,22 @@ test('service buttons expose only expanded content', () => {
   expect(panel).toHaveAttribute('aria-hidden', 'true');
   expect(panel).toHaveAttribute('inert');
   expect(within(panel).queryByRole('img')).not.toBeInTheDocument();
+  expect(panel.querySelector('img')).not.toHaveAttribute('src');
   fireEvent.click(trigger);
   expect(trigger).toHaveAttribute('aria-expanded', 'true');
   expect(panel).toHaveClass('service-panel-open');
   expect(panel).toHaveAttribute('aria-hidden', 'false');
   expect(panel).not.toHaveAttribute('inert');
   expect(within(panel).getByRole('img')).toBeInTheDocument();
+  const loadedSource = panel.querySelector('img').getAttribute('src');
+  expect(loadedSource).toMatch(/\/images\/optimized\/.*\.webp$/);
   fireEvent.click(trigger);
   expect(trigger).toHaveAttribute('aria-expanded', 'false');
   expect(panel).not.toHaveClass('service-panel-open');
   expect(panel).toHaveAttribute('aria-hidden', 'true');
   expect(panel).toHaveAttribute('inert');
   expect(within(panel).queryByRole('img')).not.toBeInTheDocument();
+  expect(panel.querySelector('img')).toHaveAttribute('src', loadedSource);
 });
 
 test.each([
@@ -146,12 +150,13 @@ test('project buttons open a named native dialog and close it', () => {
   expect(screen.getByRole('button', { name: 'Beirut International Airport' })).toHaveFocus();
 });
 
-test('client-side navigation updates the title and focuses main content', () => {
+test('client-side navigation updates the title and focuses main content', async () => {
   render(<App />);
   fireEvent.click(within(screen.getByRole('navigation', { name: 'Primary' })).getByRole('link', { name: 'About' }));
   expect(document.title).toBe('About Us | RGA Qatar - Robert Guild Associates');
   expect(screen.getByRole('main')).toHaveFocus();
-  expect(screen.getByRole('heading', { level: 1, name: 'About Us' })).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { level: 1, name: 'About Us' })).toBeInTheDocument();
+  expect(screen.getByRole('main')).toHaveFocus();
 });
 
 test.each([

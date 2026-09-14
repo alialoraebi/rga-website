@@ -1,13 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home';
 import Footer from './components/footer';
-import About from './components/about';
-import Services from './components/services'
-import Vendors from './components/vendors'
-import Projects from './components/projects'
-import Contact from './components/contacts'
+const About = lazy(() => import('./components/about'));
+const Services = lazy(() => import('./components/services'));
+const Vendors = lazy(() => import('./components/vendors'));
+const Projects = lazy(() => import('./components/projects'));
+const Contact = lazy(() => import('./components/contacts'));
 
 const pageTitles = {
   '/': 'Home',
@@ -44,6 +44,7 @@ function App() {
         </a>
         <Navbar />
         <main id="main-content" tabIndex={-1}>
+        <Suspense fallback={<div role="status" className="min-h-screen p-8">Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -52,6 +53,7 @@ function App() {
           <Route path="/projects" element={<Projects/>} />
           <Route path="/contacts" element={<Contact/>} />
         </Routes>
+        </Suspense>
         </main>
         <Footer />
       </div>

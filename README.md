@@ -26,7 +26,7 @@ This website is built to highlight the extensive range of services offered by Ro
 ## Features
 
 - **Home Page**
-  - **Hero Section**: Features an animated background using Vanta.js with a topology effect and a slider showcasing key projects.
+  - **Hero Section**: Features a decorative background video, with a project grid further down the page.
   - **What We Do**: A detailed section outlining the services provided by Robert Guild Associates, including consulting, full system design, and system integration.
 
 - **About Page**
@@ -151,6 +151,27 @@ The follow-up accessScan report lists 14 findings. Inspection of the deployed ho
 Axe-core 4.10.3 passed `aria-hidden-body`, `aria-hidden-focus`, `landmark-main-is-top-level`, `landmark-no-duplicate-main`, `landmark-one-main`, `landmark-unique`, and `region` on the deployed homepage, with no incomplete results for these targeted rules. This does not certify full conformance or guarantee the accessScan score will change. Ask the scanner provider to review the contradictory findings rather than remove valid semantics to change its score.
 
 Service panels now animate their intrinsic height and opacity over 400ms in both directions. Closed panels become inert and `aria-hidden` immediately, then visually hidden when the closing transition finishes. Reduced-motion preferences disable the transition. Browser checks confirmed intermediate opening/closing heights, a final zero-height hidden state, and no automatic axe violations in the checked expanded Services state (image/gradient contrast remains a manual check). All 13 regression tests pass. This follow-up leaves the Home video and both pages' wave implementations unchanged.
+
+## Performance
+
+Images use responsive WebP variants with intrinsic dimensions. Below-fold images load lazily; service panel photos receive a source only after the first expansion and remain loaded for smooth closing animations. The Services hero image loads eagerly at high priority, retaining its centered cover rendering and existing clip path. The Home video and both wave implementations are unchanged.
+
+The unused blocking Three.js CDN script was removed. Secondary routes are split into separate JavaScript chunks; shared catalog data no longer imports the Vendors or Projects page components into Home. The production main bundle is approximately 68.64 kB gzip, compared with 68.68 kB before image metadata and route splitting; the image manifest offsets most of the initial bundle savings. The removed external Three.js script is separate from those bundle figures.
+
+After adding or replacing source images, regenerate the checked-in assets and manifest before building:
+
+```bash
+npm run images:optimize
+npm run build
+```
+
+The Sharp generator processes the logo, map, Services hero, and images in the logos, projects, and services directories. Commit both `public/images/optimized` and `src/optimizedImages.json` with source changes. Filenames hash the encoded content, so updated images receive new cache keys. Originals remain available as source assets. The current 45 originals total 20.77 MB; their largest WebP variants total 2.13 MB (about 90% less). This compares asset sizes, not a single page's transfer size; browsers select smaller variants where appropriate.
+
+`vercel.json` gives hashed images and CRA static assets one-year immutable caching. The unchanged video URL uses a one-day cache lifetime with one week of stale-while-revalidate; it is not immutable. HTML retains Vercel's revalidation behavior. These headers take effect after deployment, not in the CRA dev server or the local static preview. Verify the deployed response headers and rerun Lighthouse after deployment.
+
+Local production verification: all 13 regression tests and the production build pass. Browser checks found no broken images or horizontal overflow on Home, Vendors, Projects, and Contact at 390px and 1440px. Home requests neither service panel photos nor secondary-route chunks. Services requests panel photos only after interaction and preserves its closing animation and fixed wave geometry.
+
+The local Home LCP observer identified the video first frame as the final LCP candidate. Its original 14.46 MB file and playback behavior are intentionally untouched, so video request discovery, transfer, and decoding remain performance constraints. The small application stylesheet still blocks rendering intentionally to avoid unstyled content. No mobile Lighthouse score or complete elimination of its warnings is claimed; deployed throttled testing is still required.
 
 ## Contributions
 
