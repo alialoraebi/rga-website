@@ -57,7 +57,10 @@ async function prerender() {
       assert.equal(document.querySelectorAll('.service-panel img[src]').length, 0);
     }
     if (pathname === '/') {
-      assert.equal(document.querySelector('video').getAttribute('src'), '../video/audio.mp4');
+      const videoSource = document.querySelector('video').getAttribute('src');
+      assert.match(videoSource, /^\/video\/hero-[a-f0-9]{12}\.mp4$/);
+      const video = await fs.stat(path.join(root, 'build', videoSource));
+      assert.ok(video.size < 1500000, 'Hero video exceeds the 1.5 MB transfer budget');
     }
     const filename = pathname === '/' ? 'index.html' : `${chunk}.html`;
     await fs.writeFile(path.join(root, 'build', filename), dom.serialize());

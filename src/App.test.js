@@ -83,6 +83,10 @@ test('background video plays without visible controls', async () => {
   expect(HTMLMediaElement.prototype.play).toHaveBeenCalled();
   expect(within(hero).queryByRole('button')).not.toBeInTheDocument();
   expect(hero.querySelector('video')).not.toHaveAttribute('controls');
+  expect(hero.querySelector('video')).toHaveAttribute('src', '/video/hero-df568505855b.mp4');
+  expect(hero.querySelector('video')).toHaveAttribute('loop');
+  expect(hero.querySelector('video')).toHaveAttribute('playsinline');
+  expect(hero.querySelector('video').muted).toBe(true);
 });
 
 test('reduced motion prevents background video autoplay', async () => {

@@ -49,7 +49,7 @@ const Home = () => {
           aria-hidden="true"
           tabIndex={-1}
           className="absolute inset-0 w-full h-full object-cover"
-          src="../video/audio.mp4" 
+          src="/video/hero-df568505855b.mp4"
           loop 
           muted 
           playsInline 
