@@ -19,6 +19,21 @@ main {
     overflow-wrap: anywhere;
 }
 
+.service-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
+    transition: grid-template-rows 400ms ease, opacity 400ms ease, visibility 0s linear 400ms;
+}
+
+.service-panel-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation: none !important;

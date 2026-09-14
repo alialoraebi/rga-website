@@ -158,10 +158,12 @@ const Services = () => {
             {/* Expandable Content */}
             <div
               id={`service-panel-${index}`}
-              hidden={!openIndices.has(index)}
-              className="px-6 pb-6 lg:px-8 lg:pb-8"
+              aria-hidden={!openIndices.has(index)}
+              inert={openIndices.has(index) ? undefined : ''}
+              className={`service-panel${openIndices.has(index) ? ' service-panel-open' : ''}`}
             >
-              <div className="flex flex-col lg:flex-row gap-6">
+              <div className="min-h-0 overflow-hidden">
+              <div className="flex flex-col lg:flex-row gap-6 px-6 pb-6 lg:px-8 lg:pb-8">
                 <img
                   src={preloadedImages[service.image]}
                   alt={`Illustration for ${service.title} service`}
@@ -179,6 +181,7 @@ const Services = () => {
                 <p className="text-base lg:text-lg text-gray-700 flex-1 leading-relaxed">
                   {service.description}
                 </p>
+              </div>
               </div>
             </div>
           </div>

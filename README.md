@@ -138,6 +138,20 @@ The requested control-free, unshaded hero introduces known accessibility limitat
 
 Deploy the changes and rerun the original scanner against the live site. Verify real contact delivery separately with an authorized test submission; backend availability and delivery were not tested here. Continue accessibility checks when changing content or interactions.
 
+### Follow-Up Accessibility Scan Review
+
+The follow-up accessScan report lists 14 findings. Inspection of the deployed homepage on September 14, 2026 did not reproduce those findings as accessibility defects:
+
+| Report findings | Verified behavior | Disposition |
+| --- | --- | --- |
+| Three landmark findings | One visible native `main` contains page content, not the header, navigation, or footer. The labeled native `nav` contains the six primary site links. | Retain the correct native landmarks; request scanner review. A wrapper `div` inside `main` does not invalidate it. |
+| One hidden-content finding showing `<body></body>` | The live body is populated, visible, and has neither `hidden` nor `aria-hidden`. | Not reproduced; the snapshot alone does not identify a fixable site defect. |
+| Ten visible `aria-hidden` findings | Two decorative wave elements and eight decorative service icons convey no information beyond adjacent text. The report also passes the same eight icons under its decorative-graphics rule. | Retain decorative hiding. Removing it would reintroduce unnecessary screen-reader announcements. |
+
+Axe-core 4.10.3 passed `aria-hidden-body`, `aria-hidden-focus`, `landmark-main-is-top-level`, `landmark-no-duplicate-main`, `landmark-one-main`, `landmark-unique`, and `region` on the deployed homepage, with no incomplete results for these targeted rules. This does not certify full conformance or guarantee the accessScan score will change. Ask the scanner provider to review the contradictory findings rather than remove valid semantics to change its score.
+
+Service panels now animate their intrinsic height and opacity over 400ms in both directions. Closed panels become inert and `aria-hidden` immediately, then visually hidden when the closing transition finishes. Reduced-motion preferences disable the transition. Browser checks confirmed intermediate opening/closing heights, a final zero-height hidden state, and no automatic axe violations in the checked expanded Services state (image/gradient contrast remains a manual check). All 13 regression tests pass. This follow-up leaves the Home video and both pages' wave implementations unchanged.
+
 ## Contributions
 
 If you'd like to contribute to the project, please fork the repository and submit a pull request with your changes.

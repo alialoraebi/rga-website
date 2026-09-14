@@ -103,13 +103,21 @@ test('service buttons expose only expanded content', () => {
   render(<Services />);
   const trigger = screen.getByRole('button', { name: 'Consulting' });
   const panel = document.getElementById(trigger.getAttribute('aria-controls'));
-  expect(panel).not.toBeVisible();
+  expect(panel).toHaveAttribute('aria-hidden', 'true');
+  expect(panel).toHaveAttribute('inert');
+  expect(within(panel).queryByRole('img')).not.toBeInTheDocument();
   fireEvent.click(trigger);
   expect(trigger).toHaveAttribute('aria-expanded', 'true');
-  expect(panel).toBeVisible();
+  expect(panel).toHaveClass('service-panel-open');
+  expect(panel).toHaveAttribute('aria-hidden', 'false');
+  expect(panel).not.toHaveAttribute('inert');
+  expect(within(panel).getByRole('img')).toBeInTheDocument();
   fireEvent.click(trigger);
   expect(trigger).toHaveAttribute('aria-expanded', 'false');
-  expect(panel).not.toBeVisible();
+  expect(panel).not.toHaveClass('service-panel-open');
+  expect(panel).toHaveAttribute('aria-hidden', 'true');
+  expect(panel).toHaveAttribute('inert');
+  expect(within(panel).queryByRole('img')).not.toBeInTheDocument();
 });
 
 test.each([
