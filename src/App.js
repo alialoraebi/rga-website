@@ -1,13 +1,15 @@
 import React, { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar';
-import Home from './components/home';
 import Footer from './components/footer';
-const About = lazy(() => import('./components/about'));
-const Services = lazy(() => import('./components/services'));
-const Vendors = lazy(() => import('./components/vendors'));
-const Projects = lazy(() => import('./components/projects'));
-const Contact = lazy(() => import('./components/contacts'));
+const pageComponents = {
+  Home: lazy(() => import(/* webpackChunkName: "home" */ './components/home')),
+  About: lazy(() => import(/* webpackChunkName: "about" */ './components/about')),
+  Services: lazy(() => import(/* webpackChunkName: "services" */ './components/services')),
+  Vendors: lazy(() => import(/* webpackChunkName: "vendors" */ './components/vendors')),
+  Projects: lazy(() => import(/* webpackChunkName: "projects" */ './components/projects')),
+  Contact: lazy(() => import(/* webpackChunkName: "contacts" */ './components/contacts')),
+};
 
 const pageTitles = {
   '/': 'Home',
@@ -34,9 +36,9 @@ function RouteAccessibility() {
   return null;
 }
 
-function App() {
+export function AppContent({ pages = pageComponents }) {
+  const { Home, About, Services, Vendors, Projects, Contact } = pages;
   return (
-    <Router>
       <div className="App">
         <RouteAccessibility />
         <a className="sr-only focus:not-sr-only focus:block focus:p-4" href="#main-content">
@@ -57,8 +59,11 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Router>
   );
+}
+
+function App() {
+  return <Router><AppContent /></Router>;
 }
 
 export default App;

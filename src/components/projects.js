@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import { imageProps } from '../imageProps';
+import { cardImageSizes, createImageProps } from '../imageProps';
+import images from '../imageData/projects.json';
 
 import { projects } from '../catalogData';
 export { projects } from '../catalogData';
+
+const imageProps = createImageProps(images);
 
 const categories = [
   'Show All', 
@@ -86,7 +89,7 @@ const Projects = () => {
               >
                 <span className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 flex items-center justify-center h-40 transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] group-hover:border-blue-400/50">
                   <img
-                    {...imageProps(project.image, { sizes: '(min-width: 1024px) 160px, (min-width: 640px) 180px, 35vw', loading: index < 6 ? 'eager' : 'lazy' })}
+                    {...imageProps(project.image, { sizes: cardImageSizes, loading: index < 6 ? 'eager' : 'lazy' })}
                     alt=""
                     className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 rounded select-none"
                     style={{ 

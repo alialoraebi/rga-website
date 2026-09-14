@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import '../App.css';
 import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
 import { vendors, projects } from '../catalogData';
-import { imageProps } from '../imageProps';
+import { createImageProps } from '../imageProps';
+import vendorImages from '../imageData/vendors.json';
+import projectImages from '../imageData/projects.json';
+
+const imageProps = createImageProps({ ...vendorImages, ...projectImages });
 
 const Home = () => {
   const videoRef = useRef(null);

@@ -1,0 +1,8 @@
+{
+  "/images/logo.png": {
+    "src": "/images/optimized/logo-640-8b3494d230a9.webp",
+    "srcSet": "/images/optimized/logo-320-7c7cece5095c.webp 320w, /images/optimized/logo-640-8b3494d230a9.webp 640w, /images/optimized/logo-800-57197bec1d1a.webp 800w",
+    "width": 640,
+    "height": 158
+  }
+}

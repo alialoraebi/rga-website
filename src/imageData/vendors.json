@@ -1,0 +1,134 @@
+{
+  "/images/logos/akg.png": {
+    "src": "/images/optimized/logos-akg-480-602debce9fd1.webp",
+    "srcSet": "/images/optimized/logos-akg-96-da66bc0c234b.webp 96w, /images/optimized/logos-akg-128-d6261040988b.webp 128w, /images/optimized/logos-akg-160-7fb8c95d158b.webp 160w, /images/optimized/logos-akg-240-c590bd01f952.webp 240w, /images/optimized/logos-akg-320-ab921c7c6206.webp 320w, /images/optimized/logos-akg-480-602debce9fd1.webp 480w",
+    "width": 480,
+    "height": 186
+  },
+  "/images/logos/atlas-sound.png": {
+    "src": "/images/optimized/logos-atlas-sound-480-cea08cf96227.webp",
+    "srcSet": "/images/optimized/logos-atlas-sound-96-ec10e0630acc.webp 96w, /images/optimized/logos-atlas-sound-128-5a398b9efc44.webp 128w, /images/optimized/logos-atlas-sound-160-84628613c76a.webp 160w, /images/optimized/logos-atlas-sound-240-8ce50b500b6a.webp 240w, /images/optimized/logos-atlas-sound-320-8d1dd66e1ab1.webp 320w, /images/optimized/logos-atlas-sound-480-cea08cf96227.webp 480w",
+    "width": 480,
+    "height": 146
+  },
+  "/images/logos/atlasied.png": {
+    "src": "/images/optimized/logos-atlasied-480-76d3bb2c0c98.webp",
+    "srcSet": "/images/optimized/logos-atlasied-96-e303b5e4fdad.webp 96w, /images/optimized/logos-atlasied-128-bd08dc030eb9.webp 128w, /images/optimized/logos-atlasied-160-ed081ee4cbf1.webp 160w, /images/optimized/logos-atlasied-240-31e21526e2aa.webp 240w, /images/optimized/logos-atlasied-320-f6dca33b918f.webp 320w, /images/optimized/logos-atlasied-480-76d3bb2c0c98.webp 480w",
+    "width": 480,
+    "height": 126
+  },
+  "/images/logos/beyerdynamic.png": {
+    "src": "/images/optimized/logos-beyerdynamic-300-d336956da0ac.webp",
+    "srcSet": "/images/optimized/logos-beyerdynamic-96-83bf05e3f17a.webp 96w, /images/optimized/logos-beyerdynamic-128-93863267cde5.webp 128w, /images/optimized/logos-beyerdynamic-160-9a58e520c519.webp 160w, /images/optimized/logos-beyerdynamic-240-4ad13b48a416.webp 240w, /images/optimized/logos-beyerdynamic-300-d336956da0ac.webp 300w",
+    "width": 300,
+    "height": 30
+  },
+  "/images/logos/biamp.png": {
+    "src": "/images/optimized/logos-biamp-480-319aec58f84f.webp",
+    "srcSet": "/images/optimized/logos-biamp-96-bec213edf245.webp 96w, /images/optimized/logos-biamp-128-e4be4d9da626.webp 128w, /images/optimized/logos-biamp-160-9ba49e43229e.webp 160w, /images/optimized/logos-biamp-240-11839b8ecc07.webp 240w, /images/optimized/logos-biamp-320-7dceb6583c93.webp 320w, /images/optimized/logos-biamp-480-319aec58f84f.webp 480w",
+    "width": 480,
+    "height": 155
+  },
+  "/images/logos/countryman.png": {
+    "src": "/images/optimized/logos-countryman-480-4d126468b6a8.webp",
+    "srcSet": "/images/optimized/logos-countryman-96-165f16b45250.webp 96w, /images/optimized/logos-countryman-128-35db28185704.webp 128w, /images/optimized/logos-countryman-160-b8ad922b28a9.webp 160w, /images/optimized/logos-countryman-240-f7d46f501e0f.webp 240w, /images/optimized/logos-countryman-320-f1c43099e07c.webp 320w, /images/optimized/logos-countryman-480-4d126468b6a8.webp 480w",
+    "width": 480,
+    "height": 267
+  },
+  "/images/logos/crestron.png": {
+    "src": "/images/optimized/logos-crestron-178-f3a42fff82bc.webp",
+    "srcSet": "/images/optimized/logos-crestron-96-5a0cb8d1b3fa.webp 96w, /images/optimized/logos-crestron-128-d454a18e0753.webp 128w, /images/optimized/logos-crestron-160-b20a8e1bef83.webp 160w, /images/optimized/logos-crestron-178-f3a42fff82bc.webp 178w",
+    "width": 178,
+    "height": 20
+  },
+  "/images/logos/crown.png": {
+    "src": "/images/optimized/logos-crown-480-b3432ed7919a.webp",
+    "srcSet": "/images/optimized/logos-crown-96-25a097988caf.webp 96w, /images/optimized/logos-crown-128-eec5327904a3.webp 128w, /images/optimized/logos-crown-160-587f9be7e3bf.webp 160w, /images/optimized/logos-crown-240-42917373586e.webp 240w, /images/optimized/logos-crown-320-6315b65b7a38.webp 320w, /images/optimized/logos-crown-480-b3432ed7919a.webp 480w",
+    "width": 480,
+    "height": 144
+  },
+  "/images/logos/draper.png": {
+    "src": "/images/optimized/logos-draper-480-fc6d7f71ad2e.webp",
+    "srcSet": "/images/optimized/logos-draper-96-af6ba874e26e.webp 96w, /images/optimized/logos-draper-128-22d173465f59.webp 128w, /images/optimized/logos-draper-160-fb5f7bc435b7.webp 160w, /images/optimized/logos-draper-240-4eafd529468d.webp 240w, /images/optimized/logos-draper-320-256d509b393a.webp 320w, /images/optimized/logos-draper-480-fc6d7f71ad2e.webp 480w",
+    "width": 480,
+    "height": 124
+  },
+  "/images/logos/electro-voice.png": {
+    "src": "/images/optimized/logos-electro-voice-480-ff948fb7ca42.webp",
+    "srcSet": "/images/optimized/logos-electro-voice-96-e34b3291e6f6.webp 96w, /images/optimized/logos-electro-voice-128-8cc7d0961e6b.webp 128w, /images/optimized/logos-electro-voice-160-8cc6f7a7b6df.webp 160w, /images/optimized/logos-electro-voice-240-6cea27061962.webp 240w, /images/optimized/logos-electro-voice-320-bb0e427311d5.webp 320w, /images/optimized/logos-electro-voice-480-ff948fb7ca42.webp 480w",
+    "width": 480,
+    "height": 171
+  },
+  "/images/logos/harman.png": {
+    "src": "/images/optimized/logos-harman-480-4aed3e3628ed.webp",
+    "srcSet": "/images/optimized/logos-harman-96-d5b43826c148.webp 96w, /images/optimized/logos-harman-128-73b2bc458245.webp 128w, /images/optimized/logos-harman-160-17f72f3823d6.webp 160w, /images/optimized/logos-harman-240-4e1471e05fc2.webp 240w, /images/optimized/logos-harman-320-3016e29ece58.webp 320w, /images/optimized/logos-harman-480-4aed3e3628ed.webp 480w",
+    "width": 480,
+    "height": 281
+  },
+  "/images/logos/jblpro.png": {
+    "src": "/images/optimized/logos-jblpro-480-91b00dee9953.webp",
+    "srcSet": "/images/optimized/logos-jblpro-96-c96e2eb1afbf.webp 96w, /images/optimized/logos-jblpro-128-8efa4f33c8ae.webp 128w, /images/optimized/logos-jblpro-160-b494f2333e9e.webp 160w, /images/optimized/logos-jblpro-240-92a1419e355b.webp 240w, /images/optimized/logos-jblpro-320-d07461df6ada.webp 320w, /images/optimized/logos-jblpro-480-91b00dee9953.webp 480w",
+    "width": 480,
+    "height": 543
+  },
+  "/images/logos/legrandav.png": {
+    "src": "/images/optimized/logos-legrandav-300-1461326eb123.webp",
+    "srcSet": "/images/optimized/logos-legrandav-96-cb9f5bdc0890.webp 96w, /images/optimized/logos-legrandav-128-91beb209aa93.webp 128w, /images/optimized/logos-legrandav-160-0623d411f710.webp 160w, /images/optimized/logos-legrandav-240-e27737bf1ef6.webp 240w, /images/optimized/logos-legrandav-300-1461326eb123.webp 300w",
+    "width": 300,
+    "height": 58
+  },
+  "/images/logos/mackie.png": {
+    "src": "/images/optimized/logos-mackie-480-4a9bf77f97bc.webp",
+    "srcSet": "/images/optimized/logos-mackie-96-9c1030dbfce1.webp 96w, /images/optimized/logos-mackie-128-1d1d081e06a1.webp 128w, /images/optimized/logos-mackie-160-0b8ea0d0ca5c.webp 160w, /images/optimized/logos-mackie-240-e065602db62b.webp 240w, /images/optimized/logos-mackie-320-dfe90e96c4b3.webp 320w, /images/optimized/logos-mackie-480-4a9bf77f97bc.webp 480w",
+    "width": 480,
+    "height": 149
+  },
+  "/images/logos/middle-atlantic.png": {
+    "src": "/images/optimized/logos-middle-atlantic-480-ad45ce4f8fb0.webp",
+    "srcSet": "/images/optimized/logos-middle-atlantic-96-96a8202274d8.webp 96w, /images/optimized/logos-middle-atlantic-128-cae5f416c363.webp 128w, /images/optimized/logos-middle-atlantic-160-88cbaed506df.webp 160w, /images/optimized/logos-middle-atlantic-240-6dcdc028a23b.webp 240w, /images/optimized/logos-middle-atlantic-320-23a7e9c40446.webp 320w, /images/optimized/logos-middle-atlantic-480-ad45ce4f8fb0.webp 480w",
+    "width": 480,
+    "height": 227
+  },
+  "/images/logos/panasonic.png": {
+    "src": "/images/optimized/logos-panasonic-480-619506b97f2c.webp",
+    "srcSet": "/images/optimized/logos-panasonic-96-843efdc38ee0.webp 96w, /images/optimized/logos-panasonic-128-90aedb2d6077.webp 128w, /images/optimized/logos-panasonic-160-26c1da2fa750.webp 160w, /images/optimized/logos-panasonic-240-15653ab89d9c.webp 240w, /images/optimized/logos-panasonic-320-dfb8f562b483.webp 320w, /images/optimized/logos-panasonic-480-619506b97f2c.webp 480w",
+    "width": 480,
+    "height": 77
+  },
+  "/images/logos/penton.png": {
+    "src": "/images/optimized/logos-penton-300-976785a52634.webp",
+    "srcSet": "/images/optimized/logos-penton-96-668b1c428f6a.webp 96w, /images/optimized/logos-penton-128-ba77e9664c14.webp 128w, /images/optimized/logos-penton-160-9613723e3c8d.webp 160w, /images/optimized/logos-penton-240-0882a6e11c09.webp 240w, /images/optimized/logos-penton-300-976785a52634.webp 300w",
+    "width": 300,
+    "height": 200
+  },
+  "/images/logos/qsc.png": {
+    "src": "/images/optimized/logos-qsc-480-e8ced9e77fda.webp",
+    "srcSet": "/images/optimized/logos-qsc-96-417fcf6b0c04.webp 96w, /images/optimized/logos-qsc-128-d100bae52faa.webp 128w, /images/optimized/logos-qsc-160-026de4607a5a.webp 160w, /images/optimized/logos-qsc-240-e3b89d7a3543.webp 240w, /images/optimized/logos-qsc-320-47b25a2c9290.webp 320w, /images/optimized/logos-qsc-480-e8ced9e77fda.webp 480w",
+    "width": 480,
+    "height": 97
+  },
+  "/images/logos/rdl.png": {
+    "src": "/images/optimized/logos-rdl-480-aeaa5d75a76a.webp",
+    "srcSet": "/images/optimized/logos-rdl-96-fffc0bddc4d2.webp 96w, /images/optimized/logos-rdl-128-4fdc1bdbeb5d.webp 128w, /images/optimized/logos-rdl-160-54f734e7da8d.webp 160w, /images/optimized/logos-rdl-240-83142088bc34.webp 240w, /images/optimized/logos-rdl-320-744eb5f6b909.webp 320w, /images/optimized/logos-rdl-480-aeaa5d75a76a.webp 480w",
+    "width": 480,
+    "height": 204
+  },
+  "/images/logos/renkus-heinz.png": {
+    "src": "/images/optimized/logos-renkus-heinz-480-034a71f2f2aa.webp",
+    "srcSet": "/images/optimized/logos-renkus-heinz-96-53bfb8c6402b.webp 96w, /images/optimized/logos-renkus-heinz-128-1906cba6602a.webp 128w, /images/optimized/logos-renkus-heinz-160-21f6a73c9d61.webp 160w, /images/optimized/logos-renkus-heinz-240-2e2afee98275.webp 240w, /images/optimized/logos-renkus-heinz-320-a6de07fdfb73.webp 320w, /images/optimized/logos-renkus-heinz-480-034a71f2f2aa.webp 480w",
+    "width": 480,
+    "height": 144
+  },
+  "/images/logos/shure.png": {
+    "src": "/images/optimized/logos-shure-480-1befc20b030c.webp",
+    "srcSet": "/images/optimized/logos-shure-96-e0418977461f.webp 96w, /images/optimized/logos-shure-128-58d4dcebc216.webp 128w, /images/optimized/logos-shure-160-23272cbc2cd2.webp 160w, /images/optimized/logos-shure-240-b531ed55f03d.webp 240w, /images/optimized/logos-shure-320-ce06131d3f13.webp 320w, /images/optimized/logos-shure-480-1befc20b030c.webp 480w",
+    "width": 480,
+    "height": 115
+  },
+  "/images/logos/soundcraft.png": {
+    "src": "/images/optimized/logos-soundcraft-480-ee506cdcd6f8.webp",
+    "srcSet": "/images/optimized/logos-soundcraft-96-cf174ffa1915.webp 96w, /images/optimized/logos-soundcraft-128-37aa3f1bf6f6.webp 128w, /images/optimized/logos-soundcraft-160-dc18e454aeca.webp 160w, /images/optimized/logos-soundcraft-240-bc45e095c629.webp 240w, /images/optimized/logos-soundcraft-320-8e3b86ade0e2.webp 320w, /images/optimized/logos-soundcraft-480-ee506cdcd6f8.webp 480w",
+    "width": 480,
+    "height": 480
+  }
+}

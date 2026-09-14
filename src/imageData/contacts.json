@@ -1,0 +1,8 @@
+{
+  "/images/rga-map.png": {
+    "src": "/images/optimized/rga-map-640-ad4ffa01641d.webp",
+    "srcSet": "/images/optimized/rga-map-96-765f28c157a4.webp 96w, /images/optimized/rga-map-128-088132eaee04.webp 128w, /images/optimized/rga-map-160-ee680d637f39.webp 160w, /images/optimized/rga-map-240-2733c2e8c342.webp 240w, /images/optimized/rga-map-320-7f8a5fc5c35b.webp 320w, /images/optimized/rga-map-480-35e9427d1b59.webp 480w, /images/optimized/rga-map-640-ad4ffa01641d.webp 640w, /images/optimized/rga-map-960-6e0a90f027a9.webp 960w, /images/optimized/rga-map-1280-7457fc3e1cb9.webp 1280w",
+    "width": 640,
+    "height": 431
+  }
+}

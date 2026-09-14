@@ -21,8 +21,8 @@ async function optimizeImages() {
     const metadata = await sharp(input).metadata();
     const widths = source === 'audiostuffs.png' ? [640, 960, 1600, 2400]
       : source === 'logo.png' ? [320, 640, 800]
-      : source.startsWith('logos/') ? [160, 320, 480]
-      : [160, 320, 640, 960, 1280];
+      : source.startsWith('logos/') ? [96, 128, 160, 240, 320, 480]
+      : [96, 128, 160, 240, 320, 480, 640, 960, 1280];
     const variants = [];
     for (const width of [...new Set(widths.map(size => Math.min(size, metadata.width)))]) {
       const { data, info } = await sharp(input).rotate().resize({ width, withoutEnlargement: true })
@@ -36,7 +36,24 @@ async function optimizeImages() {
     originalBytes += input.length;
     largestVariantBytes += variants[variants.length - 1].bytes;
   }
-  await fs.writeFile(path.join(root, 'src/optimizedImages.json'), `${JSON.stringify(manifest, null, 2)}\n`);
+  const groups = { shared: {}, vendors: {}, projects: {}, services: {}, contacts: {} };
+  for (const [source, variants] of Object.entries(manifest)) {
+    const group = source.includes('/logos/') ? 'vendors'
+      : source.includes('/projects/') ? 'projects'
+      : source.includes('/services/') || source.endsWith('/audiostuffs.png') ? 'services'
+      : source.endsWith('/rga-map.png') ? 'contacts' : 'shared';
+    const fallback = variants.find(image => image.width >= 640) || variants[variants.length - 1];
+    groups[group][source] = {
+      src: fallback.src,
+      srcSet: variants.map(image => `${image.src} ${image.width}w`).join(', '),
+      width: fallback.width,
+      height: fallback.height,
+    };
+  }
+  await fs.mkdir(path.join(root, 'src/imageData'), { recursive: true });
+  for (const [group, images] of Object.entries(groups)) {
+    await fs.writeFile(path.join(root, `src/imageData/${group}.json`), `${JSON.stringify(images, null, 2)}\n`);
+  }
   console.log(`Optimized ${sources.length} images: ${originalBytes} original bytes -> ${largestVariantBytes} bytes for largest WebP variants.`);
 }
 

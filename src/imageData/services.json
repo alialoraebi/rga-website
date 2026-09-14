@@ -1,0 +1,56 @@
+{
+  "/images/audiostuffs.png": {
+    "src": "/images/optimized/audiostuffs-640-3d666ed91566.webp",
+    "srcSet": "/images/optimized/audiostuffs-640-3d666ed91566.webp 640w, /images/optimized/audiostuffs-960-d245d046faf2.webp 960w, /images/optimized/audiostuffs-1600-e712b63cdf0b.webp 1600w, /images/optimized/audiostuffs-2050-5aeb11a42f86.webp 2050w",
+    "width": 640,
+    "height": 259
+  },
+  "/images/services/consulting.jpg": {
+    "src": "/images/optimized/services-consulting-640-3fc9066fe6ef.webp",
+    "srcSet": "/images/optimized/services-consulting-96-3cde779995f1.webp 96w, /images/optimized/services-consulting-128-90096384f02a.webp 128w, /images/optimized/services-consulting-160-c445f173ab6c.webp 160w, /images/optimized/services-consulting-240-acfec40f0645.webp 240w, /images/optimized/services-consulting-320-d2118481ef33.webp 320w, /images/optimized/services-consulting-480-6b176ee87aa5.webp 480w, /images/optimized/services-consulting-640-3fc9066fe6ef.webp 640w, /images/optimized/services-consulting-960-645c6bddbc83.webp 960w, /images/optimized/services-consulting-1280-92c6685ba56c.webp 1280w",
+    "width": 640,
+    "height": 427
+  },
+  "/images/services/full-system-design.jpg": {
+    "src": "/images/optimized/services-full-system-design-640-ef3c6e1bde79.webp",
+    "srcSet": "/images/optimized/services-full-system-design-96-dc90d016fadb.webp 96w, /images/optimized/services-full-system-design-128-d88729670b2d.webp 128w, /images/optimized/services-full-system-design-160-e11f01355aba.webp 160w, /images/optimized/services-full-system-design-240-1570221db081.webp 240w, /images/optimized/services-full-system-design-320-1abcdee7edc1.webp 320w, /images/optimized/services-full-system-design-480-769d7ff556c5.webp 480w, /images/optimized/services-full-system-design-640-ef3c6e1bde79.webp 640w, /images/optimized/services-full-system-design-960-44a189024efa.webp 960w, /images/optimized/services-full-system-design-1280-a37051b1ec1a.webp 1280w",
+    "width": 640,
+    "height": 427
+  },
+  "/images/services/installation.jpg": {
+    "src": "/images/optimized/services-installation-640-1a0cd1cf7c96.webp",
+    "srcSet": "/images/optimized/services-installation-96-78a4314ea87c.webp 96w, /images/optimized/services-installation-128-8e7b449e0152.webp 128w, /images/optimized/services-installation-160-405a9a53edff.webp 160w, /images/optimized/services-installation-240-a8c3d100de7d.webp 240w, /images/optimized/services-installation-320-53e28f13613e.webp 320w, /images/optimized/services-installation-480-e81a92e88fd0.webp 480w, /images/optimized/services-installation-640-1a0cd1cf7c96.webp 640w, /images/optimized/services-installation-960-3face308fcc3.webp 960w, /images/optimized/services-installation-1280-33a017d839a0.webp 1280w",
+    "width": 640,
+    "height": 342
+  },
+  "/images/services/service-maintenance.jpg": {
+    "src": "/images/optimized/services-service-maintenance-640-5bca8c860442.webp",
+    "srcSet": "/images/optimized/services-service-maintenance-96-207399f741ca.webp 96w, /images/optimized/services-service-maintenance-128-dab5bfd8f253.webp 128w, /images/optimized/services-service-maintenance-160-41a3dd4d5096.webp 160w, /images/optimized/services-service-maintenance-240-82a38dd3ff9f.webp 240w, /images/optimized/services-service-maintenance-320-71cd1621f614.webp 320w, /images/optimized/services-service-maintenance-480-52d186ed9fc6.webp 480w, /images/optimized/services-service-maintenance-640-5bca8c860442.webp 640w, /images/optimized/services-service-maintenance-960-d7367b9e24b7.webp 960w, /images/optimized/services-service-maintenance-1280-932b6a3d2719.webp 1280w",
+    "width": 640,
+    "height": 428
+  },
+  "/images/services/supervision.jpg": {
+    "src": "/images/optimized/services-supervision-640-50ebee41634e.webp",
+    "srcSet": "/images/optimized/services-supervision-96-364cf1b2ca92.webp 96w, /images/optimized/services-supervision-128-59345f136dad.webp 128w, /images/optimized/services-supervision-160-28031355d705.webp 160w, /images/optimized/services-supervision-240-8182c10be076.webp 240w, /images/optimized/services-supervision-320-4e39674f8144.webp 320w, /images/optimized/services-supervision-480-1308a419ff30.webp 480w, /images/optimized/services-supervision-640-50ebee41634e.webp 640w, /images/optimized/services-supervision-960-1c179cc309f4.webp 960w, /images/optimized/services-supervision-1280-b80b8407990c.webp 1280w",
+    "width": 640,
+    "height": 960
+  },
+  "/images/services/supply-build.jpg": {
+    "src": "/images/optimized/services-supply-build-600-eaa1e37487fd.webp",
+    "srcSet": "/images/optimized/services-supply-build-96-4e8fbe53456b.webp 96w, /images/optimized/services-supply-build-128-1bd724ca0bdc.webp 128w, /images/optimized/services-supply-build-160-d7713767b054.webp 160w, /images/optimized/services-supply-build-240-b2b04add9226.webp 240w, /images/optimized/services-supply-build-320-d30f9546b678.webp 320w, /images/optimized/services-supply-build-480-971af8869f22.webp 480w, /images/optimized/services-supply-build-600-eaa1e37487fd.webp 600w",
+    "width": 600,
+    "height": 288
+  },
+  "/images/services/system-integration.jpg": {
+    "src": "/images/optimized/services-system-integration-640-efd99f1aa58f.webp",
+    "srcSet": "/images/optimized/services-system-integration-96-3f1c6224134f.webp 96w, /images/optimized/services-system-integration-128-897655a2847e.webp 128w, /images/optimized/services-system-integration-160-916b0caaebe2.webp 160w, /images/optimized/services-system-integration-240-9dc241fafb6e.webp 240w, /images/optimized/services-system-integration-320-ef719073ff20.webp 320w, /images/optimized/services-system-integration-480-300ad1560ba4.webp 480w, /images/optimized/services-system-integration-640-efd99f1aa58f.webp 640w, /images/optimized/services-system-integration-960-b246873bea85.webp 960w, /images/optimized/services-system-integration-1280-161bed1809a8.webp 1280w",
+    "width": 640,
+    "height": 960
+  },
+  "/images/services/testing-commissioning.jpg": {
+    "src": "/images/optimized/services-testing-commissioning-640-c5538afd1fbe.webp",
+    "srcSet": "/images/optimized/services-testing-commissioning-96-04a0e41f79d6.webp 96w, /images/optimized/services-testing-commissioning-128-61d25957bea3.webp 128w, /images/optimized/services-testing-commissioning-160-9b196d1492cb.webp 160w, /images/optimized/services-testing-commissioning-240-67b511189b88.webp 240w, /images/optimized/services-testing-commissioning-320-563c1cabca6e.webp 320w, /images/optimized/services-testing-commissioning-480-0fce29680e1e.webp 480w, /images/optimized/services-testing-commissioning-640-c5538afd1fbe.webp 640w, /images/optimized/services-testing-commissioning-960-eae45142b127.webp 960w, /images/optimized/services-testing-commissioning-1280-72680472d306.webp 1280w",
+    "width": 640,
+    "height": 426
+  }
+}

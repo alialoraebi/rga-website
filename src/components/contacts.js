@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { imageProps } from '../imageProps';
+import { createImageProps } from '../imageProps';
+import images from '../imageData/contacts.json';
+
+const imageProps = createImageProps(images);
 
 const containerStyle = {
   width: '100%',

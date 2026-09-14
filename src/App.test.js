@@ -26,8 +26,9 @@ beforeEach(() => {
 
 afterEach(() => jest.restoreAllMocks());
 
-test('provides one main landmark separate from site navigation and footer', () => {
+test('provides one main landmark separate from site navigation and footer', async () => {
   render(<App />);
+  await screen.findByRole('heading', { level: 1 });
   const main = screen.getByRole('main');
   expect(main).toContainElement(screen.getByRole('heading', { level: 1 }));
   expect(main).not.toContainElement(screen.getByRole('navigation'));
@@ -51,8 +52,9 @@ test('mobile navigation hides closed links and supports Escape with focus return
   expect(toggle).toHaveFocus();
 });
 
-test('each vendor is represented once and decorative graphics are hidden', () => {
+test('each vendor is represented once and decorative graphics are hidden', async () => {
   const { container } = render(<App />);
+  await screen.findByRole('heading', { level: 1 });
   vendors.forEach((vendor) => {
     expect(screen.getAllByRole('img', { name: vendor.name })).toHaveLength(1);
   });
@@ -62,21 +64,23 @@ test('each vendor is represented once and decorative graphics are hidden', () =>
   });
 });
 
-test('background video plays without visible controls', () => {
+test('background video plays without visible controls', async () => {
   const { container } = render(<App />);
+  await screen.findByRole('heading', { level: 1 });
   const hero = container.querySelector('.hero-section');
   expect(HTMLMediaElement.prototype.play).toHaveBeenCalled();
   expect(within(hero).queryByRole('button')).not.toBeInTheDocument();
   expect(hero.querySelector('video')).not.toHaveAttribute('controls');
 });
 
-test('reduced motion prevents background video autoplay', () => {
+test('reduced motion prevents background video autoplay', async () => {
   window.matchMedia.mockImplementation((query) => ({
     matches: query === '(prefers-reduced-motion: reduce)',
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
   }));
   render(<App />);
+  await screen.findByRole('heading', { level: 1 });
   expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled();
   expect(HTMLMediaElement.prototype.pause).toHaveBeenCalled();
 });

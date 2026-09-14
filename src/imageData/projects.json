@@ -1,0 +1,74 @@
+{
+  "/images/projects/Barzan-Camp.png": {
+    "src": "/images/optimized/projects-Barzan-Camp-640-c7f665c27d87.webp",
+    "srcSet": "/images/optimized/projects-Barzan-Camp-96-475d5dadafb2.webp 96w, /images/optimized/projects-Barzan-Camp-128-888e8c306fb8.webp 128w, /images/optimized/projects-Barzan-Camp-160-71eda8ee70d5.webp 160w, /images/optimized/projects-Barzan-Camp-240-0a62dbb0557f.webp 240w, /images/optimized/projects-Barzan-Camp-320-c615cf651ce2.webp 320w, /images/optimized/projects-Barzan-Camp-480-e88885ad4dd1.webp 480w, /images/optimized/projects-Barzan-Camp-640-c7f665c27d87.webp 640w, /images/optimized/projects-Barzan-Camp-910-a7e885757e9b.webp 910w",
+    "width": 640,
+    "height": 422
+  },
+  "/images/projects/KFU.png": {
+    "src": "/images/optimized/projects-KFU-640-0bd82def508a.webp",
+    "srcSet": "/images/optimized/projects-KFU-96-ae478a2206ed.webp 96w, /images/optimized/projects-KFU-128-fe4be450dd8d.webp 128w, /images/optimized/projects-KFU-160-2bad011010bc.webp 160w, /images/optimized/projects-KFU-240-2aa5ab94aafd.webp 240w, /images/optimized/projects-KFU-320-3bc948f33ea5.webp 320w, /images/optimized/projects-KFU-480-bb62ccd991ab.webp 480w, /images/optimized/projects-KFU-640-0bd82def508a.webp 640w, /images/optimized/projects-KFU-741-ee312fe0095c.webp 741w",
+    "width": 640,
+    "height": 392
+  },
+  "/images/projects/azizhos.png": {
+    "src": "/images/optimized/projects-azizhos-640-f5546877f6de.webp",
+    "srcSet": "/images/optimized/projects-azizhos-96-3d70aca64817.webp 96w, /images/optimized/projects-azizhos-128-a0e973fec72d.webp 128w, /images/optimized/projects-azizhos-160-84b82cd37075.webp 160w, /images/optimized/projects-azizhos-240-5eaa4a7fba3f.webp 240w, /images/optimized/projects-azizhos-320-df09f1f27ba2.webp 320w, /images/optimized/projects-azizhos-480-2c0fcca1f603.webp 480w, /images/optimized/projects-azizhos-640-f5546877f6de.webp 640w, /images/optimized/projects-azizhos-960-310f73e9ae3b.webp 960w, /images/optimized/projects-azizhos-1280-6a209e1e2ae3.webp 1280w",
+    "width": 640,
+    "height": 427
+  },
+  "/images/projects/beirut.png": {
+    "src": "/images/optimized/projects-beirut-640-bbd7a40456e9.webp",
+    "srcSet": "/images/optimized/projects-beirut-96-8a751d631aaf.webp 96w, /images/optimized/projects-beirut-128-3aa7bab61e28.webp 128w, /images/optimized/projects-beirut-160-ed0a9a83ab93.webp 160w, /images/optimized/projects-beirut-240-72dc907b2435.webp 240w, /images/optimized/projects-beirut-320-e640e1322228.webp 320w, /images/optimized/projects-beirut-480-ef9d6fc2c286.webp 480w, /images/optimized/projects-beirut-640-bbd7a40456e9.webp 640w, /images/optimized/projects-beirut-960-40d66a143a7d.webp 960w, /images/optimized/projects-beirut-1280-30b0e940c90a.webp 1280w",
+    "width": 640,
+    "height": 415
+  },
+  "/images/projects/catholic-church.png": {
+    "src": "/images/optimized/projects-catholic-church-640-dd3da9f207c2.webp",
+    "srcSet": "/images/optimized/projects-catholic-church-96-1e8084741f7b.webp 96w, /images/optimized/projects-catholic-church-128-8d2804b65d48.webp 128w, /images/optimized/projects-catholic-church-160-ed1802b27a9b.webp 160w, /images/optimized/projects-catholic-church-240-db1608a596e8.webp 240w, /images/optimized/projects-catholic-church-320-2734f3bea15b.webp 320w, /images/optimized/projects-catholic-church-480-d0b260fc38d4.webp 480w, /images/optimized/projects-catholic-church-640-dd3da9f207c2.webp 640w, /images/optimized/projects-catholic-church-960-ffe7131a373f.webp 960w, /images/optimized/projects-catholic-church-1280-257eeaf29480.webp 1280w",
+    "width": 640,
+    "height": 425
+  },
+  "/images/projects/hamad.png": {
+    "src": "/images/optimized/projects-hamad-640-bbde087a6cb5.webp",
+    "srcSet": "/images/optimized/projects-hamad-96-a41b4bdea347.webp 96w, /images/optimized/projects-hamad-128-d9782931181b.webp 128w, /images/optimized/projects-hamad-160-9ec0f66fcfe3.webp 160w, /images/optimized/projects-hamad-240-afbb405c4835.webp 240w, /images/optimized/projects-hamad-320-0cfbd997b239.webp 320w, /images/optimized/projects-hamad-480-76959f077082.webp 480w, /images/optimized/projects-hamad-640-bbde087a6cb5.webp 640w, /images/optimized/projects-hamad-750-46fed3a052fe.webp 750w",
+    "width": 640,
+    "height": 468
+  },
+  "/images/projects/idb.png": {
+    "src": "/images/optimized/projects-idb-640-477a55f1ba10.webp",
+    "srcSet": "/images/optimized/projects-idb-96-8371956adbbd.webp 96w, /images/optimized/projects-idb-128-a7bc517b0c2e.webp 128w, /images/optimized/projects-idb-160-ad6e3f14202e.webp 160w, /images/optimized/projects-idb-240-94a403a1fa26.webp 240w, /images/optimized/projects-idb-320-4c2172cc397d.webp 320w, /images/optimized/projects-idb-480-081ae838449e.webp 480w, /images/optimized/projects-idb-640-477a55f1ba10.webp 640w, /images/optimized/projects-idb-960-cd386bed71f1.webp 960w, /images/optimized/projects-idb-1280-8044946292ec.webp 1280w",
+    "width": 640,
+    "height": 444
+  },
+  "/images/projects/king-airport.png": {
+    "src": "/images/optimized/projects-king-airport-640-e0dc1fcad25f.webp",
+    "srcSet": "/images/optimized/projects-king-airport-96-739368912d08.webp 96w, /images/optimized/projects-king-airport-128-d1c3fe5d3827.webp 128w, /images/optimized/projects-king-airport-160-8a1b5c6e7d1d.webp 160w, /images/optimized/projects-king-airport-240-52fcc77fb5d0.webp 240w, /images/optimized/projects-king-airport-320-1f7a53784f2b.webp 320w, /images/optimized/projects-king-airport-480-6bfa41829fbd.webp 480w, /images/optimized/projects-king-airport-640-e0dc1fcad25f.webp 640w, /images/optimized/projects-king-airport-800-627cde39eff3.webp 800w",
+    "width": 640,
+    "height": 393
+  },
+  "/images/projects/marriott-hotel.png": {
+    "src": "/images/optimized/projects-marriott-hotel-640-49ac917e92fb.webp",
+    "srcSet": "/images/optimized/projects-marriott-hotel-96-4a2afde17990.webp 96w, /images/optimized/projects-marriott-hotel-128-e7c6ccfc1e15.webp 128w, /images/optimized/projects-marriott-hotel-160-43e8ca9ba65b.webp 160w, /images/optimized/projects-marriott-hotel-240-07a8f3fa0a94.webp 240w, /images/optimized/projects-marriott-hotel-320-16f2a61a8782.webp 320w, /images/optimized/projects-marriott-hotel-480-7d4ab010aa8e.webp 480w, /images/optimized/projects-marriott-hotel-640-49ac917e92fb.webp 640w, /images/optimized/projects-marriott-hotel-960-5497f88ea4a9.webp 960w, /images/optimized/projects-marriott-hotel-1024-1a5066cb8bde.webp 1024w",
+    "width": 640,
+    "height": 427
+  },
+  "/images/projects/mellon.png": {
+    "src": "/images/optimized/projects-mellon-640-8a2bb789dbe4.webp",
+    "srcSet": "/images/optimized/projects-mellon-96-4cfe513a1764.webp 96w, /images/optimized/projects-mellon-128-58e9b2d3838f.webp 128w, /images/optimized/projects-mellon-160-5ca34ef35140.webp 160w, /images/optimized/projects-mellon-240-c2e111564659.webp 240w, /images/optimized/projects-mellon-320-42a74246f296.webp 320w, /images/optimized/projects-mellon-480-f3a2be850768.webp 480w, /images/optimized/projects-mellon-640-8a2bb789dbe4.webp 640w, /images/optimized/projects-mellon-900-bb6bdf930bf2.webp 900w",
+    "width": 640,
+    "height": 341
+  },
+  "/images/projects/nwest.png": {
+    "src": "/images/optimized/projects-nwest-640-e91908bccefd.webp",
+    "srcSet": "/images/optimized/projects-nwest-96-e5e1b6164d37.webp 96w, /images/optimized/projects-nwest-128-8d2e4867674c.webp 128w, /images/optimized/projects-nwest-160-82c25bbdb7e6.webp 160w, /images/optimized/projects-nwest-240-50ad176755d9.webp 240w, /images/optimized/projects-nwest-320-e8de54152ca1.webp 320w, /images/optimized/projects-nwest-480-2132bc8a4c4a.webp 480w, /images/optimized/projects-nwest-640-e91908bccefd.webp 640w, /images/optimized/projects-nwest-960-dc6f6b697faf.webp 960w, /images/optimized/projects-nwest-1280-762768fa3765.webp 1280w",
+    "width": 640,
+    "height": 267
+  },
+  "/images/projects/sport.png": {
+    "src": "/images/optimized/projects-sport-640-b430afb3373d.webp",
+    "srcSet": "/images/optimized/projects-sport-96-d71b50761ea0.webp 96w, /images/optimized/projects-sport-128-dae0469cc426.webp 128w, /images/optimized/projects-sport-160-50d4376c817a.webp 160w, /images/optimized/projects-sport-240-041e50430208.webp 240w, /images/optimized/projects-sport-320-f67f15c35a19.webp 320w, /images/optimized/projects-sport-480-55f20b1ae371.webp 480w, /images/optimized/projects-sport-640-b430afb3373d.webp 640w, /images/optimized/projects-sport-900-a5f761d6c3e8.webp 900w",
+    "width": 640,
+    "height": 356
+  }
+}

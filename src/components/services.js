@@ -1,6 +1,9 @@
 import React, { useId, useLayoutEffect, useRef, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
-import { imageProps } from '../imageProps';
+import { createImageProps } from '../imageProps';
+import images from '../imageData/services.json';
+
+const imageProps = createImageProps(images);
 
 const services = [
   { 

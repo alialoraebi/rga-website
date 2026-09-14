@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { imageProps } from '../imageProps';
+import { cardImageSizes, createImageProps } from '../imageProps';
+import images from '../imageData/vendors.json';
 
 import { vendors } from '../catalogData';
 export { vendors } from '../catalogData';
+
+const imageProps = createImageProps(images);
 
 const categories = [
   'Show All', 
@@ -56,7 +59,7 @@ const Vendors = () => {
               >
                 <div className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 flex items-center justify-center h-40 transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] group-hover:border-blue-400/50">
                   <img
-                    {...imageProps(vendor.image, { sizes: '(min-width: 1024px) 160px, (min-width: 640px) 180px, 35vw', loading: index < 6 ? 'eager' : 'lazy' })}
+                    {...imageProps(vendor.image, { sizes: cardImageSizes, loading: index < 6 ? 'eager' : 'lazy' })}
                     alt=""
                     className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 select-none"
                     style={{ 
