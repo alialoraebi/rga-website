@@ -46,7 +46,12 @@ export function AppContent({ pages = pageComponents }) {
         </a>
         <Navbar />
         <main id="main-content" tabIndex={-1}>
-        <Suspense fallback={<div role="status" className="min-h-screen p-8">Loading...</div>}>
+        <Suspense fallback={
+          <div role="status" className="min-h-[70vh] grid place-items-center p-8">
+            <span aria-hidden="true" className="block h-10 w-10 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin motion-reduce:animate-none" />
+            <span className="sr-only">Loading...</span>
+          </div>
+        }>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

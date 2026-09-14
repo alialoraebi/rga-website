@@ -1,6 +1,8 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from './App';
+import { lazy } from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import App, { AppContent } from './App';
 import { vendors } from './components/vendors';
 import Services from './components/services';
 import Vendors from './components/vendors';
@@ -25,6 +27,16 @@ beforeEach(() => {
 });
 
 afterEach(() => jest.restoreAllMocks());
+
+test('pending routes show a centered spinner with an accessible loading status', () => {
+  const PendingPage = lazy(() => new Promise(() => {}));
+  const pages = Object.fromEntries(['Home', 'About', 'Services', 'Vendors', 'Projects', 'Contact'].map(name => [name, PendingPage]));
+  render(<MemoryRouter><AppContent pages={pages} /></MemoryRouter>);
+  const status = screen.getByRole('status');
+  expect(status).toHaveClass('grid', 'place-items-center');
+  expect(within(status).getByText('Loading...')).toHaveClass('sr-only');
+  expect(status.querySelector('[aria-hidden="true"]')).toHaveClass('animate-spin', 'motion-reduce:animate-none');
+});
 
 test('provides one main landmark separate from site navigation and footer', async () => {
   render(<App />);
