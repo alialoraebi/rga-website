@@ -20,30 +20,30 @@ const About = () => {
         </h2>
         <div className="relative max-w-5xl mx-auto">
           {/* Glowing Timeline Line */}
-          <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2 z-0 animate-glow"></div>
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2 z-0 animate-glow"></div>
 
           {/* Timeline Items */}
           <div className="space-y-24 relative">
             {[
               { year: "1980", color: "from-blue-500 to-indigo-600", title: "Founded in the USA", description: "New York Subway Public Address - USA" },
-              { year: "1983", color: "from-green-500 to-teal-600", title: "Islamic Development Bank - KSA" },
-              { year: "1997", color: "from-yellow-500 to-orange-600", title: "Beirut International Airport - Lebanon" },
-              { year: "2004", color: "from-red-500 to-rose-600", title: "Khalifa Sports Hall - Qatar", description: "Opened office in Qatar" },
-              { year: "2006 - 2010", color: "from-purple-500 to-violet-600", title: "Carnegie Mellon & Northwestern University Qatar" },
-              { year: "2010", color: "from-teal-500 to-cyan-600", title: "Hamad International Airport Qatar" },
-              { year: "2018 - Present", color: "from-orange-500 to-amber-600", title: "Amiri Guard Base", description: "Continued international expansion across the Gulf Region and Africa" }
+              { year: "1983", color: "from-green-700 to-teal-800", title: "Islamic Development Bank - KSA" },
+              { year: "1997", color: "from-yellow-800 to-orange-800", title: "Beirut International Airport - Lebanon" },
+              { year: "2004", color: "from-red-700 to-rose-800", title: "Khalifa Sports Hall - Qatar", description: "Opened office in Qatar" },
+              { year: "2006 - 2010", color: "from-purple-700 to-violet-800", title: "Carnegie Mellon & Northwestern University Qatar" },
+              { year: "2010", color: "from-teal-700 to-cyan-800", title: "Hamad International Airport Qatar" },
+              { year: "2018 - Present", color: "from-orange-800 to-amber-800", title: "Amiri Guard Base", description: "Continued international expansion across the Gulf Region and Africa" }
             ].map((item, index) => (
               <div
                 key={index}
-                className={`flex items-start gap-12 relative ${index % 2 === 0 ? 'flex-row-reverse text-right' : 'text-left'} group`}
+                className={`flex flex-col md:flex-row items-start gap-4 md:gap-12 relative text-left ${index % 2 === 0 ? 'md:flex-row-reverse md:text-right' : ''} group`}
               >
                 {/* Glowing Square Marker */}
                 <div className="relative flex-shrink-0">
                   {/* Connecting Glow Effect */}
-                  <div className={`absolute top-1/2 ${index % 2 === 0 ? 'right-full' : 'left-full'} w-12 h-1 bg-gradient-to-r ${item.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 z-0`}></div>
+                  <div className={`hidden md:block absolute top-1/2 ${index % 2 === 0 ? 'right-full' : 'left-full'} w-12 h-1 bg-gradient-to-r ${item.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 z-0`}></div>
                   
                   <div className={`w-24 h-24 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)] z-10 transform transition-all duration-500 group-hover:scale-125 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] relative`}>
-                    <span className="text-white font-bold text-lg tracking-wider text-center px-2 leading-tight">
+                    <span className="text-white font-bold text-lg text-center px-2 leading-tight">
                       {item.year.split(' ').map((part, i) => (
                         <span key={i} className="block">{part}</span>
                       ))}
@@ -52,8 +52,8 @@ const About = () => {
                 </div>
 
                 {/* Content Card */}
-                <div className="flex-1 bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-300/30 transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]">
-                  <h3 className="text-3xl font-bold text-blue-600 mb-4 tracking-tight">{item.title}</h3>
+                <div className="w-full min-w-0 flex-1 bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-300/30 transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]">
+                  <h3 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">{item.title}</h3>
                   {item.description && (
                     <p className="text-base text-gray-700 leading-relaxed">{item.description}</p>
                   )}

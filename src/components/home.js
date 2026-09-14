@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../App.css';
 import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
 import { vendors } from './vendors';
+import { projects } from './projects';
 
 const Home = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const video = videoRef.current;
+    const updatePlayback = () => {
+      if (preference.matches) {
+        video.pause();
+      } else {
+        video.play().catch(() => video.pause());
+      }
+    };
+    updatePlayback();
+    preference.addEventListener('change', updatePlayback);
+    return () => preference.removeEventListener('change', updatePlayback);
+  }, []);
+
   const images = [
     '../images/projects/azizhos.png',
     '../images/projects/Barzan-Camp.png',
@@ -21,12 +39,14 @@ const Home = () => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section - Unchanged */}
+      {/* Hero Section */}
       <section className="hero-section flex items-center justify-center overflow-hidden relative" style={{ minHeight: '85vh', padding: '0 20px' }}>
         <video 
+          ref={videoRef}
+          aria-hidden="true"
+          tabIndex={-1}
           className="absolute inset-0 w-full h-full object-cover"
           src="../video/audio.mp4" 
-          autoPlay 
           loop 
           muted 
           playsInline 
@@ -44,20 +64,20 @@ const Home = () => {
             At Robert Guild Associates Inc., we specialize in providing comprehensive audio, video, and electronic design and integration solutions. Our commitment to excellence and partnerships with leading manufacturers ensure seamless and tailored services for corporate, government, educational, and residential clients worldwide.
           </p>
         </div>
-        <div className="absolute top-0 left-0 w-full h-6" 
-          style={{ 
-            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 10 Q 25 25 50 10 T 100 10 V 0 H 0 Z' fill='white' /></svg>")`, 
-            backgroundRepeat: 'repeat-x', 
-            backgroundSize: '100px 25px' 
-          }}>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full h-6" 
-          style={{ 
-            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 15 Q 25 0 50 15 T 100 15 V 25 H 0 Z' fill='white' /></svg>")`, 
-            backgroundRepeat: 'repeat-x', 
+        <div aria-hidden="true" className="absolute top-0 left-0 w-full h-6"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 10 Q 25 25 50 10 T 100 10 V 0 H 0 Z' fill='white' /></svg>")`,
+            backgroundRepeat: 'repeat-x',
             backgroundSize: '100px 25px'
-          }}>
-        </div>
+          }}
+        />
+        <div aria-hidden="true" className="absolute bottom-0 left-0 w-full h-6"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 15 Q 25 0 50 15 T 100 15 V 25 H 0 Z' fill='white' /></svg>")`,
+            backgroundRepeat: 'repeat-x',
+            backgroundSize: '100px 25px'
+          }}
+        />
       </section>
 
       {/* What We Do Section */}
@@ -81,7 +101,7 @@ const Home = () => {
                 key={idx}
                 className="group bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 text-center transform transition-all duration-500 hover:scale-105 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]"
               >
-                <service.icon className="text-5xl text-blue-600 mb-4 mx-auto transition-colors duration-300 group-hover:text-blue-900" />
+                <service.icon aria-hidden="true" focusable="false" className="text-5xl text-blue-600 mb-4 mx-auto transition-colors duration-300 group-hover:text-blue-900" />
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{service.title}</h3>
                 <p className="text-gray-700 leading-relaxed">{service.desc}</p>
               </div>
@@ -101,14 +121,14 @@ const Home = () => {
             We take pride in partnering with a diverse array of industry-leading vendors who are at the forefront of innovation and excellence, offering our clients cutting-edge solutions tailored to their unique needs.
           </p>
         </div>
-        <div className="marquee-container relative z-10 mt-12 overflow-hidden whitespace-nowrap">
-          <div className="marquee-content flex items-center space-x-12 animate-marquee">
-            {vendors.concat(vendors).map((vendor, idx) => (
+        <div className="relative z-10 mt-12 max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
+            {vendors.map((vendor, idx) => (
               <img
                 key={idx}
                 src={vendor.image}
                 alt={vendor.name}
-                className="h-16 w-32 md:h-24 md:w-48 object-contain select-none"
+                className="h-16 w-32 md:h-24 md:w-48 max-w-full object-contain select-none"
                 style={{ 
                   WebkitUserDrag: 'none',
                   userSelect: 'none',
@@ -147,7 +167,7 @@ const Home = () => {
             <div key={idx} className="aspect-w-1 aspect-h-1 group">
               <img
                 src={image}
-                alt={`Project ${idx + 1}`}
+                alt={projects.find((project) => `..${project.image}` === image)?.name || 'Barzan Camp'}
                 className="w-full h-full object-cover rounded-lg shadow-md transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] select-none"
                 style={{ 
                   WebkitUserDrag: 'none',

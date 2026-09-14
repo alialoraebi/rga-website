@@ -27,6 +27,8 @@ function Contact() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notice, setNotice] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,7 +40,10 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setIsSubmitting(true);
+    setNotice('Sending message...');
+    setSubmitError('');
 
     try {
       const response = await fetch('https://rga-backend-ihb6.onrender.com/api/contact', {
@@ -50,7 +55,7 @@ function Contact() {
       });
 
       if (response.ok) {
-        alert('Message sent successfully!');
+        setNotice('Message sent successfully!');
         setFormData({
           firstName: '',
           lastName: '',
@@ -60,11 +65,13 @@ function Contact() {
           message: '',
         });
       } else {
-        alert('Failed to send message. Please try again later.');
+        setNotice('');
+        setSubmitError('Failed to send message. Please try again later.');
       }
     } catch (error) {
       console.error('An error occurred', error);
-      alert('An error occurred while sending your message. Please try again later.');
+      setNotice('');
+      setSubmitError('An error occurred while sending your message. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -75,66 +82,83 @@ function Contact() {
       <div className="container mx-auto lg:flex lg:items-stretch relative z-10 gap-12">
         {/* Contact Form */}
         <div className="lg:w-1/2 bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 flex flex-col relative z-20 transition-all duration-500 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]">
-          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
+          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
             Contact Us
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
+          </h1>
+          <p id="contact-required" className="mb-6 text-gray-700">All fields are required.</p>
+          <form onSubmit={handleSubmit} aria-describedby="contact-required" className="contact-form space-y-6 flex-grow">
             <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
+              <label className="block w-full lg:w-1/2 text-gray-800 font-medium">
+                <span className="block mb-2">First Name</span>
               <input
                 type="text"
                 name="firstName"
-                placeholder="First Name"
+                autoComplete="given-name"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-full lg:w-1/2 p-4 border border-blue-200/50 rounded-lg bg-blue-50/30 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 "
+                className="w-full p-4 border border-gray-500 rounded-lg bg-blue-50/30 text-gray-800"
                 required
               />
+              </label>
+              <label className="block w-full lg:w-1/2 text-gray-800 font-medium">
+                <span className="block mb-2">Last Name</span>
               <input
                 type="text"
                 name="lastName"
-                placeholder="Last Name"
+                autoComplete="family-name"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full lg:w-1/2 p-4 border border-blue-200/50 rounded-lg bg-blue-50/30 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 "
+                className="w-full p-4 border border-gray-500 rounded-lg bg-blue-50/30 text-gray-800"
                 required
               />
+              </label>
             </div>
+            <label className="block text-gray-800 font-medium">
+              <span className="block mb-2">Email</span>
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-4 border border-blue-200/50 rounded-lg bg-blue-50/30 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 "
+              className="w-full p-4 border border-gray-500 rounded-lg bg-blue-50/30 text-gray-800"
               required
             />
+            </label>
+            <label className="block text-gray-800 font-medium">
+              <span className="block mb-2">Phone Number</span>
             <input
               type="tel"
               name="phone"
-              placeholder="Phone Number"
+              autoComplete="tel"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-4 border border-blue-200/50 rounded-lg bg-blue-50/30 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 border border-gray-500 rounded-lg bg-blue-50/30 text-gray-800"
               required
             />
+            </label>
+            <label className="block text-gray-800 font-medium">
+              <span className="block mb-2">Subject</span>
             <input
               type="text"
               name="subject"
-              placeholder="Subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full p-4 border border-blue-200/50 rounded-lg bg-blue-50/30 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 border border-gray-500 rounded-lg bg-blue-50/30 text-gray-800"
               required
             />
+            </label>
+            <label className="block text-gray-800 font-medium">
+              <span className="block mb-2">Message</span>
             <textarea
               name="message"
-              placeholder="Message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-4 border border-blue-200/50 rounded-lg bg-blue-50/30 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 border border-gray-500 rounded-lg bg-blue-50/30 text-gray-800"
               rows="8"
               required
             />
+            </label>
             <button
               type="submit"
               className="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-900 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -143,6 +167,8 @@ function Contact() {
               {isSubmitting ? 'Please wait...' : 'Send Message'}
             </button>
           </form>
+          <p role="status" aria-atomic="true" className="mt-4 text-gray-800">{notice}</p>
+          <p role="alert" aria-atomic="true" className="mt-2 text-red-800">{submitError}</p>
         </div>
 
         {/* Contact Details */}

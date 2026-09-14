@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useLayoutEffect, useRef, useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
 const services = [
@@ -54,6 +54,34 @@ services.forEach(service => {
 
 const Services = () => {
   const [openIndices, setOpenIndices] = useState(new Set());
+  const heroClipId = useId();
+  const heroRef = useRef(null);
+  const waveRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const updateWave = () => {
+      const { width, height } = heroRef.current.getBoundingClientRect();
+      const count = Math.ceil(width / 100);
+      const top = Array.from({ length: count }, (_, index) => {
+        const offset = index * 100;
+        return `Q ${offset + 25} 25 ${offset + 50} 10 T ${offset + 100} 10`;
+      }).join(' ');
+      const bottom = Array.from({ length: count }, (_, index) => {
+        const offset = (count - index) * 100;
+        return `Q ${offset - 25} ${height + 5} ${offset - 50} ${height - 10} T ${offset - 100} ${height - 10}`;
+      }).join(' ');
+      waveRef.current.setAttribute('d', `M 0 10 ${top} L ${count * 100} ${height - 10} ${bottom} Z`);
+    };
+
+    updateWave();
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', updateWave);
+      return () => window.removeEventListener('resize', updateWave);
+    }
+    const observer = new ResizeObserver(updateWave);
+    observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleServiceClick = (index) => {
     setOpenIndices(prev => {
@@ -71,10 +99,24 @@ const Services = () => {
     <div className="bg-white py-0 lg:py-0 overflow-hidden">
       {/* Hero Section */}
       <div
-        className="relative w-full bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/audiostuffs.png')", height: '60vh' }}
+        ref={heroRef}
+        className="relative w-full flex items-center justify-center"
+        style={{ minHeight: '60vh' }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+        <svg aria-hidden="true" focusable="false" className="absolute w-0 h-0" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id={heroClipId} clipPathUnits="userSpaceOnUse">
+              <path ref={waveRef} />
+            </clipPath>
+          </defs>
+        </svg>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/audiostuffs.png')", clipPath: `url(#${heroClipId})` }}
+        >
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
         <div className="relative z-10 text-center mx-auto w-11/12 max-w-4xl p-8 lg:p-12">
           <h1 className="text-5xl lg:text-6xl font-extrabold text-white mb-6">
             <span className="text-transparent bg-clip-text text-white">
@@ -85,24 +127,6 @@ const Services = () => {
             We are specialists in the design and implementation of audio, video, and control systems, delivering cutting-edge solutions for every need.
           </p>
         </div>
-        {/* Flipped sine wave effect at the top */}
-        <div
-          className="absolute top-0 left-0 w-full h-6"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 10 Q 25 25 50 10 T 100 10 V 0 H 0 Z' fill='white' /></svg>")`,
-            backgroundRepeat: 'repeat-x',
-            backgroundSize: '100px 25px',
-          }}
-        />
-        {/* Sine wave effect at the bottom */}
-        <div
-          className="absolute bottom-0 left-0 w-full h-6"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 15 Q 25 0 50 15 T 100 15 V 25 H 0 Z' fill='white' /></svg>")`,
-            backgroundRepeat: 'repeat-x',
-            backgroundSize: '100px 25px',
-          }}
-        />
       </div>
 
       {/* Services List */}
@@ -113,25 +137,29 @@ const Services = () => {
             className="group bg-white/90 backdrop-blur-sm rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 transition-all duration-500 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]"
           >
             {/* Service Title */}
-            <h2
-              className="text-2xl lg:text-3xl mb-4 font-bold text-blue-600 p-6 lg:p-8 cursor-pointer flex justify-between items-center transition-colors duration-300 group-hover:text-blue-700"
-              onClick={() => handleServiceClick(index)}
-            >
+            <h2 className="text-2xl lg:text-3xl font-bold text-blue-600">
+              <button
+                type="button"
+                id={`service-trigger-${index}`}
+                aria-expanded={openIndices.has(index)}
+                aria-controls={`service-panel-${index}`}
+                className="w-full p-6 lg:p-8 text-left flex justify-between items-center gap-4 transition-colors duration-300 group-hover:text-blue-700"
+                onClick={() => handleServiceClick(index)}
+              >
               {service.title}
               <FaChevronDown
-                className={`text-blue-600 transition-transform duration-300 ease-in-out group-hover:text-blue-700 ${openIndices.has(index) ? 'rotate-180' : ''}`}
+                aria-hidden="true"
+                focusable="false"
+                className={`shrink-0 text-blue-600 transition-transform duration-300 ease-in-out group-hover:text-blue-700 ${openIndices.has(index) ? 'rotate-180' : ''}`}
               />
+              </button>
             </h2>
 
             {/* Expandable Content */}
             <div
-              className={`overflow-hidden transition-all duration-500 ease-in-out`}
-              style={{ 
-                maxHeight: openIndices.has(index) ? '700px' : '0',
-                opacity: openIndices.has(index) ? 1 : 0,
-                padding: openIndices.has(index) ? '1.5rem 2rem' : '0 2rem',
-                marginTop: openIndices.has(index) ? '0' : '-20px',
-              }}
+              id={`service-panel-${index}`}
+              hidden={!openIndices.has(index)}
+              className="px-6 pb-6 lg:px-8 lg:pb-8"
             >
               <div className="flex flex-col lg:flex-row gap-6">
                 <img

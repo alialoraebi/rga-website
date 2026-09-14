@@ -5,6 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        blue: {
+          500: '#2563eb',
+        },
+      },
       maxWidth: {
         '7.5xl': '110rem', 
       },

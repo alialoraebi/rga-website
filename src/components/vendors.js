@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import React, { useState } from 'react';
 
 export const vendors = [
   { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png', url: 'https://www.akg.com/' },
@@ -34,23 +33,13 @@ const categories = [
 
 const Vendors = () => {
   const [selectedCategory, setSelectedCategory] = useState('Show All');
-  const [showCategories, setShowCategories] = useState(false);
-
-  useEffect(() => {
-    setSelectedCategory('Show All');
-  }, []);
 
   const filteredVendors = selectedCategory === 'Show All'
     ? vendors
     : vendors.filter(vendor => vendor.category === selectedCategory);
 
-  const toggleCategories = () => {
-    setShowCategories(!showCategories);
-  };
-
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
-    setShowCategories(false);
   };
 
   return (
@@ -66,40 +55,17 @@ const Vendors = () => {
 
         {/* Mobile Category Dropdown */}
         <div className="lg:hidden mb-12">
-          <button
-            onClick={toggleCategories}
-            className="flex items-center justify-between w-full h-14 px-6 bg-white/90 backdrop-blur-sm text-blue-600 font-bold rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-          >
-            <span>{selectedCategory}</span>
-            <FaChevronDown className={`transform transition-transform duration-500 ${showCategories ? 'rotate-180' : ''}`} />
-          </button>
-          <div
-            className={`mt-4 overflow-hidden transition-all duration-700 ease-in-out ${
-              showCategories ? 'max-h-[1000px]' : 'max-h-0'
-            }`}
-          >
-            <div className="flex flex-col space-y-3">
-              {categories.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleCategorySelect(category)}
-                  className={`w-full h-12 min-h-12 max-h-12 text-center flex items-center justify-center font-bold rounded-lg transition-all duration-300 ${
-                    selectedCategory === category
-                      ? 'bg-gradient-to-r from-blue-500 to-blue-900 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
-                      : 'bg-white/80 text-blue-600 border border-blue-200/30 hover:bg-blue-50 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)]'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
+          <label htmlFor="vendor-category" className="block font-bold text-gray-800 mb-2">Vendor category</label>
+          <select id="vendor-category" value={selectedCategory} onChange={(event) => handleCategorySelect(event.target.value)} className="w-full h-14 px-4 text-blue-600 bg-white border border-gray-500 rounded-lg">
+            {categories.map((category) => <option key={category}>{category}</option>)}
+          </select>
         </div>
+        <p role="status" className="text-gray-700 mb-6">{filteredVendors.length} vendors</p>
 
         {/* Main Layout */}
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Vendors Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 flex-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 flex-1 min-w-0">
             {filteredVendors.map((vendor, index) => (
               <a
                 key={index}
@@ -111,7 +77,7 @@ const Vendors = () => {
                 <div className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 flex items-center justify-center h-40 transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] group-hover:border-blue-400/50">
                   <img
                     src={vendor.image}
-                    alt={vendor.name}
+                    alt=""
                     className="object-contain max-w-full max-h-full transition-transform duration-300 group-hover:scale-105 select-none"
                     style={{ 
                       WebkitUserDrag: 'none',
@@ -132,10 +98,12 @@ const Vendors = () => {
           </div>
 
           {/* Desktop Category Sidebar */}
-          <div className="hidden lg:flex flex-col space-y-4 w-64">
+          <div role="group" aria-label="Vendor category" className="hidden lg:flex flex-col space-y-4 w-64 shrink-0">
             {categories.map((category, index) => (
               <button
                 key={index}
+                type="button"
+                aria-pressed={selectedCategory === category}
                 onClick={() => handleCategorySelect(category)}
                 className={`w-full h-12 text-center flex items-center justify-center font-bold rounded-lg transition-all duration-300 ${
                   selectedCategory === category

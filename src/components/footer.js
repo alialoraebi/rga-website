@@ -1,27 +1,18 @@
-import React, { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Footer = () => {
-  const navigate = useNavigate();
   const location = useLocation();
 
   const handleScrollToTop = (path) => {
-    if (location.pathname !== path) {
-      navigate(path);
-    } else {
+    if (location.pathname === path) {
+      document.getElementById('main-content').focus({ preventScroll: true });
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: 'auto',
       });
     }
   };
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, [location]);
 
   return (
     <footer className="bg-white text-gray-800 py-12 px-4 sm:px-8 lg:px-20 border-t border-blue-200/50 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
@@ -50,9 +41,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row w-full md:w-2/3 gap-12">
           {/* Navigation Links */}
           <div className="flex flex-col space-y-4 text-center md:text-left">
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">
+            <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">
               Quick Links
-            </h3>
+            </h2>
             {[
               { path: '/', label: 'Home' },
               { path: '/about', label: 'About' },
@@ -61,8 +52,10 @@ const Footer = () => {
               { path: '/projects', label: 'Projects' },
               { path: '/contacts', label: 'Contact Us' },
             ].map((link, index) => (
-              <button
+              <NavLink
                 key={index}
+                end
+                to={link.path}
                 onClick={() => handleScrollToTop(link.path)}
                 className={`w-full text-center flex items-center justify-center font-medium rounded-lg transition-all duration-300 px-4 py-2 ${location.pathname === link.path
                     ? 'bg-gradient-to-r from-blue-500 to-blue-900 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]'
@@ -70,15 +63,15 @@ const Footer = () => {
                   }`}
               >
                 {link.label}
-              </button>
+              </NavLink>
             ))}
           </div>
 
           {/* Address Details */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-4">
+            <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-4">
               Contact Us
-            </h3>
+            </h2>
             <div className="text-sm text-gray-700 space-y-6">
               <div>
                 <p className="font-semibold text-gray-800">Qatar Office</p>
