@@ -1,219 +1,251 @@
-import React, { useEffect, useRef } from 'react';
-import { FaSearch, FaCog, FaTruck, FaUserCheck, FaTools, FaPuzzlePiece, FaCheckCircle, FaWrench } from 'react-icons/fa';
-import { vendors, projects } from '../catalogData';
-import { createImageProps } from '../imageProps';
-import vendorImages from '../imageData/vendors.json';
-import projectImages from '../imageData/projects.json';
-
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { vendors, projects } from "../catalogData";
+import { createImageProps } from "../imageProps";
+import vendorImages from "../imageData/vendors.json";
+import projectImages from "../imageData/projects.json";
+import { Arrow, Reveal, ProjectCTA } from "./ui";
 const imageProps = createImageProps({ ...vendorImages, ...projectImages });
-
-const Home = () => {
+const capabilities = [
+  [
+    "01",
+    "Consulting & design",
+    "A clear vision, a considered plan. Systems designed around your space, your people, and your ambitions.",
+    "Strategy / System design",
+  ],
+  [
+    "02",
+    "Integration & delivery",
+    "Complex technology. Effortless experiences. Expert supply, installation, and integration from end to end.",
+    "Supply / Installation / Integration",
+  ],
+  [
+    "03",
+    "Support & assurance",
+    "Confidence that lasts beyond handover. Rigorous testing, commissioning, and ongoing care for every system.",
+    "Commissioning / Maintenance",
+  ],
+];
+const selectedProjects = [projects[3], projects[1], projects[5]];
+export default function Home() {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const video = videoRef.current;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updatePlayback = () => {
-      if (preference.matches) {
+      if (preference.matches || document.hidden) {
         video.pause();
       } else {
-        video.play().catch(() => video.pause());
+        video.play().catch(() => {});
       }
     };
     updatePlayback();
-    preference.addEventListener('change', updatePlayback);
-    return () => preference.removeEventListener('change', updatePlayback);
+    preference.addEventListener("change", updatePlayback);
+    document.addEventListener("visibilitychange", updatePlayback);
+    return () => {
+      preference.removeEventListener("change", updatePlayback);
+      document.removeEventListener("visibilitychange", updatePlayback);
+      video.pause();
+    };
   }, []);
 
-  const images = [
-    '../images/projects/azizhos.png',
-    '../images/projects/Barzan-Camp.png',
-    '../images/projects/beirut.png',
-    '../images/projects/hamad.png',
-    '../images/projects/idb.png',
-    '../images/projects/king-airport.png',
-    '../images/projects/mellon.png',
-    '../images/projects/nwest.png',
-    '../images/projects/sport.png',
-    '../images/projects/catholic-church.png',
-    '../images/projects/KFU.png',
-    '../images/projects/marriott-hotel.png',
-  ];
-
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <section className="hero-section flex items-center justify-center overflow-hidden relative" style={{ minHeight: '85vh', padding: '0 20px' }}>
-        <video 
+    <>
+      <section className="home-hero" aria-labelledby="hero-title">
+        <video
           ref={videoRef}
+          id="hero-video"
+          className="hero-video"
+          src="/video/hero-df568505855b.mp4"
+          poster="/video/hero-df568505855b-poster.webp"
+          muted
+          loop
+          playsInline
+          preload="metadata"
           aria-hidden="true"
           tabIndex={-1}
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/video/hero-df568505855b.mp4"
-          loop 
-          muted 
-          playsInline 
         />
-        <div className="container mx-auto flex flex-col justify-center items-center text-center z-10 relative">
-          <p className="text-white font-bold text-lg lg:text-2xl mb-8 max-w-xl">
-            Delivering World-Class Solutions in Audio, Video, and Electronic Systems Integration
-          </p>
-          <h1 className="text-3xl lg:text-5xl font-bold text-white leading-snug mb-10">
-            Innovating the Future of AV Integration and Consulting: 
-            <br />
-            Empowering Your Vision with Cutting-Edge Technology.
-          </h1>
-          <p className="text-white text-sm lg:text-lg max-w-6xl mb-8">
-            At Robert Guild Associates Inc., we specialize in providing comprehensive audio, video, and electronic design and integration solutions. Our commitment to excellence and partnerships with leading manufacturers ensure seamless and tailored services for corporate, government, educational, and residential clients worldwide.
-          </p>
+        <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-stage site-container">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              <span className="status-dot" /> CONNECTING PEOPLE. TRANSFORMING
+              SPACES.
+            </p>
+            <h1 id="hero-title">
+              Exceptional spaces.
+              <br />
+              <span>Seamlessly</span>
+              <br />
+              connected.
+            </h1>
+            <p className="hero-description">
+              Audio, video, and control systems engineered to work beautifully
+              together. From a single room to an international landmark.
+            </p>
+            <div className="hero-actions">
+              <Link to="/projects" className="button button-primary">
+                Explore our work <Arrow />
+              </Link>
+              <Link to="/services" className="text-link light-link">
+                Our expertise <Arrow diagonal />
+              </Link>
+            </div>
+          </div>
         </div>
-        <div aria-hidden="true" className="absolute top-0 left-0 w-full h-6"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 10 Q 25 25 50 10 T 100 10 V 0 H 0 Z' fill='white' /></svg>")`,
-            backgroundRepeat: 'repeat-x',
-            backgroundSize: '100px 25px'
-          }}
-        />
-        <div aria-hidden="true" className="absolute bottom-0 left-0 w-full h-6"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 25' preserveAspectRatio='none'><path d='M 0 15 Q 25 0 50 15 T 100 15 V 25 H 0 Z' fill='white' /></svg>")`,
-            backgroundRepeat: 'repeat-x',
-            backgroundSize: '100px 25px'
-          }}
-        />
       </section>
-
-      {/* What We Do Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32">
-          <h2 className="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-12">
-            What We Do
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: FaSearch, title: 'Consulting', desc: 'We offer consulting services to help you plan the right systems for your needs.' },
-              { icon: FaCog, title: 'Full System Design', desc: 'Our team of experienced designers can create custom system designs to meet your requirements.' },
-              { icon: FaTruck, title: 'Supply and Build', desc: 'We can supply all the equipment you need, or work with your existing equipment.' },
-              { icon: FaUserCheck, title: 'Supervision', desc: 'Our experts oversee projects to ensure everything runs smoothly.' },
-              { icon: FaTools, title: 'Installation', desc: 'Professional installation services for all types of systems.' },
-              { icon: FaPuzzlePiece, title: 'System Integration', desc: 'We ensure all system components work together seamlessly.' },
-              { icon: FaCheckCircle, title: 'Testing & Commission', desc: 'We test and commission systems to ensure optimal performance.' },
-              { icon: FaWrench, title: 'Service & Maintenance', desc: 'Ongoing maintenance and support to keep your systems running smoothly.' },
-            ].map((service, idx) => (
-              <div
-                key={idx}
-                className="group bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-200/30 text-center transform transition-all duration-500 hover:scale-105 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]"
-              >
-                <service.icon aria-hidden="true" focusable="false" className="text-5xl text-blue-600 mb-4 mx-auto transition-colors duration-300 group-hover:text-blue-900" />
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{service.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{service.desc}</p>
+      <section className="credentials-strip" aria-label="Our experience">
+        <div className="site-container credentials-grid">
+          <p>
+            Global perspective.
+            <br />
+            <strong>Local understanding.</strong>
+          </p>
+          <div>
+            <strong>Since 1980</strong>
+            <span>A legacy of engineering expertise</span>
+          </div>
+          <div>
+            <strong>USA + Qatar</strong>
+            <span>Connected across continents</span>
+          </div>
+          <div>
+            <strong>End to end</strong>
+            <span>From concept to ongoing care</span>
+          </div>
+        </div>
+      </section>
+      <section className="section-space">
+        <div className="site-container">
+          <Reveal className="section-heading">
+            <div>
+              <p className="eyebrow">01 / OUR EXPERTISE</p>
+              <h2>
+                Technology with purpose.
+                <br />
+                Integration with precision.
+              </h2>
+            </div>
+            <p>
+              We make complex systems feel simple. One experienced team,
+              supporting every stage of your project.
+            </p>
+          </Reveal>
+          <div className="capability-grid">
+            {capabilities.map(([number, title, description, tags], index) => (
+              <Reveal delay={index * 80} key={number}>
+                <Link to="/services" className="capability-card">
+                  <div className="card-top">
+                    <span>{number}</span>
+                    <Arrow diagonal />
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <span className="card-tags">{tags}</span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section-space work-section">
+        <div className="site-container">
+          <Reveal className="section-heading">
+            <div>
+              <p className="eyebrow">02 / SELECTED WORK</p>
+              <h2>
+                Trusted in places
+                <br />
+                that matter.
+              </h2>
+            </div>
+            <Link to="/projects" className="text-link">
+              View all projects <Arrow />
+            </Link>
+          </Reveal>
+          <div className="featured-grid">
+            {selectedProjects.map((project, index) => (
+              <Reveal key={project.name} delay={index * 80}>
+                <Link className="featured-project" to="/projects">
+                  <div className="project-photo">
+                    <img
+                      {...imageProps(project.image, {
+                        sizes: "(min-width: 900px) 33vw, 100vw",
+                      })}
+                      alt=""
+                    />
+                    <span className="project-arrow">
+                      <Arrow diagonal />
+                    </span>
+                  </div>
+                  <p className="eyebrow">
+                    {project.category}
+                    <span>DOHA, QATAR</span>
+                  </p>
+                  <h3>{project.name}</h3>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section-space company-section">
+        <div className="site-container company-grid">
+          <Reveal>
+            <p className="eyebrow">03 / THE RGA DIFFERENCE</p>
+            <h2>
+              Built on experience.
+              <br />
+              Driven by possibility.
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p className="large-copy">
+              Great technology starts with understanding people.
+            </p>
+            <p>
+              Since our beginnings in the United States in 1980, we’ve brought
+              thoughtful engineering to ambitious spaces. With a regional office
+              in Doha, we combine international expertise with an understanding
+              of the places we serve.
+            </p>
+            <Link to="/about" className="text-link">
+              Get to know RGA <Arrow />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+      <section className="section-space partners-section">
+        <div className="site-container">
+          <Reveal className="section-heading">
+            <div>
+              <p className="eyebrow">04 / OUR TECHNOLOGY PARTNERS</p>
+              <h2>
+                Exceptional systems.
+                <br />
+                Exceptional partners.
+              </h2>
+            </div>
+            <Link to="/vendors" className="text-link">
+              Meet our partners <Arrow />
+            </Link>
+          </Reveal>
+          <div className="partner-grid">
+            {vendors.map((vendor) => (
+              <div key={vendor.name}>
+                <img
+                  {...imageProps(vendor.image, {
+                    sizes: "(min-width: 700px) 140px, 100px",
+                  })}
+                  alt={vendor.name}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Who We Work With Section */}
-      <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-50 z-0"></div>
-        <div className="relative z-10 text-center px-6 mx-auto max-w-4xl">
-          <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
-            Who We Work With
-          </h2>
-          <p className="text-gray-700 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
-            We take pride in partnering with a diverse array of industry-leading vendors who are at the forefront of innovation and excellence, offering our clients cutting-edge solutions tailored to their unique needs.
-          </p>
-        </div>
-        <div className="relative z-10 mt-12 max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
-            {vendors.map((vendor, idx) => (
-              <img
-                key={idx}
-                {...imageProps(vendor.image, { sizes: '(min-width: 768px) 192px, 128px' })}
-                alt={vendor.name}
-                className="h-16 w-32 md:h-24 md:w-48 max-w-full object-contain select-none"
-                style={{ 
-                  WebkitUserDrag: 'none',
-                  userSelect: 'none',
-                  MozUserSelect: 'none',
-                  WebkitUserSelect: 'none',
-                  msUserSelect: 'none'
-                }}
-                draggable="false"
-                onContextMenu={(e) => e.preventDefault()}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="relative z-10 text-center mt-12">
-          <a
-            href="/vendors"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-900 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] transition-all duration-300 transform hover:scale-105"
-          >
-            Explore Our Vendors
-          </a>
-        </div>
-      </section>
-
-      {/* Who We Worked For Section */}
-      <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
-        <div className="relative z-10 text-center px-6 mx-auto max-w-4xl">
-          <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
-            Who We Worked For
-          </h2>
-          <p className="text-gray-700 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
-            We are proud to have successfully completed projects for some of the most prestigious organizations and institutions, delivering exceptional results that exceed expectations.
-          </p>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-12">
-          {images.map((image, idx) => (
-            <div key={idx} className="aspect-w-1 aspect-h-1 group">
-              <img
-                {...imageProps(image, { sizes: '(min-width: 1024px) 200px, (min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw' })}
-                alt={projects.find((project) => `..${project.image}` === image)?.name || 'Barzan Camp'}
-                className="w-full h-full object-cover rounded-lg shadow-md transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] select-none"
-                style={{ 
-                  WebkitUserDrag: 'none',
-                  userSelect: 'none',
-                  MozUserSelect: 'none',
-                  WebkitUserSelect: 'none',
-                  msUserSelect: 'none'
-                }}
-                draggable="false"
-                onContextMenu={(e) => e.preventDefault()}
-              />
-            </div>
-          ))}
-        </div>
-        <div className="relative z-10 text-center mt-12">
-          <a
-            href="/projects"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-900 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] transition-all duration-300 transform hover:scale-105"
-          >
-            Explore Our Projects
-          </a>
-        </div>
-      </section>
-
-      {/* Contact Us Section */}
-      <section className="bg-white py-16 lg:py-24 text-center">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-20">
-        <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6 pb-1">
-          Thinking About Starting a Project?
-        </h2>
-          <p className="text-gray-700 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-            We would love to hear from you. Get in touch with us today to discuss your project needs and how we can help.
-          </p>
-          <a
-            href="/contacts"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-900 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] transition-all duration-300 transform hover:scale-105"
-          >
-            Contact Us
-          </a>
-        </div>
-      </section>
-    </div>
+      <ProjectCTA />
+    </>
   );
-};
-
-export default Home;
+}

@@ -1,0 +1,240 @@
+{
+  "verifiedDate": "2026-09-16",
+  "environment": "Local Chromium, development server; production hydration checked separately",
+  "scope": "Automated WCAG-tagged scans and responsive layout checks; not a complete conformance assessment",
+  "report": [
+    {
+      "width": 1440,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "/about",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "/services",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "/projects",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "/vendors",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "route": "/contacts",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "route": "/about",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "route": "/services",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "route": "/projects",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "route": "/vendors",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 320,
+      "route": "/contacts",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/about",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/services",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/projects",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/vendors",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/contacts",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/about",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/services",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/projects",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/vendors",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "route": "/contacts",
+      "overflow": false,
+      "broken": [],
+      "headings": 1,
+      "violations": []
+    },
+    {
+      "state": "project dialog",
+      "violations": []
+    },
+    {
+      "state": "all services expanded",
+      "violations": []
+    },
+    {
+      "state": "320px text spacing",
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "theme": "Company blue and white, with supplied logo_icon.png",
+  "restoredVideoHero": {
+    "report": [
+      {
+        "width": 1440,
+        "overflow": false,
+        "violations": []
+      },
+      {
+        "width": 768,
+        "overflow": false,
+        "violations": []
+      },
+      {
+        "width": 390,
+        "overflow": false,
+        "violations": []
+      },
+      {
+        "width": 320,
+        "overflow": false,
+        "violations": []
+      }
+    ],
+    "keyboardPlayback": "passed",
+    "reducedMotion": "passed",
+    "manualPausePreserved": "passed"
+  }
+}

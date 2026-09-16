@@ -1,97 +1,139 @@
-import React from 'react';
-
-const About = () => {
+import React from "react";
+import { PageIntro, ProjectCTA, Reveal } from "./ui";
+const milestones = [
+  [
+    "1980",
+    "An American beginning",
+    "Founded in the USA, with work on the New York Subway public address system.",
+  ],
+  [
+    "1983",
+    "Engineering across borders",
+    "Islamic Development Bank, Saudi Arabia.",
+  ],
+  [
+    "1997",
+    "Connecting international gateways",
+    "Beirut International Airport, Lebanon.",
+  ],
+  [
+    "2004",
+    "A new chapter in Qatar",
+    "Our Qatar office opened, alongside work at Khalifa Sports Hall.",
+  ],
+  [
+    "2006–2010",
+    "Supporting the next generation",
+    "Carnegie Mellon and Northwestern University, Qatar.",
+  ],
+  ["2010", "On an international stage", "Hamad International Airport, Qatar."],
+  [
+    "2018–Present",
+    "Building what comes next",
+    "Amiri Guard Base and continued work across the Gulf region and Africa.",
+  ],
+];
+export default function About() {
   return (
-    <div className="bg-white py-20 px-4 sm:px-8 lg:px-20 overflow-hidden">
-      {/* Hero Section */}
-      <section className="text-center mb-20">
-        <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
-          About Us
-        </h1>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed tracking-wide">
-          Our company, headquartered in the United States with a regional office in Doha, Qatar, boasts over 31 years of industry experience. We are a global leader in audio, video, and electronic design, integration, and consulting, specializing in planning and installing electronic systems that range from residential to enterprise-class solutions.
-        </p>
+    <>
+      <PageIntro eyebrow="OUR COMPANY / EST. 1980" title="About Us">
+        International experience. Personal commitment. We bring people, spaces,
+        and technology together.
+      </PageIntro>
+      <section className="section-space">
+        <div className="site-container company-grid">
+          <Reveal>
+            <p className="eyebrow">THE PEOPLE BEHIND THE SYSTEMS</p>
+            <h2>
+              Expertise that connects.
+              <br />
+              Relationships that last.
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p className="large-copy">
+              We believe the best technology is the technology that works for
+              you.
+            </p>
+            <p>
+              Robert Guild Associates specializes in audio, video, and
+              electronic design, integration, and consulting. Headquartered in
+              the United States with a regional office in Doha, Qatar, we plan
+              and install systems from residential spaces to enterprise
+              environments.
+            </p>
+            <p>
+              Our approach brings careful planning, technical expertise, and
+              hands-on support together, with one goal: systems that work
+              seamlessly for the people who use them.
+            </p>
+          </Reveal>
+        </div>
       </section>
-
-      {/* Timeline Section */}
-      <section className="mb-24 relative">
-        <h2 className="text-4xl font-extrabold text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
-          Our Journey
-        </h2>
-        <div className="relative max-w-5xl mx-auto">
-          {/* Glowing Timeline Line */}
-          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2 z-0 animate-glow"></div>
-
-          {/* Timeline Items */}
-          <div className="space-y-24 relative">
+      <section className="section-space history-section">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">OUR JOURNEY</p>
+              <h2>
+                Decades of progress.
+                <br />
+                One clear purpose.
+              </h2>
+            </div>
+            <p>
+              From our first projects to some of the region’s most recognizable
+              institutions.
+            </p>
+          </div>
+          <div className="timeline">
+            {milestones.map(([year, title, description]) => (
+              <Reveal className="timeline-row" key={year}>
+                <span className="timeline-year">{year}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section-space">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">PROFESSIONAL KNOW-HOW</p>
+              <h2>Our industry certifications</h2>
+            </div>
+            <p>
+              Specialist knowledge across the technologies we design, install,
+              and support.
+            </p>
+          </div>
+          <div className="certification-grid">
             {[
-              { year: "1980", color: "from-blue-500 to-indigo-600", title: "Founded in the USA", description: "New York Subway Public Address - USA" },
-              { year: "1983", color: "from-green-700 to-teal-800", title: "Islamic Development Bank - KSA" },
-              { year: "1997", color: "from-yellow-800 to-orange-800", title: "Beirut International Airport - Lebanon" },
-              { year: "2004", color: "from-red-700 to-rose-800", title: "Khalifa Sports Hall - Qatar", description: "Opened office in Qatar" },
-              { year: "2006 - 2010", color: "from-purple-700 to-violet-800", title: "Carnegie Mellon & Northwestern University Qatar" },
-              { year: "2010", color: "from-teal-700 to-cyan-800", title: "Hamad International Airport Qatar" },
-              { year: "2018 - Present", color: "from-orange-800 to-amber-800", title: "Amiri Guard Base", description: "Continued international expansion across the Gulf Region and Africa" }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`flex flex-col md:flex-row items-start gap-4 md:gap-12 relative text-left ${index % 2 === 0 ? 'md:flex-row-reverse md:text-right' : ''} group`}
-              >
-                {/* Glowing Square Marker */}
-                <div className="relative flex-shrink-0">
-                  {/* Connecting Glow Effect */}
-                  <div className={`hidden md:block absolute top-1/2 ${index % 2 === 0 ? 'right-full' : 'left-full'} w-12 h-1 bg-gradient-to-r ${item.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 z-0`}></div>
-                  
-                  <div className={`w-24 h-24 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)] z-10 transform transition-all duration-500 group-hover:scale-125 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] relative`}>
-                    <span className="text-white font-bold text-lg text-center px-2 leading-tight">
-                      {item.year.split(' ').map((part, i) => (
-                        <span key={i} className="block">{part}</span>
-                      ))}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Card */}
-                <div className="w-full min-w-0 flex-1 bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-300/30 transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]">
-                  <h3 className="text-2xl md:text-3xl font-bold text-blue-600 mb-4">{item.title}</h3>
-                  {item.description && (
-                    <p className="text-base text-gray-700 leading-relaxed">{item.description}</p>
-                  )}
-                </div>
+              "IED Master Certified Contractor",
+              "Crown IQ",
+              "QSC Venue Manager",
+              "QSC Level 2 Designer",
+              "SynAudCon",
+              "TEF Systems & Software",
+              "Symetrix Software Design",
+              "Crestron Programming",
+              "Dante Certified",
+            ].map((name, index) => (
+              <div key={name}>
+                <span aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{name}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Certifications Section */}
-      <section className="mb-24">
-        <h2 className="text-4xl font-extrabold text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-6">
-          Our Industry Certifications
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
-          {[
-            "IED Master Certified Contractor",
-            "Crown IQ",
-            "QSC Venue Manager",
-            "QSC Level 2 Designer",
-            "SynAudCon",
-            "TEF Systems & Software",
-            "Symetrix Software Design",
-            "Crestron Programming",
-            "Dante Certified"
-          ].map((certification, index) => (
-            <div
-              key={index}
-              className="bg-white/80 backdrop-blur-sm p-6 rounded-lg border border-blue-200/50 shadow-[0_0_10px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 transform hover:scale-105"
-            >
-              <p className="text-lg font-semibold text-gray-800 tracking-wide">{certification}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+      <ProjectCTA />
+    </>
   );
-};
-
-export default About;
+}

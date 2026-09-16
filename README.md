@@ -1,6 +1,14 @@
 
 # Robert Guild Associates Website
 
+## September 16, 2026 redesign
+
+All six pages now share a company-blue and white visual system using the supplied `logo_icon.png` in the header and footer with larger project photography, responsive layouts, refreshed navigation, and a consistent footer. The homepage uses the original `hero-df568505855b.mp4` as a full-width background with a blue contrast overlay, a matching still poster, and an accessible play/pause control. Reduced motion prevents automatic playback. Short entrance animations, card interactions, and expanding service panels respect `prefers-reduced-motion`; changing that preference also cancels active JavaScript reveal animations. Content remains visible before hydration and without animation support.
+
+The redesign retains category filters and result announcements, native project dialogs with Escape and focus restoration, labeled contact fields and submission feedback, the skip link, route titles, and route focus. No new runtime dependencies were added. `npm start` runs the local preview; `npm run build` still optimizes images and prerenders all six routes. Contact submission continues to use the existing backend.
+
+See [the redesign accessibility notes](docs/redesign-accessibility.md) for verification and remaining manual checks. The video, wave, and earlier layout descriptions below document the previous design and are superseded by this section; their historical measurements should not be read as measurements of the redesign.
+
 Welcome to the official website repository of Robert Guild Associates, a global leader in audio, video, and electronic design, integration, and consulting. With over 30 years of industry experience, our company is headquartered in the United States and operates a regional office in Doha, Qatar. This website is designed to showcase our services, projects, and vendors, providing visitors with detailed information about our capabilities and past work.
 
 ## Table of Contents
@@ -154,7 +162,7 @@ Service panels now animate their intrinsic height and opacity over 400ms in both
 
 ## Performance
 
-Images use responsive WebP variants with intrinsic dimensions. Below-fold images load lazily; service panel photos receive a source only after the first expansion and remain loaded for smooth closing animations. The Services hero image loads eagerly at high priority, retaining its centered cover rendering and existing clip path. The Home video and both wave implementations are unchanged.
+Images use responsive WebP variants with intrinsic dimensions. Below-fold images load lazily; service panel photos receive a source only after the first expansion and remain loaded for smooth closing animations. The Services hero image loads eagerly at high priority, retaining its centered cover rendering and existing clip path. Home uses a compressed version of the same video; playback behavior and both wave implementations are unchanged.
 
 The unused blocking Three.js CDN script was removed. All routes, including Home, now load as separate JavaScript chunks. Image metadata is split by page, so secondary pages do not download Home code or unrelated image tables. The shared production main bundle is approximately 60.55 kB gzip, down from 68.64 kB. Each route also loads its own chunk (about 1.80-8.78 kB gzip); the main-bundle reduction is not a claim that total Home JavaScript fell by the same amount.
 
@@ -164,17 +172,27 @@ The production build automatically regenerates image assets, compiles React, the
 npm run build
 ```
 
-The generated HTML contains page content, responsive image URLs, route-specific titles, and a preload for only that route's script. Above-fold images remain eager. React hydrates the existing content instead of inserting an empty page after JavaScript loads. The build verifies every page has a main heading, valid optimized image references, and a route-chunk preload. It also checks that service panel photos remain deferred and the Home video source is unchanged.
+The generated HTML contains page content, responsive image URLs, route-specific titles, and a preload for only that route's script. Above-fold images remain eager. React hydrates the existing content instead of inserting an empty page after JavaScript loads. The build verifies every page has a main heading, valid optimized image references, and a route-chunk preload. It also checks that service panel photos remain deferred and the content-hashed Home video exists and stays below a 1.5 MB payload budget.
 
 The Sharp generator processes the logo, map, Services hero, and images in the logos, projects, and services directories. Commit both `public/images/optimized` and `src/imageData` with source changes. Run `npm run images:optimize` separately when updating assets during development. Filenames hash the encoded content, so updated images receive new cache keys. Originals remain available as source assets. The current 45 originals total 20.77 MB; their largest WebP variants total 2.13 MB (about 90% less). This compares asset sizes, not a single page's transfer size. Smaller 96px, 128px, and 240px variants and grid-aware sizes avoid sending oversized thumbnails to padded cards.
 
-`vercel.json` gives hashed images and CRA static assets one-year immutable caching. The unchanged video URL uses a one-day cache lifetime with one week of stale-while-revalidate; it is not immutable. HTML retains Vercel's revalidation behavior. These headers take effect after deployment, not in the CRA dev server or the local static preview. Verify the deployed response headers and rerun Lighthouse after deployment.
+`vercel.json` gives hashed images and CRA static assets one-year immutable caching. Video URLs use a one-day cache lifetime with one week of stale-while-revalidate; they are not immutable. HTML retains Vercel's revalidation behavior. These headers take effect after deployment, not in the CRA dev server or the local static preview. Verify the deployed response headers and rerun Lighthouse after deployment.
 
 Vercel rewrites each secondary route to its generated HTML document. Deploy the complete `build` directory using `npm run build`, not just `react-scripts build`, which skips the npm lifecycle steps. For a local production preview use `npx serve build -l 3001` without `-s`; the SPA fallback would serve Home's HTML at every URL and cause hydration mismatches. Other hosts must map `/about`, `/services`, `/vendors`, `/projects`, and `/contacts` to the corresponding `.html` files. `npm start` remains a client-rendered development server, not a production performance preview.
 
 Local production verification: all 13 regression tests and the production build pass. All six routes were checked at 390px and 1440px with no hydration errors, broken loaded images, or horizontal overflow. Each page requests only the shared main script and its own route chunk. A native-viewport request trace confirmed the route preload starts alongside the main script and the logo chooses one appropriately sized variant. With JavaScript blocked, Vendors still contains its heading and images in the initial document. Home requests neither service panel photos nor secondary-route chunks. Services retains its closing animation and fixed wave geometry.
 
-The local Home LCP observer previously identified the video first frame as the final LCP candidate. Its URL is now present in initial HTML, but its original 14.46 MB file and playback behavior are intentionally untouched, so transfer and decoding remain performance constraints. The small application stylesheet still blocks rendering intentionally to avoid unstyled content. No mobile Lighthouse score or complete elimination of its warnings is claimed; deployed throttled testing is still required.
+The hero video is now `public/video/hero-df568505855b.mp4`: 970,889 bytes versus the original 14,463,310 bytes, a 93.3% reduction. It retains all 217 frames, 1920x1080 resolution, approximately 29.97 fps, and the full 7.24-second duration. The H.264 encode uses CRF 26, the slow preset, yuv420p, and faststart metadata placement. Full-clip SSIM against the source measured 0.98363; compression is lossy, not pixel-identical. The original `public/video/audio.mp4` remains available for future encoding but is no longer requested by Home.
+
+To reproduce the encode with FFmpeg installed (not required during normal builds):
+
+```bash
+ffmpeg -i public/video/audio.mp4 -map 0:v:0 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -an -map_metadata -1 -movflags +faststart hero-encoded.mp4
+```
+
+Name a replacement `hero-<first 12 SHA-256 characters>.mp4`, place it in `public/video`, and update the source in Home and its regression test. Encoding tools were used outside the repository; the optimized MP4 is checked in. All 14 regression tests and the production payload check pass. A local browser check confirmed 1080p muted looping playback, no media error, and only the optimized video request (approximately 971 KB including response overhead).
+
+The local Home LCP observer previously identified the video first frame as the final LCP candidate. Its optimized URL is present in initial HTML. The small application stylesheet still blocks rendering intentionally to avoid unstyled content. No mobile Lighthouse score or complete elimination of its warnings is claimed; deployed throttled testing is still required.
 
 ## Contributions
 

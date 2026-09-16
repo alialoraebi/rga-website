@@ -8,7 +8,7 @@ const output = path.join(root, 'public/images/optimized');
 
 async function optimizeImages() {
   await fs.mkdir(output, { recursive: true });
-  const sources = ['logo.png', 'rga-map.png', 'audiostuffs.png'];
+  const sources = ['logo.png', 'logo_icon.png', 'rga-map.png', 'audiostuffs.png'];
   for (const directory of ['logos', 'projects', 'services']) {
     const files = await fs.readdir(path.join(root, 'public/images', directory));
     sources.push(...files.filter(file => /\.(png|jpe?g)$/i.test(file)).map(file => `${directory}/${file}`));
@@ -21,6 +21,7 @@ async function optimizeImages() {
     const metadata = await sharp(input).metadata();
     const widths = source === 'audiostuffs.png' ? [640, 960, 1600, 2400]
       : source === 'logo.png' ? [320, 640, 800]
+      : source === 'logo_icon.png' ? [64, 128, 192]
       : source.startsWith('logos/') ? [96, 128, 160, 240, 320, 480]
       : [96, 128, 160, 240, 320, 480, 640, 960, 1280];
     const variants = [];

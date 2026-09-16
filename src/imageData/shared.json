@@ -4,5 +4,11 @@
     "srcSet": "/images/optimized/logo-320-7c7cece5095c.webp 320w, /images/optimized/logo-640-8b3494d230a9.webp 640w, /images/optimized/logo-800-57197bec1d1a.webp 800w",
     "width": 640,
     "height": 158
+  },
+  "/images/logo_icon.png": {
+    "src": "/images/optimized/logo_icon-192-60023dc744c7.webp",
+    "srcSet": "/images/optimized/logo_icon-64-d1a1c865821c.webp 64w, /images/optimized/logo_icon-128-df88df51b272.webp 128w, /images/optimized/logo_icon-192-60023dc744c7.webp 192w",
+    "width": 192,
+    "height": 164
   }
 }
