@@ -90,7 +90,11 @@ async function prerender() {
         path.join(root, "build", hero.getAttribute("src")),
       );
       assert.ok(video.size < 1500000, "Hero video exceeds its transfer budget");
-      assert.ok(document.querySelector('button[aria-controls="hero-video"]'));
+      assert.equal(
+        document.querySelector('.hero-bottom, button[aria-controls="hero-video"]'),
+        null,
+        "The removed hero footer must not appear in prerendered content",
+      );
     }
     const filename = pathname === "/" ? "index.html" : `${chunk}.html`;
     await fs.writeFile(path.join(root, "build", filename), dom.serialize());
