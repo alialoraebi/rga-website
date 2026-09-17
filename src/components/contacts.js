@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createImageProps } from "../imageProps";
 import images from "../imageData/contacts.json";
 import { PageIntro, Arrow } from "./ui";
+
 const imageProps = createImageProps(images);
 function Contact() {
   const [formData, setFormData] = useState({
@@ -33,17 +34,25 @@ function Contact() {
 
     try {
       const response = await fetch(
-        "https://rga-backend-ihb6.onrender.com/api/contact",
+        "https://formsubmit.co/ajax/info@rgaqatar.com",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Accept: "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            ...formData,
+            name: `${formData.firstName} ${formData.lastName}`.trim(),
+            _subject: `RGA website enquiry: ${formData.subject}`,
+            _template: "table",
+            _honey: new FormData(e.currentTarget).get("_honey"),
+          }),
         },
       );
 
-      if (response.ok) {
+      const result = response.ok ? await response.json() : null;
+      if (result?.success === true || result?.success === "true") {
         setNotice("Message sent successfully!");
         setFormData({
           firstName: "",
@@ -90,6 +99,14 @@ function Contact() {
               aria-describedby="contact-required"
               className="contact-form"
             >
+              <input
+                type="text"
+                name="_honey"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ display: "none" }}
+              />
               <div className="form-name-row">
                 {[
                   ["firstName", "First Name", "given-name"],

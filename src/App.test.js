@@ -237,13 +237,20 @@ test("client-side navigation updates the title and focuses main content", async 
 });
 
 test.each([
-  [true, "status", "Message sent successfully!"],
-  [false, "alert", "Failed to send message. Please try again later."],
+  [true, "true", "status", "Message sent successfully!"],
+  [true, true, "status", "Message sent successfully!"],
+  [false, "true", "alert", "Failed to send message. Please try again later."],
+  [true, "false", "alert", "Failed to send message. Please try again later."],
+  [true, false, "alert", "Failed to send message. Please try again later."],
+  [true, undefined, "alert", "Failed to send message. Please try again later."],
 ])(
-  "contact fields have persistent labels and announce submission outcomes",
-  async (ok, role, message) => {
+  "contact announces FormSubmit outcome (HTTP ok: %s, success: %s)",
+  async (ok, success, role, message) => {
     const originalFetch = global.fetch;
-    global.fetch = jest.fn().mockResolvedValue({ ok });
+    global.fetch = jest.fn().mockResolvedValue({
+      ok,
+      json: async () => ({ success }),
+    });
     try {
       render(<Contact />);
       const fields = {
@@ -263,8 +270,29 @@ test.each([
       await waitFor(() =>
         expect(screen.getByRole(role)).toHaveTextContent(message),
       );
+      expect(global.fetch).toHaveBeenCalledTimes(1);
+      const [url, request] = global.fetch.mock.calls[0];
+      expect(url).toBe("https://formsubmit.co/ajax/info@rgaqatar.com");
+      expect(request.method).toBe("POST");
+      expect(request.headers).toEqual({
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      });
+      expect(JSON.parse(request.body)).toEqual({
+        firstName: "Test",
+        lastName: "User",
+        name: "Test User",
+        email: fields.Email,
+        phone: fields["Phone Number"],
+        subject: fields.Subject,
+        message: fields.Message,
+        _subject: "RGA website enquiry: Accessibility test",
+        _template: "table",
+        _honey: "",
+      });
+      expect(screen.getByRole("button", { name: "Send Message" })).toBeEnabled();
       expect(screen.getByRole("textbox", { name: "Message" })).toHaveValue(
-        ok ? "" : fields.Message,
+        role === "status" ? "" : fields.Message,
       );
     } finally {
       global.fetch = originalFetch;

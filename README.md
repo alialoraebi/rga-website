@@ -5,7 +5,7 @@
 
 All six pages now share a company-blue and white visual system using the supplied `logo_icon.png` in the header and footer with larger project photography, responsive layouts, refreshed navigation, and a consistent footer. The homepage uses the original `hero-df568505855b.mp4` as a full-width background with a blue contrast overlay, a matching still poster, and an accessible play/pause control. Reduced motion prevents automatic playback. Short entrance animations, card interactions, and expanding service panels respect `prefers-reduced-motion`; changing that preference also cancels active JavaScript reveal animations. Content remains visible before hydration and without animation support.
 
-The redesign retains category filters and result announcements, native project dialogs with Escape and focus restoration, labeled contact fields and submission feedback, the skip link, route titles, and route focus. No new runtime dependencies were added. `npm start` runs the local preview; `npm run build` still optimizes images and prerenders all six routes. Contact submission continues to use the existing backend.
+The redesign retains category filters and result announcements, native project dialogs with Escape and focus restoration, labeled contact fields and submission feedback, the skip link, route titles, and route focus. No new runtime dependencies were added. `npm start` runs the local preview; `npm run build` still optimizes images and prerenders all six routes. Contact submissions now go directly to FormSubmit; no separate backend is required.
 
 See [the redesign accessibility notes](docs/redesign-accessibility.md) for verification and remaining manual checks. The video, wave, and earlier layout descriptions below document the previous design and are superseded by this section; their historical measurements should not be read as measurements of the redesign.
 
@@ -20,7 +20,7 @@ Welcome to the official website repository of Robert Guild Associates, a global 
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Project](#running-the-project)
-  - [Running the Backend](#running-the-backend)
+  - [Contact Form Setup](#contact-form-setup)
   - [Building for Production](#building-for-production)
 - [Notes](#notes)
 - [Contributions](#contributions)
@@ -95,19 +95,13 @@ This website is built to highlight the extensive range of services offered by Ro
    ```
    The website will be available at [http://localhost:3000](http://localhost:3000).
 
-### Running the Backend
-1. Start the backend server:
-  ```bash
-  cd backend
-  ```
-2. Installing the necessary dependencies
-  ```bash
-  npm install 
-  ```
-3. Start the backend server in a separate terminal:
-  ```bash
-  node server.js
-  ```
+### Contact Form Setup
+
+The contact form uses [FormSubmit's AJAX endpoint](https://formsubmit.co/ajax-documentation) to email submissions to `info@rgaqatar.com` without leaving the page. The endpoint is configured in `src/components/contacts.js`. No Render service, SMTP credentials, or backend environment variables are needed.
+
+All six fields are sent, with a combined sender name, an `RGA website enquiry:` email subject, and a table email template. The visitor's `email` field enables Reply-To. A hidden `_honey` field provides FormSubmit's honeypot spam filtering. Success feedback requires a successful HTTP response and FormSubmit's `success` confirmation; failures preserve the entered details.
+
+After deploying, submit a test enquiry from the live contact page. If FormSubmit sends an activation email to `info@rgaqatar.com`, follow its confirmation link (check spam too). Then submit another enquiry and verify that it arrives with all six fields and that Reply targets the visitor's email. See [FormSubmit setup instructions](https://formsubmit.co/). Automated tests mock the service and do not verify activation or inbox delivery.
 
 ### Building for Production
 
