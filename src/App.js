@@ -24,6 +24,9 @@ const pageComponents = {
   Contact: lazy(
     () => import(/* webpackChunkName: "contacts" */ "./components/contacts"),
   ),
+  Careers: lazy(
+    () => import(/* webpackChunkName: "careers" */ "./components/careers"),
+  ),
 };
 
 const pageTitles = {
@@ -33,6 +36,7 @@ const pageTitles = {
   "/vendors": "Our Vendors",
   "/projects": "Our Projects",
   "/contacts": "Contact Us",
+  "/careers": "Careers",
 };
 
 function RouteAccessibility() {
@@ -52,7 +56,7 @@ function RouteAccessibility() {
 }
 
 export function AppContent({ pages = pageComponents }) {
-  const { Home, About, Services, Vendors, Projects, Contact } = pages;
+  const { Home, About, Services, Vendors, Projects, Contact, Careers } = pages;
   return (
     <div className="App">
       <RouteAccessibility />
@@ -82,6 +86,7 @@ export function AppContent({ pages = pageComponents }) {
             <Route path="/vendors" element={<Vendors />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contacts" element={<Contact />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
         </Suspense>
       </main>

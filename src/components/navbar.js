@@ -8,6 +8,7 @@ export const links = [
   { path: "/services", label: "Services" },
   { path: "/projects", label: "Projects" },
   { path: "/vendors", label: "Vendors" },
+  { path: "/careers", label: "Careers" },
   { path: "/contacts", label: "Contact Us" },
 ];
 export function Brand() {

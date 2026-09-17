@@ -8,8 +8,9 @@ import Services from '../src/components/services';
 import Vendors from '../src/components/vendors';
 import Projects from '../src/components/projects';
 import Contact from '../src/components/contacts';
+import Careers from '../src/components/careers';
 
-const pages = { Home, About, Services, Vendors, Projects, Contact };
+const pages = { Home, About, Services, Vendors, Projects, Contact, Careers };
 
 export function renderPage(pathname) {
   return renderToString(

@@ -14,6 +14,7 @@ import Services from "./components/services";
 import Vendors from "./components/vendors";
 import Projects from "./components/projects";
 import Contact from "./components/contacts";
+import Careers from "./components/careers";
 
 beforeEach(() => {
   window.history.replaceState({}, "", "/");
@@ -41,7 +42,15 @@ afterEach(() => jest.restoreAllMocks());
 test("pending routes show a centered spinner with an accessible loading status", () => {
   const PendingPage = lazy(() => new Promise(() => {}));
   const pages = Object.fromEntries(
-    ["Home", "About", "Services", "Vendors", "Projects", "Contact"].map(
+    [
+      "Home",
+      "About",
+      "Services",
+      "Vendors",
+      "Projects",
+      "Contact",
+      "Careers",
+    ].map(
       (name) => [name, PendingPage],
     ),
   );
@@ -186,6 +195,69 @@ test.each([
   },
 );
 
+test("career applications collect Qatar eligibility details and a résumé", () => {
+  window.history.replaceState({}, "", "/careers");
+  const { container } = render(<Careers />);
+  const form = container.querySelector("form");
+  expect(form).toHaveAttribute(
+    "action",
+    "https://formsubmit.co/careers@rgaqatar.com",
+  );
+  expect(form).toHaveAttribute("method", "POST");
+  expect(form).toHaveAttribute("enctype", "multipart/form-data");
+  expect(
+    screen.getByRole("combobox", { name: "Are you currently based in Qatar? *" }),
+  ).toBeRequired();
+  expect(
+    screen.getByRole("combobox", {
+      name: "Qatar residency and work-authorization status *",
+    }),
+  ).toBeRequired();
+  expect(
+    screen.getByRole("combobox", { name: "Are you willing to relocate to Qatar? *" }),
+  ).toBeRequired();
+  const resume = screen.getByLabelText("Upload your résumé *");
+  expect(resume).toBeRequired();
+  expect(resume).toHaveAttribute("name", "attachment");
+  const coverLetter = screen.getByLabelText("Upload a cover letter (optional)");
+  expect(coverLetter).not.toBeRequired();
+  expect(coverLetter).toHaveAttribute("name", "Cover letter");
+  expect(coverLetter).toHaveAttribute("type", "file");
+  expect(screen.getByRole("checkbox")).toBeRequired();
+});
+
+test("career application enforces FormSubmit's combined attachment limit", () => {
+  window.history.replaceState({}, "", "/careers");
+  render(<Careers />);
+  const resume = screen.getByLabelText("Upload your résumé *");
+  const coverLetter = screen.getByLabelText("Upload a cover letter (optional)");
+  fireEvent.change(resume, {
+    target: { files: [{ size: 6 * 1024 * 1024 }] },
+  });
+  fireEvent.change(coverLetter, {
+    target: { files: [{ size: 5 * 1024 * 1024 }] },
+  });
+  expect(screen.getByRole("alert")).toHaveTextContent(
+    "Your résumé and cover letter must be 10 MB or smaller in total.",
+  );
+  expect(resume.checkValidity()).toBe(false);
+  expect(coverLetter.checkValidity()).toBe(false);
+});
+
+test("career application confirms a completed FormSubmit redirect", async () => {
+  window.history.replaceState({}, "", "/careers?submitted=true");
+  render(<Careers />);
+  const confirmation = await screen.findByRole("status");
+  expect(confirmation).toHaveTextContent(
+    "Your details and résumé have been sent successfully.",
+  );
+  expect(confirmation).toHaveFocus();
+  expect(
+    screen.getByRole("heading", { level: 1, name: "Application sent" }),
+  ).toBeInTheDocument();
+  expect(screen.queryByRole("form")).not.toBeInTheDocument();
+});
+
 test("project buttons open a named native dialog and close it", () => {
   HTMLDialogElement.prototype.showModal = jest.fn(function () {
     this.setAttribute("open", "");
@@ -237,21 +309,43 @@ test("client-side navigation updates the title and focuses main content", async 
 });
 
 test.each([
-  [true, "true", "status", "Message sent successfully!"],
-  [true, true, "status", "Message sent successfully!"],
-  [false, "true", "alert", "Failed to send message. Please try again later."],
-  [true, "false", "alert", "Failed to send message. Please try again later."],
-  [true, false, "alert", "Failed to send message. Please try again later."],
-  [true, undefined, "alert", "Failed to send message. Please try again later."],
+  [true, "true", "status", "Message sent successfully!", undefined],
+  [true, true, "status", "Message sent successfully!", undefined],
+  [false, "true", "alert", "Failed to send message. Please try again later.", undefined],
+  [true, "false", "alert", "Failed to send message. Please try again later.", undefined],
+  [true, false, "alert", "Failed to send message. Please try again later.", undefined],
+  [true, undefined, "alert", "Failed to send message. Please try again later.", undefined],
+  [
+    false,
+    "false",
+    "alert",
+    "Unable to send your message: Please activate your form.",
+    "Please activate your form.",
+  ],
+  [
+    true,
+    "false",
+    "alert",
+    "Unable to send your message: Please activate your form.",
+    "Please activate your form.",
+  ],
+  [
+    false,
+    "false",
+    "alert",
+    "Failed to send message. Please try again later.",
+    { unexpected: "non-text error" },
+  ],
 ])(
   "contact announces FormSubmit outcome (HTTP ok: %s, success: %s)",
-  async (ok, success, role, message) => {
+  async (ok, success, role, message, serviceMessage) => {
     const originalFetch = global.fetch;
     global.fetch = jest.fn().mockResolvedValue({
       ok,
-      json: async () => ({ success }),
+      json: async () => ({ success, message: serviceMessage }),
     });
     try {
+      window.history.replaceState({}, "", "/contacts?test=1#form");
       render(<Contact />);
       const fields = {
         "First Name": "Test",
@@ -264,9 +358,9 @@ test.each([
       Object.entries(fields).forEach(([label, value]) => {
         const input = screen.getByRole("textbox", { name: label });
         expect(input).toBeRequired();
-        userEvent.type(input, value);
+        fireEvent.change(input, { target: { value } });
       });
-      userEvent.click(screen.getByRole("button", { name: "Send Message" }));
+      fireEvent.click(screen.getByRole("button", { name: "Send Message" }));
       await waitFor(() =>
         expect(screen.getByRole(role)).toHaveTextContent(message),
       );
@@ -288,6 +382,7 @@ test.each([
         message: fields.Message,
         _subject: "RGA website enquiry: Accessibility test",
         _template: "table",
+        _url: `${window.location.origin}/contacts`,
         _honey: "",
       });
       expect(screen.getByRole("button", { name: "Send Message" })).toBeEnabled();

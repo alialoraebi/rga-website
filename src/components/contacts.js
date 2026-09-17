@@ -46,13 +46,17 @@ function Contact() {
             name: `${formData.firstName} ${formData.lastName}`.trim(),
             _subject: `RGA website enquiry: ${formData.subject}`,
             _template: "table",
+            _url: `${window.location.origin}${window.location.pathname}`,
             _honey: new FormData(e.currentTarget).get("_honey"),
           }),
         },
       );
 
-      const result = response.ok ? await response.json() : null;
-      if (result?.success === true || result?.success === "true") {
+      const result = await response.json().catch(() => null);
+      if (
+        response.ok &&
+        (result?.success === true || result?.success === "true")
+      ) {
         setNotice("Message sent successfully!");
         setFormData({
           firstName: "",
@@ -64,7 +68,13 @@ function Contact() {
         });
       } else {
         setNotice("");
-        setSubmitError("Failed to send message. Please try again later.");
+        const reason =
+          typeof result?.message === "string" ? result.message.trim() : "";
+        setSubmitError(
+          reason
+            ? `Unable to send your message: ${reason}`
+            : "Failed to send message. Please try again later.",
+        );
       }
     } catch (error) {
       console.error("An error occurred", error);

@@ -12,6 +12,7 @@ const routes = [
   ["/vendors", "vendors", "Our Vendors"],
   ["/projects", "projects", "Our Projects"],
   ["/contacts", "contacts", "Contact Us"],
+  ["/careers", "careers", "Careers"],
 ];
 
 async function prerender() {
