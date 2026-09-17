@@ -5,28 +5,32 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 const pageComponents = {
-  Home: lazy(() => import(/* webpackChunkName: "home" */ "./components/home")),
+  Home: lazy(() => import(/* webpackChunkName: "home" */ "./pages/Home")),
   About: lazy(
-    () => import(/* webpackChunkName: "about" */ "./components/about"),
+    () => import(/* webpackChunkName: "about" */ "./pages/About"),
   ),
   Services: lazy(
-    () => import(/* webpackChunkName: "services" */ "./components/services"),
+    () => import(/* webpackChunkName: "services" */ "./pages/Services"),
   ),
   Vendors: lazy(
-    () => import(/* webpackChunkName: "vendors" */ "./components/vendors"),
+    () => import(/* webpackChunkName: "vendors" */ "./pages/Vendors"),
   ),
   Projects: lazy(
-    () => import(/* webpackChunkName: "projects" */ "./components/projects"),
+    () => import(/* webpackChunkName: "projects" */ "./pages/Projects"),
   ),
   Contact: lazy(
-    () => import(/* webpackChunkName: "contacts" */ "./components/contacts"),
+    () => import(/* webpackChunkName: "contacts" */ "./pages/Contact"),
   ),
   Careers: lazy(
-    () => import(/* webpackChunkName: "careers" */ "./components/careers"),
+    () => import(/* webpackChunkName: "careers" */ "./pages/Careers"),
   ),
+  Privacy: lazy(
+    () => import(/* webpackChunkName: "privacy" */ "./pages/Privacy"),
+  ),
+  Terms: lazy(() => import(/* webpackChunkName: "terms" */ "./pages/Terms")),
 };
 
 const pageTitles = {
@@ -37,6 +41,8 @@ const pageTitles = {
   "/projects": "Our Projects",
   "/contacts": "Contact Us",
   "/careers": "Careers",
+  "/privacy": "Privacy Policy",
+  "/terms": "Terms of Use",
 };
 
 function RouteAccessibility() {
@@ -56,7 +62,17 @@ function RouteAccessibility() {
 }
 
 export function AppContent({ pages = pageComponents }) {
-  const { Home, About, Services, Vendors, Projects, Contact, Careers } = pages;
+  const {
+    Home,
+    About,
+    Services,
+    Vendors,
+    Projects,
+    Contact,
+    Careers,
+    Privacy,
+    Terms,
+  } = pages;
   return (
     <div className="App">
       <RouteAccessibility />
@@ -87,6 +103,8 @@ export function AppContent({ pages = pageComponents }) {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contacts" element={<Contact />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </Suspense>
       </main>

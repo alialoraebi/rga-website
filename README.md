@@ -59,13 +59,13 @@ This website is built to highlight the extensive range of services offered by Ro
 
 ## Project Structure
 
-- `home.js`: Layout and components for the Home page, including the animated hero section and service blocks.
-- `about.js`: Content and layout for the About page.
-- `services.js`: Manages the display of services, including detailed descriptions.
-- `projects.js`: Displays projects in a grid layout, allows filtering by category, and shows project details in a modal.
-- `vendors.js`: Displays vendor logos and details in a grid, with filtering options.
-- `navbar.js`: Navigation bar providing links to main sections of the site.
-- `footer.js`: Footer containing navigation links, contact information, and company details.
+- `src/pages`: One component per route: Home, About, Services, Vendors, Projects, Contact, and Careers.
+- `src/components/layout`: Shared site chrome, including the navigation and footer.
+- `src/components/ui`: Reusable interface elements such as page intros, arrows, calls to action, and reveal behavior.
+- `src/data`: Project and vendor catalog content plus generated image manifests.
+- `src/utils`: Shared implementation helpers, including responsive image properties.
+- `src/styles`: Global Tailwind entry styles and the site stylesheet.
+- `src/App.js`: Route definitions, lazy page loading, titles, and route accessibility behavior.
 
 ## Getting Started
 
@@ -97,7 +97,7 @@ This website is built to highlight the extensive range of services offered by Ro
 
 ### Contact Form Setup
 
-The contact form uses [FormSubmit's AJAX endpoint](https://formsubmit.co/ajax-documentation) to email submissions to `info@rgaqatar.com` without leaving the page. The endpoint is configured in `src/components/contacts.js`. No Render service, SMTP credentials, or backend environment variables are needed.
+The contact form uses [FormSubmit's AJAX endpoint](https://formsubmit.co/ajax-documentation) to email submissions to `info@rgaqatar.com` without leaving the page. The endpoint is configured in `src/pages/Contact.js`. No Render service, SMTP credentials, or backend environment variables are needed.
 
 All six fields are sent, with a combined sender name, an `RGA website enquiry:` email subject, and a table email template. The visitor's `email` field enables Reply-To. A hidden `_honey` field provides FormSubmit's honeypot spam filtering. Success feedback requires a successful HTTP response and FormSubmit's `success` confirmation; failures preserve the entered details.
 
@@ -172,7 +172,7 @@ npm run build
 
 The generated HTML contains page content, responsive image URLs, route-specific titles, and a preload for only that route's script. Above-fold images remain eager. React hydrates the existing content instead of inserting an empty page after JavaScript loads. The build verifies every page has a main heading, valid optimized image references, and a route-chunk preload. It also checks that service panel photos remain deferred and the content-hashed Home video exists and stays below a 1.5 MB payload budget.
 
-The Sharp generator processes the logo, map, Services hero, and images in the logos, projects, and services directories. Commit both `public/images/optimized` and `src/imageData` with source changes. Run `npm run images:optimize` separately when updating assets during development. Filenames hash the encoded content, so updated images receive new cache keys. Originals remain available as source assets. The current 45 originals total 20.77 MB; their largest WebP variants total 2.13 MB (about 90% less). This compares asset sizes, not a single page's transfer size. Smaller 96px, 128px, and 240px variants and grid-aware sizes avoid sending oversized thumbnails to padded cards.
+The Sharp generator processes the logo, map, Services hero, and images in the logos, projects, and services directories. Commit both `public/images/optimized` and `src/data/images` with source changes. Run `npm run images:optimize` separately when updating assets during development. Filenames hash the encoded content, so updated images receive new cache keys. Originals remain available as source assets. The current 45 originals total 20.77 MB; their largest WebP variants total 2.13 MB (about 90% less). This compares asset sizes, not a single page's transfer size. Smaller 96px, 128px, and 240px variants and grid-aware sizes avoid sending oversized thumbnails to padded cards.
 
 `vercel.json` gives hashed images and CRA static assets one-year immutable caching. Video URLs use a one-day cache lifetime with one week of stale-while-revalidate; they are not immutable. HTML retains Vercel's revalidation behavior. These headers take effect after deployment, not in the CRA dev server or the local static preview. Verify the deployed response headers and rerun Lighthouse after deployment.
 

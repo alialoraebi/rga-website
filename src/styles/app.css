@@ -1274,9 +1274,9 @@ h2 {
   background: #fff;
 }
 .office-map > img {
+  display: block;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
 }
 .office-map > span {
   display: flex;
@@ -2007,5 +2007,103 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   .video-control {
     transition: none;
+  }
+}
+.form-privacy {
+  font-size: 13px;
+  color: var(--muted);
+}
+.form-privacy a,
+.consent-field a,
+.legal-content a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.footer-legal a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+.footer-legal a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+.trademark-note {
+  margin-top: 40px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.legal-content > * {
+  max-width: 760px;
+}
+.legal-content h2 {
+  font-size: clamp(22px, 2.2vw, 28px);
+  margin: 48px 0 16px;
+}
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+.legal-content h3 {
+  font-size: 17px;
+  margin: 24px 0 8px;
+}
+.legal-content p + p {
+  margin-top: 14px;
+}
+.legal-content ul {
+  margin: 14px 0;
+  padding-left: 22px;
+  line-height: 1.7;
+}
+.partner-group-title {
+  font-size: 11px;
+  letter-spacing: 1.65px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+.partner-grid + .partner-group-title {
+  margin-top: 40px;
+}
+.partner-grid-official {
+  grid-template-columns: repeat(2, minmax(0, 280px));
+}
+.partner-grid-official > div {
+  height: 130px;
+}
+.partner-grid-official img {
+  max-height: 60px;
+  filter: none;
+}
+.partner-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  background: var(--blue-deep);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.partner-badge + .eyebrow {
+  display: block;
+}
+@media (max-width: 699px) {
+  .partner-grid-official {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .partner-grid-official > div {
+    height: 100px;
+  }
+  .partner-grid-official img {
+    max-height: 44px;
   }
 }

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { createImageProps } from "../imageProps";
-import images from "../imageData/vendors.json";
-import { vendors } from "../catalogData";
-import { PageIntro, ProjectCTA, Arrow } from "./ui";
-export { vendors } from "../catalogData";
+import { createImageProps } from "../utils/imageProps";
+import images from "../data/images/vendors.json";
+import { vendors } from "../data/catalog";
+import { PageIntro, ProjectCTA, Arrow } from "../components/ui";
+export { vendors } from "../data/catalog";
 const imageProps = createImageProps(images);
 const categories = [
   "Show All",
@@ -17,11 +17,15 @@ export default function Vendors() {
     selectedCategory === "Show All"
       ? vendors
       : vendors.filter((vendor) => vendor.category === selectedCategory);
+  const sorted = [...filtered].sort(
+    (a, b) => Number(Boolean(b.partner)) - Number(Boolean(a.partner)),
+  );
   return (
     <>
-      <PageIntro eyebrow="OUR PARTNERS / BETTER TOGETHER" title="Our Vendors">
-        World-class technology, thoughtfully selected. We work with leading
-        manufacturers to find the right fit for every project.
+      <PageIntro eyebrow="MANUFACTURERS WE WORK WITH" title="Our Vendors">
+        We are an official partner of AtlasIED and Renkus-Heinz, and we work
+        with products from a wide range of manufacturers to find the right fit
+        for every project.
       </PageIntro>
       <section className="section-space catalog-section">
         <div className="site-container">
@@ -52,7 +56,7 @@ export default function Vendors() {
             {filtered.length} vendors
           </p>
           <div className="vendor-grid">
-            {filtered.map((vendor, index) => (
+            {sorted.map((vendor, index) => (
               <a
                 key={vendor.name}
                 href={vendor.url}
@@ -71,6 +75,9 @@ export default function Vendors() {
                 </div>
                 <div className="vendor-info">
                   <div>
+                    {vendor.partner && (
+                      <span className="partner-badge">Official partner</span>
+                    )}
                     <span className="eyebrow">{vendor.category}</span>
                     <h2>{vendor.name}</h2>
                   </div>
@@ -80,6 +87,13 @@ export default function Vendors() {
               </a>
             ))}
           </div>
+          <p className="trademark-note">
+            Only vendors marked “Official partner” have a formal partnership
+            with RGA. All other product names, logos, and brands are the
+            property of their respective owners and are shown only to identify
+            manufacturers whose products we work with. Their use does not imply
+            partnership, sponsorship, or endorsement.
+          </p>
         </div>
       </section>
       <ProjectCTA />

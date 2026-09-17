@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createImageProps } from "../imageProps";
-import images from "../imageData/contacts.json";
-import { PageIntro, Arrow } from "./ui";
+import { createImageProps } from "../utils/imageProps";
+import images from "../data/images/contacts.json";
+import { PageIntro, Arrow } from "../components/ui";
 
 const imageProps = createImageProps(images);
 function Contact() {
@@ -102,7 +102,7 @@ function Contact() {
             <p className="eyebrow">TELL US ABOUT YOUR PROJECT</p>
             <h2>Let’s make it happen.</h2>
             <p id="contact-required" className="required-note">
-              All fields are required.
+              All fields are required except phone number.
             </p>
             <form
               onSubmit={handleSubmit}
@@ -137,7 +137,7 @@ function Contact() {
               </div>
               {[
                 ["email", "Email", "email", "email"],
-                ["phone", "Phone Number", "tel", "tel"],
+                ["phone", "Phone Number (optional)", "tel", "tel"],
                 ["subject", "Subject", "text", undefined],
               ].map(([name, label, type, autoComplete]) => (
                 <label key={name}>
@@ -148,7 +148,7 @@ function Contact() {
                     autoComplete={autoComplete}
                     value={formData[name]}
                     onChange={handleChange}
-                    required
+                    required={name !== "phone"}
                   />
                 </label>
               ))}
@@ -162,6 +162,11 @@ function Contact() {
                   required
                 />
               </label>
+              <p className="form-privacy">
+                We use these details only to respond to your enquiry. Read our{" "}
+                <a href="/privacy">Privacy Policy</a> to learn how we handle
+                your information.
+              </p>
               <button
                 type="submit"
                 className="button button-dark"

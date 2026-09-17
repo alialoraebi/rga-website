@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Arrow } from "./ui";
-import { imageProps } from "../imageProps";
+import { Arrow } from "../ui";
+import { imageProps } from "../../utils/imageProps";
 export const links = [
   { path: "/", label: "Home" },
   { path: "/about", label: "About" },

@@ -9,12 +9,12 @@ import userEvent from "@testing-library/user-event";
 import { lazy } from "react";
 import { MemoryRouter } from "react-router-dom";
 import App, { AppContent } from "./App";
-import { vendors } from "./components/vendors";
-import Services from "./components/services";
-import Vendors from "./components/vendors";
-import Projects from "./components/projects";
-import Contact from "./components/contacts";
-import Careers from "./components/careers";
+import { vendors } from "./pages/Vendors";
+import Services from "./pages/Services";
+import Vendors from "./pages/Vendors";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import Careers from "./pages/Careers";
 
 beforeEach(() => {
   window.history.replaceState({}, "", "/");
@@ -50,6 +50,8 @@ test("pending routes show a centered spinner with an accessible loading status",
       "Projects",
       "Contact",
       "Careers",
+      "Privacy",
+      "Terms",
     ].map(
       (name) => [name, PendingPage],
     ),
@@ -355,13 +357,14 @@ test.each([
         "First Name": "Test",
         "Last Name": "User",
         Email: "test@example.com",
-        "Phone Number": "+97400000000",
+        "Phone Number (optional)": "+97400000000",
         Subject: "Accessibility test",
         Message: "Test message",
       };
       Object.entries(fields).forEach(([label, value]) => {
         const input = screen.getByRole("textbox", { name: label });
-        expect(input).toBeRequired();
+        if (label.endsWith("(optional)")) expect(input).not.toBeRequired();
+        else expect(input).toBeRequired();
         fireEvent.change(input, { target: { value } });
       });
       fireEvent.click(screen.getByRole("button", { name: "Send Message" }));
@@ -381,7 +384,7 @@ test.each([
         lastName: "User",
         name: "Test User",
         email: fields.Email,
-        phone: fields["Phone Number"],
+        phone: fields["Phone Number (optional)"],
         subject: fields.Subject,
         message: fields.Message,
         _subject: "RGA website enquiry: Accessibility test",

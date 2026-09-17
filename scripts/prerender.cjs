@@ -13,6 +13,8 @@ const routes = [
   ["/projects", "projects", "Our Projects"],
   ["/contacts", "contacts", "Contact Us"],
   ["/careers", "careers", "Careers"],
+  ["/privacy", "privacy", "Privacy Policy"],
+  ["/terms", "terms", "Terms of Use"],
 ];
 
 async function prerender() {

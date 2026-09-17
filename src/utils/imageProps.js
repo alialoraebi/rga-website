@@ -1,4 +1,4 @@
-import sharedImages from './imageData/shared.json';
+import sharedImages from '../data/images/shared.json';
 
 export const cardImageSizes = [
   '(min-width: 1696px) 171px',

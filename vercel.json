@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     { "source": "/careers", "destination": "/careers.html" },
-    { "source": "/:page(about|services|vendors|projects|contacts)", "destination": "/:page.html" }
+    { "source": "/:page(about|services|vendors|projects|contacts|privacy|terms)", "destination": "/:page.html" }
   ],
   "headers": [
     {

@@ -1,5 +1,5 @@
 import React from "react";
-import { PageIntro, ProjectCTA, Reveal } from "./ui";
+import { PageIntro, ProjectCTA, Reveal } from "../components/ui";
 const milestones = [
   [
     "1980",

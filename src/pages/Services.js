@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createImageProps } from "../imageProps";
-import images from "../imageData/services.json";
-import { PageIntro, ProjectCTA, Reveal } from "./ui";
+import { createImageProps } from "../utils/imageProps";
+import images from "../data/images/services.json";
+import { PageIntro, ProjectCTA, Reveal } from "../components/ui";
 const imageProps = createImageProps(images);
 
 const services = [

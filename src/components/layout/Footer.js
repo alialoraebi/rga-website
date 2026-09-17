@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Brand, links } from "./navbar";
+import { Brand, links } from "./Navbar";
 export default function Footer() {
   const location = useLocation();
   return (
@@ -71,7 +71,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Robert Guild Associates. All rights
             reserved.
           </p>
-          <span>DESIGNED TO CONNECT.</span>
+          <div className="footer-legal">
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Use</Link>
+          </div>
         </div>
       </div>
     </footer>

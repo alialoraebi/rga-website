@@ -1,5 +1,5 @@
 import { act, render, screen } from "@testing-library/react";
-import { Reveal } from "./ui";
+import { Reveal } from ".";
 
 test("reveal content stays visible and does not animate when reduced motion is requested", () => {
   const originalObserver = window.IntersectionObserver;

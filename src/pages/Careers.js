@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Arrow, PageIntro } from "./ui";
+import { Arrow, PageIntro } from "../components/ui";
 
 const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024;
 
@@ -306,7 +306,9 @@ export default function Careers() {
                   <input type="checkbox" name="Application consent" required />
                   <span>
                     I consent to Robert Guild Associates using my information
-                    to assess my application and contact me about employment. *
+                    to assess my application and contact me about employment,
+                    as described in the{" "}
+                    <a href="/privacy">Privacy Policy</a>. *
                   </span>
                 </label>
               </fieldset>

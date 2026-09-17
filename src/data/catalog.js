@@ -1,6 +1,6 @@
 export const vendors = [
   { name: 'AKG', category: 'Audio Systems', image: '/images/logos/akg.png', url: 'https://www.akg.com/' },
-  { name: 'AtlasIED', category: 'Audio Systems', image: '/images/logos/atlasied.png', url: 'https://www.atlasied.com/' },
+  { name: 'AtlasIED', category: 'Audio Systems', image: '/images/logos/atlasied.png', url: 'https://www.atlasied.com/', partner: true },
   { name: 'Beyerdynamic', category: 'Audio Systems', image: '/images/logos/beyerdynamic.png', url: 'https://north-america.beyerdynamic.com/' },
   { name: 'Biamp', category: 'Control Systems', image: '/images/logos/biamp.png', url: 'https://www.biamp.com/' },
   { name: 'Countryman', category: 'Audio Systems', image: '/images/logos/countryman.png', url: 'https://www.countryman.com/' },
@@ -17,7 +17,7 @@ export const vendors = [
   { name: 'Penton Audio USA', category: 'Audio Systems', image: '/images/logos/penton.png', url: 'https://penton-usa.com/' },
   { name: 'QSC', category: 'Audio Systems', image: '/images/logos/qsc.png', url: 'https://www.qsc.com/' },
   { name: 'RDL (Radio Design Labs)', category: 'Audio Systems', image: '/images/logos/rdl.png', url: 'https://www.rdlnet.com/' },
-  { name: 'Renkus-Heinz', category: 'Audio Systems', image: '/images/logos/renkus-heinz.png', url: 'https://www.renkus-heinz.com/' },
+  { name: 'Renkus-Heinz', category: 'Audio Systems', image: '/images/logos/renkus-heinz.png', url: 'https://www.renkus-heinz.com/', partner: true },
   { name: 'Shure', category: 'Audio Systems', image: '/images/logos/shure.png', url: 'https://www.shure.com/' },
   { name: 'Soundcraft', category: 'Audio Systems', image: '/images/logos/soundcraft.png', url: 'https://www.soundcraft.com/' }
 ];

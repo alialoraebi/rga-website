@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { vendors, projects } from "../catalogData";
-import { createImageProps } from "../imageProps";
-import vendorImages from "../imageData/vendors.json";
-import projectImages from "../imageData/projects.json";
-import { Arrow, Reveal, ProjectCTA } from "./ui";
+import { vendors, projects } from "../data/catalog";
+import { createImageProps } from "../utils/imageProps";
+import vendorImages from "../data/images/vendors.json";
+import projectImages from "../data/images/projects.json";
+import { Arrow, Reveal, ProjectCTA } from "../components/ui";
 const imageProps = createImageProps({ ...vendorImages, ...projectImages });
 const capabilities = [
   [
@@ -27,6 +27,8 @@ const capabilities = [
   ],
 ];
 const selectedProjects = [projects[3], projects[1], projects[5]];
+const partnerVendors = vendors.filter((vendor) => vendor.partner);
+const otherVendors = vendors.filter((vendor) => !vendor.partner);
 export default function Home() {
   const videoRef = useRef(null);
 
@@ -224,19 +226,35 @@ export default function Home() {
         <div className="site-container">
           <Reveal className="section-heading">
             <div>
-              <p className="eyebrow">04 / OUR TECHNOLOGY PARTNERS</p>
+              <p className="eyebrow">04 / PARTNERS & TECHNOLOGY</p>
               <h2>
                 Exceptional systems.
                 <br />
-                Exceptional partners.
+                Trusted technology.
               </h2>
             </div>
             <Link to="/vendors" className="text-link">
-              Meet our partners <Arrow />
+              View all vendors <Arrow />
             </Link>
           </Reveal>
+          <h3 className="partner-group-title">Official partners</h3>
+          <div className="partner-grid partner-grid-official">
+            {partnerVendors.map((vendor) => (
+              <div key={vendor.name}>
+                <img
+                  {...imageProps(vendor.image, {
+                    sizes: "(min-width: 700px) 200px, 140px",
+                  })}
+                  alt={vendor.name}
+                />
+              </div>
+            ))}
+          </div>
+          <h3 className="partner-group-title">
+            Other manufacturers we work with
+          </h3>
           <div className="partner-grid">
-            {vendors.map((vendor) => (
+            {otherVendors.map((vendor) => (
               <div key={vendor.name}>
                 <img
                   {...imageProps(vendor.image, {
@@ -247,6 +265,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="trademark-note">
+            Only AtlasIED and Renkus-Heinz are official RGA partners. Other
+            brands are shown to identify products we work with and do not
+            imply partnership or endorsement.
+          </p>
         </div>
       </section>
       <ProjectCTA />

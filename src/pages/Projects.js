@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { createImageProps } from "../imageProps";
-import images from "../imageData/projects.json";
-import { projects } from "../catalogData";
-import { PageIntro, ProjectCTA, Arrow } from "./ui";
-export { projects } from "../catalogData";
+import { createImageProps } from "../utils/imageProps";
+import images from "../data/images/projects.json";
+import { projects } from "../data/catalog";
+import { PageIntro, ProjectCTA, Arrow } from "../components/ui";
+export { projects } from "../data/catalog";
 const imageProps = createImageProps(images);
 const categories = [
   "Show All",

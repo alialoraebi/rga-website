@@ -51,9 +51,9 @@ async function optimizeImages() {
       height: fallback.height,
     };
   }
-  await fs.mkdir(path.join(root, 'src/imageData'), { recursive: true });
+  await fs.mkdir(path.join(root, 'src/data/images'), { recursive: true });
   for (const [group, images] of Object.entries(groups)) {
-    await fs.writeFile(path.join(root, `src/imageData/${group}.json`), `${JSON.stringify(images, null, 2)}\n`);
+    await fs.writeFile(path.join(root, `src/data/images/${group}.json`), `${JSON.stringify(images, null, 2)}\n`);
   }
   console.log(`Optimized ${sources.length} images: ${originalBytes} original bytes -> ${largestVariantBytes} bytes for largest WebP variants.`);
 }
