@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { links } from "./Navbar";
+import { Brand, links } from "./Navbar";
 export default function Footer() {
   const location = useLocation();
   return (
@@ -8,6 +8,7 @@ export default function Footer() {
       <div className="site-container">
         <div className="footer-grid">
           <div className="footer-brand">
+            <Brand />
             <p>
               Thoughtful engineering.
               <br />

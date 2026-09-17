@@ -604,8 +604,14 @@ h2 {
   gap: clamp(38px, 5vw, 78px);
   align-items: start;
 }
+.footer-brand .brand-icon {
+  width: 54px;
+}
+.footer-brand .brand-name {
+  font-size: 9px;
+}
 .footer-brand > p {
-  margin: 0 0 18px;
+  margin: 28px 0 18px;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.65;
