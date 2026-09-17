@@ -17,7 +17,7 @@ export function Arrow({ diagonal = false }) {
   );
 }
 // Visible before hydration and without JavaScript; motion is only an enhancement.
-export function Reveal({ children, className = "", delay = 0 }) {
+export function Reveal({ children, className = "", delay = 0, variant = "lift" }) {
   const ref = useRef(null);
   useEffect(() => {
     const element = ref.current;
@@ -27,14 +27,24 @@ export function Reveal({ children, className = "", delay = 0 }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
-        if (!preference.matches)
+        if (!preference.matches) {
+          const keyframes =
+            variant === "fade"
+              ? [{ opacity: 0.72 }, { opacity: 1 }]
+              : [
+                  { transform: "translate3d(0, 14px, 0)", opacity: 0.92 },
+                  { transform: "translate3d(0, 0, 0)", opacity: 1 },
+                ];
           animation = element.animate(
-            [
-              { transform: "translateY(24px)" },
-              { transform: "translateY(0)" },
-            ],
-            { duration: 650, delay, easing: "cubic-bezier(.2,.65,.3,1)" },
+            keyframes,
+            {
+              duration: variant === "fade" ? 320 : 450,
+              delay,
+              easing: "cubic-bezier(.22, 1, .36, 1)",
+              fill: "backwards",
+            },
           );
+        }
         observer.unobserve(element);
       },
       { threshold: 0.08 },
@@ -49,7 +59,7 @@ export function Reveal({ children, className = "", delay = 0 }) {
       animation?.cancel();
       preference.removeEventListener("change", stop);
     };
-  }, [delay]);
+  }, [delay, variant]);
   return (
     <div ref={ref} className={className}>
       {children}

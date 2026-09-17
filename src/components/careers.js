@@ -42,41 +42,35 @@ export default function Careers() {
 
   if (submitted) {
     return (
-      <>
-        <PageIntro eyebrow="APPLICATION RECEIVED / RGA QATAR" title="Application sent">
-          Thank you for your interest in joining Robert Guild Associates. Your
-          application is now with our team.
-        </PageIntro>
-        <section className="section-space">
-          <div className="site-container">
-            <div
-              className="career-confirmation"
-              role="status"
-              tabIndex={-1}
-              ref={confirmationRef}
-            >
-              <span className="career-confirmation-mark" aria-hidden="true">
-                ✓
-              </span>
-              <p className="eyebrow">SUCCESSFULLY SUBMITTED</p>
-              <h2>Thank you for your application.</h2>
-              <p>
-                Your details and résumé have been sent successfully. If your
-                experience matches a current or upcoming opportunity, our team
-                will contact you using the information you provided.
-              </p>
-              <div className="career-confirmation-actions">
-                <a className="button button-dark" href="/">
-                  Return home <Arrow />
-                </a>
-                <a className="text-link" href="/careers">
-                  Submit another application
-                </a>
-              </div>
+      <section className="section-space career-confirmation-section">
+        <div className="site-container">
+          <div
+            className="career-confirmation"
+            role="status"
+            tabIndex={-1}
+            ref={confirmationRef}
+          >
+            <span className="career-confirmation-mark" aria-hidden="true">
+              ✓
+            </span>
+            <p className="eyebrow">SUCCESSFULLY SUBMITTED</p>
+            <h1>Thank you for your application.</h1>
+            <p>
+              Your details and résumé have been sent successfully. If your
+              experience matches a current or upcoming opportunity, our team
+              will contact you using the information you provided.
+            </p>
+            <div className="career-confirmation-actions">
+              <a className="button button-dark" href="/">
+                Return home <Arrow />
+              </a>
+              <a className="text-link" href="/careers">
+                Submit another application
+              </a>
             </div>
           </div>
-        </section>
-      </>
+        </div>
+      </section>
     );
   }
 

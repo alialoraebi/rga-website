@@ -166,7 +166,11 @@ export default function Home() {
           </Reveal>
           <div className="featured-grid">
             {selectedProjects.map((project, index) => (
-              <Reveal key={project.name} delay={index * 80}>
+              <Reveal
+                key={project.name}
+                delay={index * 60}
+                variant="fade"
+              >
                 <Link className="featured-project" to="/projects">
                   <div className="project-photo">
                     <img

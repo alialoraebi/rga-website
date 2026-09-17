@@ -253,8 +253,12 @@ test("career application confirms a completed FormSubmit redirect", async () => 
   );
   expect(confirmation).toHaveFocus();
   expect(
-    screen.getByRole("heading", { level: 1, name: "Application sent" }),
+    screen.getByRole("heading", {
+      level: 1,
+      name: "Thank you for your application.",
+    }),
   ).toBeInTheDocument();
+  expect(screen.queryByText("APPLICATION RECEIVED / RGA QATAR")).not.toBeInTheDocument();
   expect(screen.queryByRole("form")).not.toBeInTheDocument();
 });
 
