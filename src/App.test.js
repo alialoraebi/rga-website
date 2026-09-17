@@ -75,7 +75,9 @@ test("provides one main landmark separate from site navigation and footer", asyn
   await screen.findByRole("heading", { level: 1 });
   const main = screen.getByRole("main");
   expect(main).toContainElement(screen.getByRole("heading", { level: 1 }));
-  expect(main).not.toContainElement(screen.getByRole("navigation"));
+  screen
+    .getAllByRole("navigation")
+    .forEach((navigation) => expect(main).not.toContainElement(navigation));
   expect(main).not.toContainElement(screen.getByRole("contentinfo"));
   expect(
     screen.getByRole("link", { name: "Skip to main content" }),
