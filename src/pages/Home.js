@@ -71,10 +71,6 @@ export default function Home() {
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-stage site-container">
           <div className="hero-copy">
-            <p className="eyebrow">
-              <span className="status-dot" /> CONNECTING PEOPLE. TRANSFORMING
-              SPACES.
-            </p>
             <h1 id="hero-title">
               Exceptional spaces.
               <br />
