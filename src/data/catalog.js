@@ -9,6 +9,7 @@ export const vendors = [
   { name: 'Draper', category: 'Video Systems', image: '/images/logos/draper.png', url: 'https://www.draperinc.com/' },
   { name: 'Electro-Voice', category: 'Audio Systems', image: '/images/logos/electro-voice.png', url: 'https://www.electrovoice.com/' },
   { name: 'Harman International', category: 'Audio Systems', image: '/images/logos/harman.png', url: 'https://www.harman.com/' },
+  { name: 'ITC', category: 'Audio Systems', image: '/images/logos/itc.png', url: 'https://www.itctech.com.cn/' },
   { name: 'JBL Professional', category: 'Audio Systems', image: '/images/logos/jblpro.png', url: 'https://jblpro.com/' },
   { name: 'Legrand AV', category: 'Video Systems', image: '/images/logos/legrandav.png', url: 'https://www.legrandav.com/' },
   { name: 'Mackie', category: 'Audio Systems', image: '/images/logos/mackie.png', url: 'https://mackie.com/' },

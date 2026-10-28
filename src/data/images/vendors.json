@@ -65,6 +65,12 @@
     "width": 480,
     "height": 281
   },
+  "/images/logos/itc.png": {
+    "src": "/images/optimized/logos-itc-480-6a060dff38b9.webp",
+    "srcSet": "/images/optimized/logos-itc-96-74ba852bb4fb.webp 96w, /images/optimized/logos-itc-128-3716c268495e.webp 128w, /images/optimized/logos-itc-160-e406e676f5a9.webp 160w, /images/optimized/logos-itc-240-aec479cc3196.webp 240w, /images/optimized/logos-itc-320-7a72c3b35f92.webp 320w, /images/optimized/logos-itc-480-6a060dff38b9.webp 480w",
+    "width": 480,
+    "height": 320
+  },
   "/images/logos/jblpro.png": {
     "src": "/images/optimized/logos-jblpro-480-91b00dee9953.webp",
     "srcSet": "/images/optimized/logos-jblpro-96-c96e2eb1afbf.webp 96w, /images/optimized/logos-jblpro-128-8efa4f33c8ae.webp 128w, /images/optimized/logos-jblpro-160-b494f2333e9e.webp 160w, /images/optimized/logos-jblpro-240-92a1419e355b.webp 240w, /images/optimized/logos-jblpro-320-d07461df6ada.webp 320w, /images/optimized/logos-jblpro-480-91b00dee9953.webp 480w",

@@ -112,6 +112,18 @@ test("each vendor is represented once and decorative graphics are hidden", async
   });
 });
 
+test("ITC is listed as a non-partner and its homepage logo is not clickable", async () => {
+  render(<App />);
+  await screen.findByRole("heading", { level: 1 });
+  const itc = vendors.find((vendor) => vendor.name === "ITC");
+  expect(itc).toMatchObject({
+    image: "/images/logos/itc.png",
+    url: "https://www.itctech.com.cn/",
+  });
+  expect(itc.partner).toBeUndefined();
+  expect(screen.getByRole("img", { name: "ITC" }).closest("a")).toBeNull();
+});
+
 test("hero plays the original muted video without the bottom strip", async () => {
   const { container } = render(<App />);
   await screen.findByRole("heading", { level: 1 });
